@@ -1,0 +1,174 @@
+name: Release
+
+# Publishes, in dependency order, when a version tag is pushed:
+#   1. GitHub release with sdist, wheel and SHA256SUMS
+#   2. PyPI through Trusted Publishing (no API token; protected "pypi" environment)
+#   3. MCP Registry through GitHub OIDC (protected "mcp-registry" environment)
+#   4. Verification that each public URL and the install path work
+# The tag must equal "v" + the version in pyproject.toml (for example v0.1.0rc1).
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Tag, pyproject and server.json versions must agree
+        id: version
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#v}"
+          version="$(uv run --frozen python -c 'import tomllib;print(tomllib.load(open("pyproject.toml","rb"))["project"]["version"])')"
+          registry_pkg="$(python3 -c 'import json;print(json.load(open("server.json"))["packages"][0]["version"])')"
+          echo "tag=$tag pyproject=$version server.json(package)=$registry_pkg"
+          test "$tag" = "$version"
+          test "$registry_pkg" = "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - run: uv sync --frozen
+      - run: uv run --frozen pytest -q
+      - run: uv build
+      - run: uvx twine check dist/*
+      - name: Checksums
+        run: |
+          cd dist && sha256sum nifimcp-* > SHA256SUMS && cat SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  github-release:
+    name: GitHub release
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Create or update the release (pre-release for rc versions)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          flags=()
+          case "$GITHUB_REF_NAME" in *rc*|*a*|*b*) flags+=(--prerelease);; esac
+          if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release create "$GITHUB_REF_NAME" --verify-tag --title "NiFiMCP $GITHUB_REF_NAME" \
+              --notes-file RELEASE_NOTES.md "${flags[@]}"
+          fi
+          gh release upload "$GITHUB_REF_NAME" dist/* --clobber
+          gh release view "$GITHUB_REF_NAME" --json url,isPrerelease,assets --jq '{url, isPrerelease, assets: [.assets[].name]}'
+
+  pypi:
+    name: Publish to PyPI (Trusted Publishing)
+    needs: github-release
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/nifimcp/${{ needs.build.outputs.version }}/
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Keep only the distributions
+        run: rm -f dist/SHA256SUMS
+      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+        with:
+          print-hash: true
+
+  mcp-registry:
+    name: Publish to the MCP Registry
+    needs: [build, pypi]
+    runs-on: ubuntu-latest
+    environment:
+      name: mcp-registry
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.6
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Wait until PyPI serves the version (the registry validates the package and its README marker)
+        run: |
+          set -euo pipefail
+          v="${{ needs.build.outputs.version }}"
+          for i in $(seq 1 40); do
+            if curl -fsS "https://pypi.org/pypi/nifimcp/$v/json" >/dev/null; then echo "PyPI serves nifimcp $v"; exit 0; fi
+            sleep 15
+          done
+          echo "PyPI did not serve nifimcp $v in time"; exit 1
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+      - name: Download and verify mcp-publisher
+        run: |
+          set -euo pipefail
+          os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+          arch="$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')"
+          archive="mcp-publisher_${os}_${arch}.tar.gz"
+          base_url="https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}"
+          curl --fail --location --silent --show-error --output "$archive" "$base_url/$archive"
+          curl --fail --location --silent --show-error --output "$archive.sigstore.json" "$base_url/$archive.sigstore.json"
+          cosign verify-blob \
+            --bundle "$archive.sigstore.json" \
+            --certificate-identity "https://github.com/modelcontextprotocol/registry/.github/workflows/release.yml@refs/tags/${MCP_PUBLISHER_VERSION}" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            "$archive"
+          tar xzf "$archive" mcp-publisher
+          rm -f "$archive" "$archive.sigstore.json"
+      - name: Validate server.json against the registry schema
+        run: ./mcp-publisher validate
+      - name: Authenticate (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+      - name: Publish
+        run: ./mcp-publisher publish
+
+  verify:
+    name: Verify public URLs and install path
+    needs: [build, mcp-registry]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Public URLs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          v="${{ needs.build.outputs.version }}"
+          curl -fsS "https://pypi.org/pypi/nifimcp/$v/json" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("PyPI:",d["info"]["name"],d["info"]["version"],[u["filename"] for u in d["urls"]])'
+          name="io.github.nifimcp/nifimcp"
+          curl -fsS "https://registry.modelcontextprotocol.io/v0/servers/$(python3 -c "import urllib.parse;print(urllib.parse.quote('$name',safe=''))")/versions/latest" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("Registry:",json.dumps(d)[:300])'
+          gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --json url --jq '"GitHub release: " + .url'
+      - name: Install from PyPI exactly as the README documents and run the quickstart
+        run: |
+          set -euo pipefail
+          v="${{ needs.build.outputs.version }}"
+          uv tool install "nifimcp==$v"
+          nifimcp --version
+          nifimcp demo --output "$RUNNER_TEMP/demo"
+          test -s "$RUNNER_TEMP/demo/report.html"
+          uvx --from "nifimcp==$v" nifimcp --version

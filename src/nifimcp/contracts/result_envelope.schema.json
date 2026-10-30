@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NiFiMCP result envelope v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "mode": {
+      "enum": [
+        "demo",
+        "bundle",
+        "live"
+      ]
+    },
+    "status": {
+      "enum": [
+        "ok",
+        "partial",
+        "error"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "source_version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 128
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "kind": {
+            "enum": [
+              "configuration",
+              "status",
+              "bulletin",
+              "provenance",
+              "queue_sample",
+              "operator_note",
+              "lab_result"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "component_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 128
+          },
+          "node_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 128
+          },
+          "event_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "collected_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "source_pointer": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "facts": {
+            "type": "object",
+            "description": "Sanitized allowlisted facts; typed per evidence kind in implementation."
+          }
+        },
+        "required": [
+          "evidence_id",
+          "kind",
+          "source_id",
+          "component_id",
+          "node_id",
+          "event_time",
+          "collected_at",
+          "source_hash",
+          "source_pointer",
+          "facts"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "properties": {
+          "finding_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "statement": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "kind": {
+            "enum": [
+              "observed",
+              "deterministic_rule",
+              "hypothesis",
+              "operator_assertion"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "review",
+              "warning",
+              "error"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          }
+        },
+        "required": [
+          "finding_id",
+          "statement",
+          "kind",
+          "severity",
+          "evidence_ids",
+          "limitations"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limits_applied": {
+      "type": "object",
+      "description": "Typed effective limits and observed truncation."
+    },
+    "data": {
+      "type": "object",
+      "description": "Tool-specific typed result; implement strict schemas per tool."
+    },
+    "error": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "message": {
+              "type": "string",
+              "maxLength": 2000
+            },
+            "next_step": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "next_step"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "mode",
+    "status",
+    "scope",
+    "source_version",
+    "collected_at",
+    "evidence",
+    "findings",
+    "gaps",
+    "limits_applied",
+    "data",
+    "error"
+  ],
+  "additionalProperties": false
+}

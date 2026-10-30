@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest a read-only capability or a new labeled incident case.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: NiFiMCP will not add tools that change NiFi. Draft verification belongs in the separate lab CLI.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Operator problem
+      description: What were you trying to understand or investigate, and what was missing?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence needed
+      description: Which NiFi data would answer it, and what must the server never claim from it?

@@ -1,0 +1,43 @@
+{
+  "capsule_version": "1",
+  "captured_at": "2026-10-29T02:24:15Z",
+  "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+  "lab_id": "lab-ea8e00b5ff53",
+  "mcp_sdk": {
+    "distribution": "mcp",
+    "types": "2.3.0",
+    "version": "2.3.0"
+  },
+  "nifi": {
+    "build_tag": "rel/nifi-2.12.0",
+    "distribution_profile": "Official apache/nifi Docker image, stock, standalone (single node), secure two-way TLS",
+    "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+    "image_tag": "apache/nifi:2.12.0",
+    "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment (build 21.0.12.1+1-LTS)\nOpenJDK 64-Bit Server VM (build 21.0.12.1+1-LTS, mixed mode)",
+    "version": "2.12.0"
+  },
+  "notes": [
+    "The legacy /docs/nifi-docs/rest-api/index.html page identifies itself as 1.28.0 and was not used.",
+    "Contract taken from the OpenAPI document shipped inside the pinned image's nifi-web-api-2.12.0.war.",
+    "nifi-api library versions are not used as the application version."
+  ],
+  "pinned_runtime_dependencies": {
+    "anyio": "4.15.1",
+    "httpx2": "2.16.0",
+    "pydantic": "2.14.1"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.3"
+  },
+  "rest_contract": {
+    "bytes": 1275845,
+    "openapi_version": "3.0.1",
+    "path_count": 285,
+    "path_in_image": "/opt/nifi/nifi-current/work/jetty/nifi-web-api-2.12.0.war/webapp/docs/rest-api/swagger.json",
+    "sha256": "d9cce3b0bc45f832a21785eb32c27c11ee2f6a0664254ec82468b295517944e8"
+  },
+  "runtime_manifest_sha256": "cc51b75ecb644b0e6f54c51f4d0b8af17a8fade850364f5594d4ef2bfdf98bf5",
+  "uv": "uv 0.11.32 (x86_64-unknown-linux-gnu)",
+  "uv_lock_sha256": "33405c2867c5bdcbd0eac8311012cd9e92e87f346ba9ec569433685cb7519f68"
+}

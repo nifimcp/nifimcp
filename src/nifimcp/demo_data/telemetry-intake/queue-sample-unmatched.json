@@ -1,0 +1,135 @@
+{
+ "collection": {
+  "collected_at": "2026-10-29T02:37:35.390Z",
+  "collector": "nifimcp-lab-demo-builder",
+  "endpoint": "POST /flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/listing-requests",
+  "node_id": null,
+  "query": {}
+ },
+ "response": {
+  "connection_id": "858484c0-01a1-1000-17f9-c4701181e8e2",
+  "flowFileSummaries": [
+   {
+    "filename": "telemetry-164.json",
+    "lineageDuration": 38319,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 1,
+    "queuedDuration": 38272,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/08a157dc-8ef6-41b9-b213-d505619b7441",
+    "uuid": "08a157dc-8ef6-41b9-b213-d505619b7441"
+   },
+   {
+    "filename": "telemetry-170.json",
+    "lineageDuration": 35911,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 2,
+    "queuedDuration": 35259,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/d875bb09-a373-4d19-8291-2019cefe4e58",
+    "uuid": "d875bb09-a373-4d19-8291-2019cefe4e58"
+   },
+   {
+    "filename": "telemetry-172.json",
+    "lineageDuration": 35108,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 3,
+    "queuedDuration": 33258,
+    "size": 59,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/f05ef555-ec8f-4efb-9504-53717ef06a11",
+    "uuid": "f05ef555-ec8f-4efb-9504-53717ef06a11"
+   },
+   {
+    "filename": "telemetry-174.json",
+    "lineageDuration": 34306,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 4,
+    "queuedDuration": 32257,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/1d6bfa51-4d6d-4b43-ad2e-b9b1e1850fea",
+    "uuid": "1d6bfa51-4d6d-4b43-ad2e-b9b1e1850fea"
+   },
+   {
+    "filename": "telemetry-178.json",
+    "lineageDuration": 32701,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 5,
+    "queuedDuration": 30255,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/bc1d6ee3-7bf9-4577-ad67-60deb0a44bc1",
+    "uuid": "bc1d6ee3-7bf9-4577-ad67-60deb0a44bc1"
+   },
+   {
+    "filename": "telemetry-180.json",
+    "lineageDuration": 31897,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 6,
+    "queuedDuration": 29254,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/4ef7f9a6-462a-44f2-9ff3-e510bb60a7c0",
+    "uuid": "4ef7f9a6-462a-44f2-9ff3-e510bb60a7c0"
+   },
+   {
+    "filename": "telemetry-184.json",
+    "lineageDuration": 30292,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 7,
+    "queuedDuration": 27252,
+    "size": 59,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/bec2a52a-c75e-4267-aaa2-5567f7b3d7ba",
+    "uuid": "bec2a52a-c75e-4267-aaa2-5567f7b3d7ba"
+   },
+   {
+    "filename": "telemetry-186.json",
+    "lineageDuration": 29490,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 8,
+    "queuedDuration": 26251,
+    "size": 59,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/d73c645d-e1c6-491a-999f-2c2cb2b2aa59",
+    "uuid": "d73c645d-e1c6-491a-999f-2c2cb2b2aa59"
+   },
+   {
+    "filename": "telemetry-190.json",
+    "lineageDuration": 27886,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 9,
+    "queuedDuration": 24249,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/630c3e98-b193-423a-88fe-bfa11e0197e7",
+    "uuid": "630c3e98-b193-423a-88fe-bfa11e0197e7"
+   },
+   {
+    "filename": "telemetry-194.json",
+    "lineageDuration": 26282,
+    "mimeType": "application/json",
+    "penalized": false,
+    "penaltyExpiresIn": 0,
+    "position": 10,
+    "queuedDuration": 22248,
+    "size": 53,
+    "uri": "https://127.0.0.1:37993/nifi-api/flowfile-queues/858484c0-01a1-1000-17f9-c4701181e8e2/flowfiles/04cb2429-b8d4-4af2-aa4c-a7e6409486e4",
+    "uuid": "04cb2429-b8d4-4af2-aa4c-a7e6409486e4"
+   }
+  ],
+  "sampled": 10
+ }
+}

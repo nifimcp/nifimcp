@@ -1,0 +1,1941 @@
+{
+ "allowlist_version": "1",
+ "endpoints": [
+  {
+   "documented_parameters": [],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "409"
+   ],
+   "id": "about",
+   "method": "GET",
+   "operation_id": "getAboutInfo",
+   "path": "/flow/about",
+   "purpose": "Runtime version for capability and version checks",
+   "query": {},
+   "security": [
+    "Read - /flow"
+   ]
+  },
+  {
+   "documented_parameters": [],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "409"
+   ],
+   "id": "cluster_summary",
+   "method": "GET",
+   "operation_id": "getClusterSummary",
+   "path": "/flow/cluster/summary",
+   "purpose": "Topology detection; clusters fail closed",
+   "query": {},
+   "security": [
+    "Read - /flow"
+   ]
+  },
+  {
+   "documented_parameters": [],
+   "documented_responses": [
+    "default"
+   ],
+   "id": "current_user",
+   "method": "GET",
+   "operation_id": "getCurrentUser",
+   "path": "/flow/current-user",
+   "purpose": "Effective identity and coarse permissions",
+   "query": {},
+   "security": []
+  },
+  {
+   "documented_parameters": [
+    "id",
+    "uiOnly"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "group_flow",
+   "method": "GET",
+   "operation_id": "getFlow_1",
+   "path": "/flow/process-groups/{id}",
+   "purpose": "One level of a process group; permissions checked",
+   "query": {},
+   "security": [
+    "Read - /flow"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "clusterNodeId",
+    "id",
+    "nodewise",
+    "recursive"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "group_status",
+   "method": "GET",
+   "operation_id": "getProcessGroupStatus",
+   "path": "/flow/process-groups/{id}/status",
+   "purpose": "Current status snapshot for scope inventory and health",
+   "query": {
+    "recursive": [
+     "true",
+     "false"
+    ]
+   },
+   "security": [
+    "Read - /flow"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "after",
+    "groupId",
+    "limit",
+    "message",
+    "sourceId",
+    "sourceName"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "409"
+   ],
+   "id": "bulletin_board",
+   "method": "GET",
+   "operation_id": "getBulletinBoard",
+   "path": "/flow/bulletin-board",
+   "purpose": "Recent bulletins; filtered to scope client-side",
+   "query": {
+    "after": "int",
+    "limit": "int"
+   },
+   "security": [
+    "Read - /flow",
+    "Read - /{component-type}/{uuid} - For component specific bulletins"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "id",
+    "includeComponentState",
+    "includeReferencedServices"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "group_download",
+   "method": "GET",
+   "operation_id": "exportProcessGroup",
+   "path": "/process-groups/{id}/download",
+   "purpose": "Flow definition of an allowed scope (never with component state)",
+   "query": {
+    "includeReferencedServices": [
+     "true",
+     "false"
+    ]
+   },
+   "security": [
+    "Read - /process-groups/{uuid}",
+    "Write - /process-groups/{uuid} - Only required when includeComponentState is true"
+   ]
+  },
+  {
+   "documented_parameters": [],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "409"
+   ],
+   "id": "provenance_options",
+   "method": "GET",
+   "operation_id": "getSearchOptions",
+   "path": "/provenance/search-options",
+   "purpose": "Discover indexed provenance fields",
+   "query": {},
+   "security": [
+    "Read - /provenance"
+   ]
+  },
+  {
+   "documented_parameters": [],
+   "documented_responses": [
+    "201",
+    "400",
+    "401",
+    "403",
+    "409"
+   ],
+   "id": "provenance_submit",
+   "method": "POST",
+   "operation_id": "submitProvenanceRequest",
+   "path": "/provenance",
+   "purpose": "Create an owned, exact-selector provenance query",
+   "query": {},
+   "security": [
+    "Read - /provenance",
+    "Read - /data/{component-type}/{uuid}"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "clusterNodeId",
+    "id",
+    "incrementalResults",
+    "summarize"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "provenance_get",
+   "method": "GET",
+   "operation_id": "getProvenance",
+   "path": "/provenance/{id}",
+   "purpose": "Poll an owned provenance query",
+   "query": {
+    "incrementalResults": [
+     "false"
+    ],
+    "summarize": [
+     "false"
+    ]
+   },
+   "security": [
+    "Read - /provenance",
+    "Read - /data/{component-type}/{uuid}"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "clusterNodeId",
+    "id"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "provenance_delete",
+   "method": "DELETE",
+   "operation_id": "deleteProvenance",
+   "path": "/provenance/{id}",
+   "purpose": "Clean up an owned provenance query",
+   "query": {},
+   "security": [
+    "Read - /provenance"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "id"
+   ],
+   "documented_responses": [
+    "202",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "listing_submit",
+   "method": "POST",
+   "operation_id": "createFlowFileListing",
+   "path": "/flowfile-queues/{id}/listing-requests",
+   "purpose": "Create an owned queue metadata listing (explicitly enabled only)",
+   "query": {},
+   "security": [
+    "Read Source Data - /data/{component-type}/{uuid}"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "id",
+    "listing-request-id"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "listing_get",
+   "method": "GET",
+   "operation_id": "getListingRequest",
+   "path": "/flowfile-queues/{id}/listing-requests/{listing-request-id}",
+   "purpose": "Poll an owned queue listing",
+   "query": {},
+   "security": [
+    "Read Source Data - /data/{component-type}/{uuid}"
+   ]
+  },
+  {
+   "documented_parameters": [
+    "id",
+    "listing-request-id"
+   ],
+   "documented_responses": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "id": "listing_delete",
+   "method": "DELETE",
+   "operation_id": "deleteListingRequest",
+   "path": "/flowfile-queues/{id}/listing-requests/{listing-request-id}",
+   "purpose": "Clean up an owned queue listing",
+   "query": {},
+   "security": [
+    "Read Source Data - /data/{component-type}/{uuid}"
+   ]
+  }
+ ],
+ "excluded_by_design": [
+  "Any PUT, PATCH or DELETE other than owned query cleanup",
+  "/flowfile-queues/{id}/flowfiles/{flowfile-uuid} and /content (attributes and payload)",
+  "/flowfile-queues/{id}/drop-requests (queue drop)",
+  "/provenance-events/** (event detail, content, replay)",
+  "/provenance/lineage (unbounded lineage expansion)",
+  "/processors/{id}/run-status and every run-status route",
+  "includeComponentState=true on downloads (requires write)",
+  "clusterNodeId routing (clusters fail closed in this release)"
+ ],
+ "nifi_version": "2.12.0",
+ "schemas": {
+  "AboutDTO": {
+   "properties": {
+    "buildBranch": {
+     "description": "Build branch",
+     "type": "string"
+    },
+    "buildRevision": {
+     "description": "Build revision or commit hash",
+     "type": "string"
+    },
+    "buildTag": {
+     "description": "Build tag",
+     "type": "string"
+    },
+    "buildTimestamp": {
+     "description": "Build timestamp",
+     "type": "string"
+    },
+    "contentViewerUrl": {
+     "description": "The URL for the content viewer if configured.",
+     "type": "string"
+    },
+    "timezone": {
+     "description": "The timezone of the NiFi instance.",
+     "readOnly": true,
+     "type": "string"
+    },
+    "title": {
+     "description": "The title to be used on the page and in the about dialog.",
+     "type": "string"
+    },
+    "uri": {
+     "description": "The URI for the NiFi.",
+     "type": "string"
+    },
+    "version": {
+     "description": "The version of this NiFi.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "AttributeDTO": {
+   "description": "The attributes of the flowfile for the event.",
+   "properties": {
+    "name": {
+     "description": "The attribute name.",
+     "type": "string"
+    },
+    "previousValue": {
+     "description": "The value of the attribute before the event took place.",
+     "type": "string"
+    },
+    "value": {
+     "description": "The attribute value.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "BulletinBoardDTO": {
+   "properties": {
+    "bulletins": {
+     "description": "The bulletins in the bulletin board, that matches the supplied request.",
+     "items": {
+      "$ref": "#/components/schemas/BulletinEntity"
+     },
+     "type": "array"
+    },
+    "generated": {
+     "description": "The timestamp when this report was generated.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "BulletinDTO": {
+   "properties": {
+    "category": {
+     "description": "The category of this bulletin.",
+     "type": "string"
+    },
+    "groupId": {
+     "description": "The group id of the source component.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The id of the bulletin.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "level": {
+     "description": "The level of the bulletin.",
+     "type": "string"
+    },
+    "message": {
+     "description": "The bulletin message.",
+     "type": "string"
+    },
+    "nodeAddress": {
+     "description": "If clustered, the address of the node from which the bulletin originated.",
+     "type": "string"
+    },
+    "sourceId": {
+     "description": "The id of the source component.",
+     "type": "string"
+    },
+    "sourceName": {
+     "description": "The name of the source component.",
+     "type": "string"
+    },
+    "sourceType": {
+     "description": "The type of the source component",
+     "type": "string"
+    },
+    "stackTrace": {
+     "description": "The stack trace associated with the bulletin, if any.",
+     "type": "string"
+    },
+    "timestamp": {
+     "description": "When this bulletin was generated.",
+     "type": "string"
+    },
+    "timestampIso": {
+     "description": "When this bulletin was generated in ISO format with full date and milliseconds.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "BulletinEntity": {
+   "description": "The bulletins for this component.",
+   "properties": {
+    "bulletin": {
+     "$ref": "#/components/schemas/BulletinDTO"
+    },
+    "canRead": {
+     "description": "Indicates whether the user can read a given resource.",
+     "readOnly": true,
+     "type": "boolean"
+    },
+    "groupId": {
+     "type": "string"
+    },
+    "id": {
+     "format": "int64",
+     "type": "integer"
+    },
+    "nodeAddress": {
+     "type": "string"
+    },
+    "sourceId": {
+     "type": "string"
+    },
+    "timestamp": {
+     "description": "When this bulletin was generated.",
+     "type": "string"
+    },
+    "timestampIso": {
+     "description": "When this bulletin was generated in ISO format with full date and milliseconds.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "xml": {
+    "name": "bulletinEntity"
+   }
+  },
+  "ClusterSummaryDTO": {
+   "properties": {
+    "clustered": {
+     "description": "Whether this NiFi instance is clustered.",
+     "type": "boolean"
+    },
+    "connectedNodeCount": {
+     "description": "The number of nodes that are currently connected to the cluster",
+     "format": "int32",
+     "type": "integer"
+    },
+    "connectedNodes": {
+     "description": "When clustered, reports the number of nodes connected vs the number of nodes in the cluster.",
+     "type": "string"
+    },
+    "connectedToCluster": {
+     "description": "Whether this NiFi instance is connected to a cluster.",
+     "type": "boolean"
+    },
+    "totalNodeCount": {
+     "description": "The number of nodes in the cluster, regardless of whether or not they are connected",
+     "format": "int32",
+     "type": "integer"
+    }
+   },
+   "type": "object"
+  },
+  "ConnectionDTO": {
+   "description": "The connections in this flow snippet.",
+   "properties": {
+    "availableRelationships": {
+     "description": "The relationships that the source of the connection currently supports.",
+     "items": {
+      "description": "The relationships that the source of the connection currently supports.",
+      "readOnly": true,
+      "type": "string"
+     },
+     "readOnly": true,
+     "type": "array",
+     "uniqueItems": true
+    },
+    "backPressureDataSizeThreshold": {
+     "description": "The object data size threshold for determining when back pressure is applied. Updating this value is a passive change in the sense that it won't impact whether existing files over the limit are affected but it does help feeder processors to stop pushing too much into this work queue.",
+     "type": "string"
+    },
+    "backPressureObjectThreshold": {
+     "description": "The object count threshold for determining when back pressure is applied. Updating this value is a passive change in the sense that it won't impact whether existing files over the limit are affected but it does help feeder processors to stop pushing too much into this work queue.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bends": {
+     "description": "The bend points on the connection.",
+     "items": {
+      "$ref": "#/components/schemas/PositionDTO"
+     },
+     "type": "array"
+    },
+    "destination": {
+     "$ref": "#/components/schemas/ConnectableDTO"
+    },
+    "flowFileExpiration": {
+     "description": "The amount of time a flow file may be in the flow before it will be automatically aged out of the flow. Once a flow file reaches this age it will be terminated from the flow the next time a processor attempts to start work on it.",
+     "type": "string"
+    },
+    "getzIndex": {
+     "description": "The z index of the connection.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "id": {
+     "description": "The id of the component.",
+     "type": "string"
+    },
+    "labelIndex": {
+     "description": "The index of the bend point where to place the connection label.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "loadBalanceCompression": {
+     "description": "Whether or not data should be compressed when being transferred between nodes in the cluster. Possible returned values: DO_NOT_COMPRESS, COMPRESS_ATTRIBUTES_ONLY, COMPRESS_ATTRIBUTES_AND_CONTENT. See LoadBalanceCompression.class for more details.",
+     "type": "string"
+    },
+    "loadBalancePartitionAttribute": {
+     "description": "The FlowFile Attribute to use for determining which node a FlowFile will go to if the Load Balancing Strategy is set to PARTITION_BY_ATTRIBUTE",
+     "type": "string"
+    },
+    "loadBalanceStatus": {
+     "description": "The current status of the Connection's Load Balancing Activities. Status can indicate that Load Balancing is not configured for the connection, that Load Balancing is configured but inactive (not currently transferring data to another node), or that Load Balancing is configured and actively transferring data to another node. Possible returned values: LOAD_BALANCE_NOT_CONFIGURED, LOAD_BALANCE_INACTIVE, LOAD_BALANCE_ACTIVE. See LoadBalanceStatus.class for more details.",
+     "readOnly": true,
+     "type": "string"
+    },
+    "loadBalanceStrategy": {
+     "description": "How to load balance the data in this Connection across the nodes in the cluster. Possible returned values: DO_NOT_LOAD_BALANCE, PARTITION_BY_ATTRIBUTE, ROUND_ROBIN, SINGLE_NODE. See LoadBalanceStrategy.class for more details.",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the connection.",
+     "type": "string"
+    },
+    "parentGroupId": {
+     "description": "The id of parent process group of this component if applicable.",
+     "type": "string"
+    },
+    "position": {
+     "$ref": "#/components/schemas/PositionDTO"
+    },
+    "prioritizers": {
+     "description": "The comparators used to prioritize the queue.",
+     "items": {
+      "description": "The comparators used to prioritize the queue.",
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "retriedRelationships": {
+     "description": "The relationships from the source of the connection that are configured to be retried.",
+     "items": {
+      "description": "The relationships from the source of the connection that are configured to be retried.",
+      "readOnly": true,
+      "type": "string"
+     },
+     "readOnly": true,
+     "type": "array",
+     "uniqueItems": true
+    },
+    "selectedRelationships": {
+     "description": "The selected relationship that comprise the connection.",
+     "items": {
+      "description": "The selected relationship that comprise the connection.",
+      "type": "string"
+     },
+     "type": "array",
+     "uniqueItems": true
+    },
+    "source": {
+     "$ref": "#/components/schemas/ConnectableDTO"
+    },
+    "versionedComponentId": {
+     "description": "The ID of the corresponding component that is under version control",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ConnectionEntity": {
+   "description": "The connections in this flow.",
+   "properties": {
+    "bends": {
+     "description": "The bend points on the connection.",
+     "items": {
+      "$ref": "#/components/schemas/PositionDTO"
+     },
+     "type": "array"
+    },
+    "bulletins": {
+     "description": "The bulletins for this component.",
+     "items": {
+      "$ref": "#/components/schemas/BulletinEntity"
+     },
+     "type": "array"
+    },
+    "component": {
+     "$ref": "#/components/schemas/ConnectionDTO"
+    },
+    "destinationGroupId": {
+     "description": "The identifier of the group of the destination of this connection.",
+     "type": "string"
+    },
+    "destinationId": {
+     "description": "The identifier of the destination of this connection.",
+     "type": "string"
+    },
+    "destinationType": {
+     "description": "The type of component the destination connectable is.",
+     "enum": [
+      "PROCESSOR",
+      "REMOTE_INPUT_PORT",
+      "REMOTE_OUTPUT_PORT",
+      "INPUT_PORT",
+      "OUTPUT_PORT",
+      "FUNNEL"
+     ],
+     "type": "string"
+    },
+    "disconnectedNodeAcknowledged": {
+     "description": "Acknowledges that this node is disconnected to allow for mutable requests to proceed.",
+     "type": "boolean"
+    },
+    "getzIndex": {
+     "description": "The z index of the connection.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "id": {
+     "description": "The id of the component.",
+     "type": "string"
+    },
+    "labelIndex": {
+     "description": "The index of the bend point where to place the connection label.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "permissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "position": {
+     "$ref": "#/components/schemas/PositionDTO"
+    },
+    "revision": {
+     "$ref": "#/components/schemas/RevisionDTO"
+    },
+    "sourceGroupId": {
+     "description": "The identifier of the group of the source of this connection.",
+     "type": "string"
+    },
+    "sourceId": {
+     "description": "The identifier of the source of this connection.",
+     "type": "string"
+    },
+    "sourceType": {
+     "description": "The type of component the source connectable is.",
+     "enum": [
+      "PROCESSOR",
+      "REMOTE_INPUT_PORT",
+      "REMOTE_OUTPUT_PORT",
+      "INPUT_PORT",
+      "OUTPUT_PORT",
+      "FUNNEL"
+     ],
+     "type": "string"
+    },
+    "status": {
+     "$ref": "#/components/schemas/ConnectionStatusDTO"
+    },
+    "uri": {
+     "description": "The URI for futures requests to the component.",
+     "type": "string"
+    }
+   },
+   "required": [
+    "destinationType",
+    "sourceType"
+   ],
+   "type": "object",
+   "xml": {
+    "name": "connectionEntity"
+   }
+  },
+  "ConnectionStatusSnapshotDTO": {
+   "properties": {
+    "bytesIn": {
+     "description": "The size of the FlowFiles that have come into the connection in the last 5 minutes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesOut": {
+     "description": "The number of bytes that have left the connection in the last 5 minutes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesQueued": {
+     "description": "The size of the FlowFiles that are currently queued in the connection.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "destinationId": {
+     "description": "The id of the destination of the connection.",
+     "type": "string"
+    },
+    "destinationName": {
+     "description": "The name of the destination of the connection.",
+     "type": "string"
+    },
+    "flowFileAvailability": {
+     "description": "The availability of FlowFiles in this connection",
+     "type": "string"
+    },
+    "flowFilesIn": {
+     "description": "The number of FlowFiles that have come into the connection in the last 5 minutes.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesOut": {
+     "description": "The number of FlowFiles that have left the connection in the last 5 minutes.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesQueued": {
+     "description": "The number of FlowFiles that are currently queued in the connection.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "groupId": {
+     "description": "The id of the process group the connection belongs to.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The id of the connection.",
+     "type": "string"
+    },
+    "input": {
+     "description": "The input count/size for the connection in the last 5 minutes, pretty printed.",
+     "type": "string"
+    },
+    "loadBalanceStatus": {
+     "description": "The load balance status of the connection",
+     "enum": [
+      "LOAD_BALANCE_NOT_CONFIGURED",
+      "LOAD_BALANCE_ACTIVE",
+      "LOAD_BALANCE_INACTIVE"
+     ],
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the connection.",
+     "type": "string"
+    },
+    "output": {
+     "description": "The output count/size for the connection in the last 5 minutes, pretty printed.",
+     "type": "string"
+    },
+    "percentUseBytes": {
+     "description": "Connection percent use regarding queued FlowFiles size and backpressure threshold if configured.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "percentUseCount": {
+     "description": "Connection percent use regarding queued FlowFiles count and backpressure threshold if configured.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "predictions": {
+     "$ref": "#/components/schemas/ConnectionStatusPredictionsSnapshotDTO"
+    },
+    "queued": {
+     "description": "The total count and size of queued FlowFiles formatted.",
+     "type": "string"
+    },
+    "queuedCount": {
+     "description": "The number of FlowFiles that are queued, pretty printed.",
+     "type": "string"
+    },
+    "queuedSize": {
+     "description": "The total size of FlowFiles that are queued formatted.",
+     "type": "string"
+    },
+    "sourceId": {
+     "description": "The id of the source of the connection.",
+     "type": "string"
+    },
+    "sourceName": {
+     "description": "The name of the source of the connection.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "CurrentUserEntity": {
+   "properties": {
+    "anonymous": {
+     "description": "Whether the current user is anonymous.",
+     "type": "boolean"
+    },
+    "canVersionFlows": {
+     "description": "Whether the current user can version flows.",
+     "type": "boolean"
+    },
+    "componentRestrictionPermissions": {
+     "description": "Permissions for specific component restrictions.",
+     "items": {
+      "$ref": "#/components/schemas/ComponentRestrictionPermissionDTO"
+     },
+     "type": "array",
+     "uniqueItems": true
+    },
+    "connectorsPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "controllerPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "countersPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "identity": {
+     "description": "The user identity being serialized.",
+     "type": "string"
+    },
+    "logoutSupported": {
+     "description": "Whether the system is configured to support logout operations based on current user authentication status",
+     "readOnly": true,
+     "type": "boolean"
+    },
+    "parameterContextPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "policiesPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "provenancePermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "restrictedComponentsPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "systemPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "tenantsPermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    }
+   },
+   "type": "object",
+   "xml": {
+    "name": "currentEntity"
+   }
+  },
+  "FlowFileSummaryDTO": {
+   "description": "The FlowFile summaries. The summaries will be populated once the request has completed.",
+   "properties": {
+    "clusterNodeAddress": {
+     "description": "The label for the node where this FlowFile resides.",
+     "type": "string"
+    },
+    "clusterNodeId": {
+     "description": "The id of the node where this FlowFile resides.",
+     "type": "string"
+    },
+    "filename": {
+     "description": "The FlowFile filename.",
+     "type": "string"
+    },
+    "lineageDuration": {
+     "description": "Duration since the FlowFile's greatest ancestor entered the flow.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "mimeType": {
+     "description": "The FlowFile mime type.",
+     "type": "string"
+    },
+    "penalized": {
+     "description": "If the FlowFile is penalized.",
+     "type": "boolean"
+    },
+    "penaltyExpiresIn": {
+     "description": "How long in milliseconds until the FlowFile penalty expires.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "position": {
+     "description": "The FlowFile's position in the queue.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "queuedDuration": {
+     "description": "How long this FlowFile has been enqueued.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "size": {
+     "description": "The FlowFile file size.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "uri": {
+     "description": "The URI that can be used to access this FlowFile.",
+     "type": "string"
+    },
+    "uuid": {
+     "description": "The FlowFile UUID.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ListingRequestDTO": {
+   "properties": {
+    "destinationRunning": {
+     "description": "Whether the destination of the connection is running",
+     "type": "boolean"
+    },
+    "failureReason": {
+     "description": "The reason, if any, that this listing request failed.",
+     "type": "string"
+    },
+    "finished": {
+     "description": "Whether the query has finished.",
+     "type": "boolean"
+    },
+    "flowFileSummaries": {
+     "description": "The FlowFile summaries. The summaries will be populated once the request has completed.",
+     "items": {
+      "$ref": "#/components/schemas/FlowFileSummaryDTO"
+     },
+     "type": "array"
+    },
+    "id": {
+     "description": "The id for this listing request.",
+     "type": "string"
+    },
+    "lastUpdated": {
+     "description": "The last time this listing request was updated.",
+     "type": "string"
+    },
+    "maxResults": {
+     "description": "The maximum number of FlowFileSummary objects to return",
+     "format": "int32",
+     "type": "integer"
+    },
+    "percentCompleted": {
+     "description": "The current percent complete.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "queueSize": {
+     "$ref": "#/components/schemas/QueueSizeDTO"
+    },
+    "sourceRunning": {
+     "description": "Whether the source of the connection is running",
+     "type": "boolean"
+    },
+    "state": {
+     "description": "The current state of the listing request.",
+     "type": "string"
+    },
+    "submissionTime": {
+     "description": "The timestamp when the query was submitted.",
+     "type": "string"
+    },
+    "uri": {
+     "description": "The URI for future requests to this listing request.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "PermissionsDTO": {
+   "description": "The permissions for this component.",
+   "properties": {
+    "canRead": {
+     "description": "Indicates whether the user can read a given resource.",
+     "readOnly": true,
+     "type": "boolean"
+    },
+    "canWrite": {
+     "description": "Indicates whether the user can write a given resource.",
+     "readOnly": true,
+     "type": "boolean"
+    }
+   },
+   "type": "object"
+  },
+  "PortStatusSnapshotDTO": {
+   "properties": {
+    "activeThreadCount": {
+     "description": "The active thread count for the port.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "bytesIn": {
+     "description": "The size of hte FlowFiles that have been accepted in the last 5 minutes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesOut": {
+     "description": "The number of bytes that have been processed in the last 5 minutes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "flowFilesIn": {
+     "description": "The number of FlowFiles that have been accepted in the last 5 minutes.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesOut": {
+     "description": "The number of FlowFiles that have been processed in the last 5 minutes.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "groupId": {
+     "description": "The id of the parent process group of the port.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The id of the port.",
+     "type": "string"
+    },
+    "input": {
+     "description": "The count/size of FlowFiles that have been accepted in the last 5 minutes.",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the port.",
+     "type": "string"
+    },
+    "output": {
+     "description": "The count/size of FlowFiles that have been processed in the last 5 minutes.",
+     "type": "string"
+    },
+    "runStatus": {
+     "description": "The run status of the port.",
+     "enum": [
+      "Running",
+      "Stopped",
+      "Validating",
+      "Disabled",
+      "Invalid"
+     ],
+     "type": "string"
+    },
+    "transmitting": {
+     "description": "Whether the port has incoming or outgoing connections to a remote NiFi.",
+     "type": "boolean"
+    }
+   },
+   "type": "object"
+  },
+  "ProcessGroupFlowEntity": {
+   "properties": {
+    "permissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "processGroupFlow": {
+     "$ref": "#/components/schemas/ProcessGroupFlowDTO"
+    },
+    "revision": {
+     "$ref": "#/components/schemas/RevisionDTO"
+    }
+   },
+   "type": "object",
+   "xml": {
+    "name": "processGroupFlowEntity"
+   }
+  },
+  "ProcessGroupStatusEntity": {
+   "properties": {
+    "canRead": {
+     "description": "Indicates whether the user can read a given resource.",
+     "readOnly": true,
+     "type": "boolean"
+    },
+    "processGroupStatus": {
+     "$ref": "#/components/schemas/ProcessGroupStatusDTO"
+    }
+   },
+   "type": "object",
+   "xml": {
+    "name": "processGroupStatusEntity"
+   }
+  },
+  "ProcessGroupStatusSnapshotDTO": {
+   "description": "The process group status snapshot from the node.",
+   "properties": {
+    "activeThreadCount": {
+     "description": "The active thread count for this process group.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "bytesIn": {
+     "description": "The number of bytes that have come into this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesOut": {
+     "description": "The number of bytes transferred out of this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesQueued": {
+     "description": "The number of bytes that are queued up in this ProcessGroup right now",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesRead": {
+     "description": "The number of bytes read by components in this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesReceived": {
+     "description": "The number of bytes received from external sources by components within this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesSent": {
+     "description": "The number of bytes sent to an external sink by components within this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesTransferred": {
+     "description": "The number of bytes transferred in this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesWritten": {
+     "description": "The number of bytes written by components in this ProcessGroup in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "connectionStatusSnapshots": {
+     "description": "The status of all connections in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/ConnectionStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "flowFilesIn": {
+     "description": "The number of FlowFiles that have come into this ProcessGroup in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesOut": {
+     "description": "The number of FlowFiles transferred out of this ProcessGroup in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesQueued": {
+     "description": "The number of FlowFiles that are queued up in this ProcessGroup right now",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesReceived": {
+     "description": "The number of FlowFiles received from external sources by components within this ProcessGroup in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesSent": {
+     "description": "The number of FlowFiles sent to an external sink by components within this ProcessGroup in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesTransferred": {
+     "description": "The number of FlowFiles transferred in this ProcessGroup in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "id": {
+     "description": "The id of the process group.",
+     "type": "string"
+    },
+    "input": {
+     "description": "The input count/size for the process group in the last 5 minutes (pretty printed).",
+     "type": "string"
+    },
+    "inputPortStatusSnapshots": {
+     "description": "The status of all input ports in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/PortStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "name": {
+     "description": "The name of this process group.",
+     "type": "string"
+    },
+    "output": {
+     "description": "The output count/size for the process group in the last 5 minutes.",
+     "type": "string"
+    },
+    "outputPortStatusSnapshots": {
+     "description": "The status of all output ports in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/PortStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "processGroupStatusSnapshots": {
+     "description": "The status of all process groups in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/ProcessGroupStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "processingNanos": {
+     "format": "int64",
+     "type": "integer"
+    },
+    "processingPerformanceStatus": {
+     "$ref": "#/components/schemas/ProcessingPerformanceStatusDTO"
+    },
+    "processorStatusSnapshots": {
+     "description": "The status of all processors in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/ProcessorStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "queued": {
+     "description": "The count/size that is queued in the the process group.",
+     "type": "string"
+    },
+    "queuedCount": {
+     "description": "The count that is queued for the process group.",
+     "type": "string"
+    },
+    "queuedSize": {
+     "description": "The size that is queued for the process group.",
+     "type": "string"
+    },
+    "read": {
+     "description": "The number of bytes read in the last 5 minutes.",
+     "type": "string"
+    },
+    "received": {
+     "description": "The count/size sent to the process group in the last 5 minutes.",
+     "type": "string"
+    },
+    "remoteProcessGroupStatusSnapshots": {
+     "description": "The status of all remote process groups in the process group.",
+     "items": {
+      "$ref": "#/components/schemas/RemoteProcessGroupStatusSnapshotEntity"
+     },
+     "type": "array"
+    },
+    "sent": {
+     "description": "The count/size sent from this process group in the last 5 minutes.",
+     "type": "string"
+    },
+    "statelessActiveThreadCount": {
+     "description": "The current number of active threads for the Process Group, when running in Stateless mode.",
+     "format": "int32",
+     "readOnly": true,
+     "type": "integer"
+    },
+    "terminatedThreadCount": {
+     "description": "The number of threads currently terminated for the process group.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "transferred": {
+     "description": "The count/size transferred to/from queues in the process group in the last 5 minutes.",
+     "type": "string"
+    },
+    "versionedFlowState": {
+     "description": "The current state of the Process Group, as it relates to the Versioned Flow",
+     "enum": [
+      "LOCALLY_MODIFIED",
+      "STALE",
+      "LOCALLY_MODIFIED_AND_STALE",
+      "UP_TO_DATE",
+      "SYNC_FAILURE"
+     ],
+     "readOnly": true,
+     "type": "string"
+    },
+    "written": {
+     "description": "The number of bytes written in the last 5 minutes.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ProcessorEntity": {
+   "properties": {
+    "bulletins": {
+     "description": "The bulletins for this component.",
+     "items": {
+      "$ref": "#/components/schemas/BulletinEntity"
+     },
+     "type": "array"
+    },
+    "component": {
+     "$ref": "#/components/schemas/ProcessorDTO"
+    },
+    "disconnectedNodeAcknowledged": {
+     "description": "Acknowledges that this node is disconnected to allow for mutable requests to proceed.",
+     "type": "boolean"
+    },
+    "id": {
+     "description": "The id of the component.",
+     "type": "string"
+    },
+    "inputRequirement": {
+     "description": "The input requirement for this processor.",
+     "type": "string"
+    },
+    "operatePermissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "permissions": {
+     "$ref": "#/components/schemas/PermissionsDTO"
+    },
+    "physicalState": {
+     "description": "The physical state of the processor, including transition states",
+     "enum": [
+      "RUNNING",
+      "STOPPED",
+      "DISABLED",
+      "STARTING",
+      "STOPPING",
+      "RUN_ONCE"
+     ],
+     "type": "string"
+    },
+    "position": {
+     "$ref": "#/components/schemas/PositionDTO"
+    },
+    "revision": {
+     "$ref": "#/components/schemas/RevisionDTO"
+    },
+    "status": {
+     "$ref": "#/components/schemas/ProcessorStatusDTO"
+    },
+    "uri": {
+     "description": "The URI for futures requests to the component.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "xml": {
+    "name": "processorEntity"
+   }
+  },
+  "ProcessorStatusSnapshotDTO": {
+   "description": "The processor status snapshot from the node.",
+   "properties": {
+    "activeThreadCount": {
+     "description": "The number of threads currently executing in the processor.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "bytesIn": {
+     "description": "The size of the FlowFiles that have been accepted in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesOut": {
+     "description": "The size of the FlowFiles transferred to a Connection in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesRead": {
+     "description": "The number of bytes read by this Processor in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "bytesWritten": {
+     "description": "The number of bytes written by this Processor in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "executionNode": {
+     "description": "Indicates the node where the process will execute.",
+     "enum": [
+      "ALL",
+      "PRIMARY"
+     ],
+     "type": "string"
+    },
+    "flowFilesIn": {
+     "description": "The number of FlowFiles that have been accepted in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "flowFilesOut": {
+     "description": "The number of FlowFiles transferred to a Connection in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "groupId": {
+     "description": "The id of the parent process group to which the processor belongs.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The id of the processor.",
+     "type": "string"
+    },
+    "input": {
+     "description": "The count/size of FlowFiles that have been accepted in the last 5 minutes.",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the processor.",
+     "type": "string"
+    },
+    "output": {
+     "description": "The count/size of FlowFiles that have been processed in the last 5 minutes.",
+     "type": "string"
+    },
+    "processingPerformanceStatus": {
+     "$ref": "#/components/schemas/ProcessingPerformanceStatusDTO"
+    },
+    "read": {
+     "description": "The number of bytes read in the last 5 minutes.",
+     "type": "string"
+    },
+    "runStatus": {
+     "description": "The state of the processor.",
+     "enum": [
+      "Running",
+      "Stopped",
+      "Validating",
+      "Disabled",
+      "Invalid"
+     ],
+     "type": "string"
+    },
+    "taskCount": {
+     "description": "The number of times this Processor has run in the last 5 minutes",
+     "format": "int32",
+     "type": "integer"
+    },
+    "tasks": {
+     "description": "The total number of task this connectable has completed over the last 5 minutes.",
+     "type": "string"
+    },
+    "tasksDuration": {
+     "description": "The total duration of all tasks for this connectable over the last 5 minutes.",
+     "type": "string"
+    },
+    "tasksDurationNanos": {
+     "description": "The number of nanoseconds that this Processor has spent running in the last 5 minutes",
+     "format": "int64",
+     "type": "integer"
+    },
+    "terminatedThreadCount": {
+     "description": "The number of threads currently terminated for the processor.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "type": {
+     "description": "The type of the processor.",
+     "type": "string"
+    },
+    "written": {
+     "description": "The number of bytes written in the last 5 minutes.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceDTO": {
+   "properties": {
+    "expiration": {
+     "description": "The timestamp when the query will expire.",
+     "type": "string"
+    },
+    "finished": {
+     "description": "Whether the query has finished.",
+     "type": "boolean"
+    },
+    "id": {
+     "description": "The id of the provenance query.",
+     "type": "string"
+    },
+    "percentCompleted": {
+     "description": "The current percent complete.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "request": {
+     "$ref": "#/components/schemas/ProvenanceRequestDTO"
+    },
+    "results": {
+     "$ref": "#/components/schemas/ProvenanceResultsDTO"
+    },
+    "submissionTime": {
+     "description": "The timestamp when the query was submitted.",
+     "type": "string"
+    },
+    "uri": {
+     "description": "The URI for this query. Used for obtaining/deleting the request at a later time",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceEventDTO": {
+   "description": "The provenance events that matched the search criteria.",
+   "properties": {
+    "alternateIdentifierUri": {
+     "description": "The alternate identifier uri for the fileflow for the event.",
+     "type": "string"
+    },
+    "attributes": {
+     "description": "The attributes of the flowfile for the event.",
+     "items": {
+      "$ref": "#/components/schemas/AttributeDTO"
+     },
+     "type": "array"
+    },
+    "childUuids": {
+     "description": "The child uuids for the event.",
+     "items": {
+      "description": "The child uuids for the event.",
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "clusterNodeAddress": {
+     "description": "The label for the node where the event originated.",
+     "type": "string"
+    },
+    "clusterNodeId": {
+     "description": "The identifier for the node where the event originated.",
+     "type": "string"
+    },
+    "componentId": {
+     "description": "The id of the component that generated the event.",
+     "type": "string"
+    },
+    "componentName": {
+     "description": "The name of the component that generated the event.",
+     "type": "string"
+    },
+    "componentType": {
+     "description": "The type of the component that generated the event.",
+     "type": "string"
+    },
+    "connectorId": {
+     "description": "The id of the connector that manages the component that generated the event. If the component is not managed by a connector, this will not be set.",
+     "type": "string"
+    },
+    "contentEqual": {
+     "description": "Whether the input and output content claim is the same.",
+     "type": "boolean"
+    },
+    "details": {
+     "description": "The event details.",
+     "type": "string"
+    },
+    "eventDuration": {
+     "description": "The event duration in milliseconds.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "eventId": {
+     "description": "The event id. This is a one up number that's unique per node.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "eventTime": {
+     "description": "The timestamp of the event.",
+     "type": "string"
+    },
+    "eventTimestamp": {
+     "description": "Event Timestamp formatted using ISO8601",
+     "type": "string"
+    },
+    "eventType": {
+     "description": "The type of the event.",
+     "type": "string"
+    },
+    "fileSize": {
+     "description": "The size of the flowfile for the event.",
+     "type": "string"
+    },
+    "fileSizeBytes": {
+     "description": "The size of the flowfile in bytes for the event.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "flowFileUuid": {
+     "description": "The uuid of the flowfile for the event.",
+     "type": "string"
+    },
+    "groupId": {
+     "description": "The id of the group that the component resides in. If the component is no longer in the flow, the group id will not be set.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The event uuid.",
+     "type": "string"
+    },
+    "inputContentAvailable": {
+     "description": "Whether the input content is still available.",
+     "type": "boolean"
+    },
+    "inputContentClaimContainer": {
+     "description": "The container in which the input content claim lives.",
+     "type": "string"
+    },
+    "inputContentClaimFileSize": {
+     "description": "The file size of the input content claim formatted.",
+     "type": "string"
+    },
+    "inputContentClaimFileSizeBytes": {
+     "description": "The file size of the intput content claim in bytes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "inputContentClaimIdentifier": {
+     "description": "The identifier of the input content claim.",
+     "type": "string"
+    },
+    "inputContentClaimOffset": {
+     "description": "The offset into the input content claim where the FlowFiles content begins.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "inputContentClaimSection": {
+     "description": "The section in which the input content claim lives.",
+     "type": "string"
+    },
+    "lineageDuration": {
+     "description": "The duration since the lineage began, in milliseconds.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "outputContentAvailable": {
+     "description": "Whether the output content is still available.",
+     "type": "boolean"
+    },
+    "outputContentClaimContainer": {
+     "description": "The container in which the output content claim lives.",
+     "type": "string"
+    },
+    "outputContentClaimFileSize": {
+     "description": "The file size of the output content claim formatted.",
+     "type": "string"
+    },
+    "outputContentClaimFileSizeBytes": {
+     "description": "The file size of the output content claim in bytes.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "outputContentClaimIdentifier": {
+     "description": "The identifier of the output content claim.",
+     "type": "string"
+    },
+    "outputContentClaimOffset": {
+     "description": "The offset into the output content claim where the FlowFiles content begins.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "outputContentClaimSection": {
+     "description": "The section in which the output content claim lives.",
+     "type": "string"
+    },
+    "parentUuids": {
+     "description": "The parent uuids for the event.",
+     "items": {
+      "description": "The parent uuids for the event.",
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "relationship": {
+     "description": "The relationship to which the flowfile was routed if the event is of type ROUTE.",
+     "type": "string"
+    },
+    "replayAvailable": {
+     "description": "Whether or not replay is available.",
+     "type": "boolean"
+    },
+    "replayExplanation": {
+     "description": "Explanation as to why replay is unavailable.",
+     "type": "string"
+    },
+    "sourceConnectionIdentifier": {
+     "description": "The identifier of the queue/connection from which the flowfile was pulled to generate this event. May be null if the queue/connection is unknown or the flowfile was generated from this event.",
+     "type": "string"
+    },
+    "sourceSystemFlowFileId": {
+     "description": "The source system flowfile id.",
+     "type": "string"
+    },
+    "transitUri": {
+     "description": "The source/destination system uri if the event was a RECEIVE/SEND.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceOptionsDTO": {
+   "properties": {
+    "searchableFields": {
+     "description": "The available searchable field for the NiFi.",
+     "items": {
+      "$ref": "#/components/schemas/ProvenanceSearchableFieldDTO"
+     },
+     "type": "array"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceRequestDTO": {
+   "description": "The provenance request.",
+   "properties": {
+    "clusterNodeId": {
+     "description": "The id of the node in the cluster where this provenance originated.",
+     "type": "string"
+    },
+    "endDate": {
+     "description": "The latest event time to include in the query.",
+     "type": "string"
+    },
+    "incrementalResults": {
+     "description": "Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default.",
+     "type": "boolean"
+    },
+    "maxResults": {
+     "description": "The maximum number of results to include.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "maximumFileSize": {
+     "description": "The maximum file size to include in the query.",
+     "type": "string"
+    },
+    "minimumFileSize": {
+     "description": "The minimum file size to include in the query.",
+     "type": "string"
+    },
+    "searchTerms": {
+     "additionalProperties": {
+      "$ref": "#/components/schemas/ProvenanceSearchValueDTO"
+     },
+     "description": "The search terms used to perform the search.",
+     "type": "object"
+    },
+    "startDate": {
+     "description": "The earliest event time to include in the query.",
+     "type": "string"
+    },
+    "summarize": {
+     "description": "Whether or not to summarize provenance events returned. This property is false by default.",
+     "type": "boolean"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceResultsDTO": {
+   "description": "The provenance results.",
+   "properties": {
+    "errors": {
+     "description": "Any errors that occurred while performing the provenance request.",
+     "items": {
+      "description": "Any errors that occurred while performing the provenance request.",
+      "type": "string"
+     },
+     "type": "array",
+     "uniqueItems": true
+    },
+    "generated": {
+     "description": "Then the search was performed.",
+     "type": "string"
+    },
+    "oldestEvent": {
+     "description": "The oldest event available in the provenance repository.",
+     "type": "string"
+    },
+    "provenanceEvents": {
+     "description": "The provenance events that matched the search criteria.",
+     "items": {
+      "$ref": "#/components/schemas/ProvenanceEventDTO"
+     },
+     "type": "array"
+    },
+    "timeOffset": {
+     "description": "The time offset of the server that's used for event time.",
+     "format": "int32",
+     "type": "integer"
+    },
+    "total": {
+     "description": "The total number of results formatted.",
+     "type": "string"
+    },
+    "totalCount": {
+     "description": "The total number of results.",
+     "format": "int64",
+     "type": "integer"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceSearchValueDTO": {
+   "description": "The search terms used to perform the search.",
+   "properties": {
+    "inverse": {
+     "description": "Query for all except for search value.",
+     "type": "boolean"
+    },
+    "value": {
+     "description": "The search value.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "ProvenanceSearchableFieldDTO": {
+   "description": "The available searchable field for the NiFi.",
+   "properties": {
+    "field": {
+     "description": "The searchable field.",
+     "type": "string"
+    },
+    "id": {
+     "description": "The id of the searchable field.",
+     "type": "string"
+    },
+    "label": {
+     "description": "The label for the searchable field.",
+     "type": "string"
+    },
+    "type": {
+     "description": "The type of the searchable field.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "QueueSizeDTO": {
+   "description": "The size of the queue",
+   "properties": {
+    "byteCount": {
+     "description": "The size of objects in a queue.",
+     "format": "int64",
+     "type": "integer"
+    },
+    "objectCount": {
+     "description": "The count of objects in a queue.",
+     "format": "int32",
+     "type": "integer"
+    }
+   },
+   "type": "object"
+  }
+ },
+ "source": {
+  "bytes": 1275845,
+  "captured_at": "2026-10-29T02:24:15Z",
+  "document_version": "2.12.0",
+  "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "openapi_version": "3.0.1",
+  "path_count": 285,
+  "path_in_image": "/opt/nifi/nifi-current/work/jetty/nifi-web-api-2.12.0.war/webapp/docs/rest-api/swagger.json",
+  "sha256": "d9cce3b0bc45f832a21785eb32c27c11ee2f6a0664254ec82468b295517944e8"
+ }
+}

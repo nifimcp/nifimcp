@@ -1,0 +1,37 @@
+{
+ "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+ "created_at": "2026-10-29T03:25:55.953Z",
+ "exported_definition_sha256": "ef08c0be65b5e07588b301e0eb1af261db3e36e9f684797663a0fa31f975c12d",
+ "kind": "native_lab_verification",
+ "native_artifact_sha256": "174f5fc4ab8f56f30d721f48784bba2349943bc05cf1f64313969726dfd3c9f3",
+ "native_validation": {
+  "all_valid": true,
+  "fidelity": {
+   "all_stopped": true,
+   "connections": true,
+   "input_ports": true,
+   "output_ports": true,
+   "processors": true,
+   "properties_preserved": true
+  },
+  "status": "PASS"
+ },
+ "plan_sha256": "a2af6ff69dd1ecf7fed0aeab3c6b0fac15969ebe0a1df2df77290ed8627ba083",
+ "receipt_schema": "nifimcp-draft-receipt/1",
+ "receipt_sha256": "945fb6e903fd245109146d4a7a936100f4da2dca71ffae000a18d489b87f4766",
+ "runtime": {
+  "container_id": "45375173ff9d91d3d42eeb4d5625dc92aea41fa3a0bfc47eaaffa5b27347c815",
+  "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+  "lab_id": "lab-ea8e00b5ff53",
+  "nifi_version": "2.12.0"
+ },
+ "statement": "Evidence about this exact artifact only. Not permission to deploy it.",
+ "static_receipt_sha256": "0cade4cbb708ee4fd6561b9e1da6f099206a118274a38604f048bcb813d3e53b",
+ "target_version": "2.12.0",
+ "tests": {
+  "count": 6,
+  "failed": [],
+  "status": "PASS"
+ }
+}

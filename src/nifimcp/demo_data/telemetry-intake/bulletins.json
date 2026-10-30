@@ -1,0 +1,121 @@
+{
+ "collection": {
+  "collected_at": "2026-10-29T02:37:35.171Z",
+  "collector": "nifimcp-lab-demo-builder",
+  "endpoint": "GET /flow/bulletin-board?limit=200",
+  "node_id": null,
+  "query": {}
+ },
+ "response": {
+  "bulletinBoard": {
+   "bulletins": [
+    {
+     "bulletin": {
+      "category": "Log Message",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": 14,
+      "level": "ERROR",
+      "message": "InvokeHTTP[id=8584846f-01a1-1000-9402-0a841a10e442] Request Processing failed: FlowFile[filename=telemetry-196.json]: java.net.UnknownHostException: splunk.example.invalid",
+      "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+      "sourceName": "Deliver to Splunk HEC",
+      "sourceType": "PROCESSOR",
+      "stackTrace": "java.net.UnknownHostException: splunk.example.invalid\n\tat java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)\n\tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)\n\tat okhttp3.internal.dns.InetAddressDns.lookup(InetAddressDns.kt:31)\n\tat okhttp3.Dns$Companion$SYSTEM$1.lookup(Dns.kt:293)\n\tat okhttp3.internal.connection.RouteSelector.dnsLookup(RouteSelector.kt:228)\n\tat okhttp3.internal.connection.RouteSelector.nextRoutes(RouteSelector.kt:184)\n\tat okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:140)\n\tat okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:72)\n\tat okhttp3.internal.connection.RealRoutePlanner.planConnect$okhttp(RealRoutePlanner.kt:170)\n\tat okhttp3.internal.connection.RealRoutePlanner.plan(RealRoutePlanner.kt:77)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.launchTcpConnect(FastFallbackExchangeFinder.kt:122)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.find(FastFallbackExchangeFinder.kt:64)\n\tat okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:306)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)\n\tat org.apache.nifi.processors.standard.InvokeHTTP.onTrigger(InvokeHTTP.java:889)\n\tat org.apache.nifi.processor.AbstractProcessor.onTrigger(AbstractProcessor.java:27)\n\tat org.apache.nifi.controller.StandardProcessorNode.onTrigger(StandardProcessorNode.java:1295)\n\tat org.apache.nifi.controller.tasks.ConnectableTask.invoke(ConnectableTask.java:237)\n\tat org.apache.nifi.controller.scheduling.TimerDrivenSchedulingAgent$1.run(TimerDrivenSchedulingAgent.java:102)\n\tat org.apache.nifi.engine.FlowEngine.lambda$wrap$1(FlowEngine.java:105)\n\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)\n\tat java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)\n\tat java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+      "timestamp": "02:37:14 UTC",
+      "timestampIso": "2026-10-29T02:37:14.164Z"
+     },
+     "canRead": true,
+     "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+     "id": 14,
+     "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+     "timestamp": "02:37:14 UTC",
+     "timestampIso": "2026-10-29T02:37:14.164Z"
+    },
+    {
+     "bulletin": {
+      "category": "Log Message",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": 15,
+      "level": "ERROR",
+      "message": "InvokeHTTP[id=8584846f-01a1-1000-9402-0a841a10e442] Request Processing failed: FlowFile[filename=telemetry-216.json]: java.net.UnknownHostException: splunk.example.invalid: Name or service not known",
+      "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+      "sourceName": "Deliver to Splunk HEC",
+      "sourceType": "PROCESSOR",
+      "stackTrace": "java.net.UnknownHostException: splunk.example.invalid: Name or service not known\n\tat java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method)\n\tat java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Inet4AddressImpl.java:43)\n\tat java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)\n\tat java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)\n\tat java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)\n\tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)\n\tat okhttp3.internal.dns.InetAddressDns.lookup(InetAddressDns.kt:31)\n\tat okhttp3.Dns$Companion$SYSTEM$1.lookup(Dns.kt:293)\n\tat okhttp3.internal.connection.RouteSelector.dnsLookup(RouteSelector.kt:228)\n\tat okhttp3.internal.connection.RouteSelector.nextRoutes(RouteSelector.kt:184)\n\tat okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:140)\n\tat okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:72)\n\tat okhttp3.internal.connection.RealRoutePlanner.planConnect$okhttp(RealRoutePlanner.kt:170)\n\tat okhttp3.internal.connection.RealRoutePlanner.plan(RealRoutePlanner.kt:77)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.launchTcpConnect(FastFallbackExchangeFinder.kt:122)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.find(FastFallbackExchangeFinder.kt:64)\n\tat okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:306)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)\n\tat org.apache.nifi.processors.standard.InvokeHTTP.onTrigger(InvokeHTTP.java:889)\n\tat org.apache.nifi.processor.AbstractProcessor.onTrigger(AbstractProcessor.java:27)\n\tat org.apache.nifi.controller.StandardProcessorNode.onTrigger(StandardProcessorNode.java:1295)\n\tat org.apache.nifi.controller.tasks.ConnectableTask.invoke(ConnectableTask.java:237)\n\tat org.apache.nifi.controller.scheduling.TimerDrivenSchedulingAgent$1.run(TimerDrivenSchedulingAgent.java:102)\n\tat org.apache.nifi.engine.FlowEngine.lambda$wrap$1(FlowEngine.java:105)\n\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)\n\tat java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)\n\tat java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+      "timestamp": "02:37:24 UTC",
+      "timestampIso": "2026-10-29T02:37:24.182Z"
+     },
+     "canRead": true,
+     "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+     "id": 15,
+     "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+     "timestamp": "02:37:24 UTC",
+     "timestampIso": "2026-10-29T02:37:24.182Z"
+    },
+    {
+     "bulletin": {
+      "category": "Log Message",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": 16,
+      "level": "ERROR",
+      "message": "InvokeHTTP[id=8584846f-01a1-1000-9402-0a841a10e442] Request Processing failed: FlowFile[filename=telemetry-220.json]: java.net.UnknownHostException: splunk.example.invalid",
+      "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+      "sourceName": "Deliver to Splunk HEC",
+      "sourceType": "PROCESSOR",
+      "stackTrace": "java.net.UnknownHostException: splunk.example.invalid\n\tat java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)\n\tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)\n\tat okhttp3.internal.dns.InetAddressDns.lookup(InetAddressDns.kt:31)\n\tat okhttp3.Dns$Companion$SYSTEM$1.lookup(Dns.kt:293)\n\tat okhttp3.internal.connection.RouteSelector.dnsLookup(RouteSelector.kt:228)\n\tat okhttp3.internal.connection.RouteSelector.nextRoutes(RouteSelector.kt:184)\n\tat okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:140)\n\tat okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:72)\n\tat okhttp3.internal.connection.RealRoutePlanner.planConnect$okhttp(RealRoutePlanner.kt:170)\n\tat okhttp3.internal.connection.RealRoutePlanner.plan(RealRoutePlanner.kt:77)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.launchTcpConnect(FastFallbackExchangeFinder.kt:122)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.find(FastFallbackExchangeFinder.kt:64)\n\tat okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:306)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)\n\tat org.apache.nifi.processors.standard.InvokeHTTP.onTrigger(InvokeHTTP.java:889)\n\tat org.apache.nifi.processor.AbstractProcessor.onTrigger(AbstractProcessor.java:27)\n\tat org.apache.nifi.controller.StandardProcessorNode.onTrigger(StandardProcessorNode.java:1295)\n\tat org.apache.nifi.controller.tasks.ConnectableTask.invoke(ConnectableTask.java:237)\n\tat org.apache.nifi.controller.scheduling.TimerDrivenSchedulingAgent$1.run(TimerDrivenSchedulingAgent.java:102)\n\tat org.apache.nifi.engine.FlowEngine.lambda$wrap$1(FlowEngine.java:105)\n\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)\n\tat java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)\n\tat java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+      "timestamp": "02:37:26 UTC",
+      "timestampIso": "2026-10-29T02:37:26.179Z"
+     },
+     "canRead": true,
+     "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+     "id": 16,
+     "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+     "timestamp": "02:37:26 UTC",
+     "timestampIso": "2026-10-29T02:37:26.179Z"
+    },
+    {
+     "bulletin": {
+      "category": "Log Message",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": 17,
+      "level": "ERROR",
+      "message": "InvokeHTTP[id=8584846f-01a1-1000-9402-0a841a10e442] Request Processing failed: FlowFile[filename=telemetry-228.json]: java.net.UnknownHostException: splunk.example.invalid",
+      "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+      "sourceName": "Deliver to Splunk HEC",
+      "sourceType": "PROCESSOR",
+      "stackTrace": "java.net.UnknownHostException: splunk.example.invalid\n\tat java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)\n\tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)\n\tat okhttp3.internal.dns.InetAddressDns.lookup(InetAddressDns.kt:31)\n\tat okhttp3.Dns$Companion$SYSTEM$1.lookup(Dns.kt:293)\n\tat okhttp3.internal.connection.RouteSelector.dnsLookup(RouteSelector.kt:228)\n\tat okhttp3.internal.connection.RouteSelector.nextRoutes(RouteSelector.kt:184)\n\tat okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:140)\n\tat okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:72)\n\tat okhttp3.internal.connection.RealRoutePlanner.planConnect$okhttp(RealRoutePlanner.kt:170)\n\tat okhttp3.internal.connection.RealRoutePlanner.plan(RealRoutePlanner.kt:77)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.launchTcpConnect(FastFallbackExchangeFinder.kt:122)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.find(FastFallbackExchangeFinder.kt:64)\n\tat okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:306)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)\n\tat org.apache.nifi.processors.standard.InvokeHTTP.onTrigger(InvokeHTTP.java:889)\n\tat org.apache.nifi.processor.AbstractProcessor.onTrigger(AbstractProcessor.java:27)\n\tat org.apache.nifi.controller.StandardProcessorNode.onTrigger(StandardProcessorNode.java:1295)\n\tat org.apache.nifi.controller.tasks.ConnectableTask.invoke(ConnectableTask.java:237)\n\tat org.apache.nifi.controller.scheduling.TimerDrivenSchedulingAgent$1.run(TimerDrivenSchedulingAgent.java:102)\n\tat org.apache.nifi.engine.FlowEngine.lambda$wrap$1(FlowEngine.java:105)\n\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)\n\tat java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)\n\tat java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+      "timestamp": "02:37:30 UTC",
+      "timestampIso": "2026-10-29T02:37:30.175Z"
+     },
+     "canRead": true,
+     "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+     "id": 17,
+     "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+     "timestamp": "02:37:30 UTC",
+     "timestampIso": "2026-10-29T02:37:30.175Z"
+    },
+    {
+     "bulletin": {
+      "category": "Log Message",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": 18,
+      "level": "ERROR",
+      "message": "InvokeHTTP[id=8584846f-01a1-1000-9402-0a841a10e442] Request Processing failed: FlowFile[filename=telemetry-236.json]: java.net.UnknownHostException: splunk.example.invalid: Name or service not known",
+      "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+      "sourceName": "Deliver to Splunk HEC",
+      "sourceType": "PROCESSOR",
+      "stackTrace": "java.net.UnknownHostException: splunk.example.invalid: Name or service not known\n\tat java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method)\n\tat java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Inet4AddressImpl.java:43)\n\tat java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)\n\tat java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)\n\tat java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)\n\tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)\n\tat okhttp3.internal.dns.InetAddressDns.lookup(InetAddressDns.kt:31)\n\tat okhttp3.Dns$Companion$SYSTEM$1.lookup(Dns.kt:293)\n\tat okhttp3.internal.connection.RouteSelector.dnsLookup(RouteSelector.kt:228)\n\tat okhttp3.internal.connection.RouteSelector.nextRoutes(RouteSelector.kt:184)\n\tat okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:140)\n\tat okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:72)\n\tat okhttp3.internal.connection.RealRoutePlanner.planConnect$okhttp(RealRoutePlanner.kt:170)\n\tat okhttp3.internal.connection.RealRoutePlanner.plan(RealRoutePlanner.kt:77)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.launchTcpConnect(FastFallbackExchangeFinder.kt:122)\n\tat okhttp3.internal.connection.FastFallbackExchangeFinder.find(FastFallbackExchangeFinder.kt:64)\n\tat okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:306)\n\tat okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:98)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:72)\n\tat okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:332)\n\tat okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:234)\n\tat okhttp3.internal.connection.RealCall.execute(RealCall.kt:189)\n\tat org.apache.nifi.processors.standard.InvokeHTTP.onTrigger(InvokeHTTP.java:889)\n\tat org.apache.nifi.processor.AbstractProcessor.onTrigger(AbstractProcessor.java:27)\n\tat org.apache.nifi.controller.StandardProcessorNode.onTrigger(StandardProcessorNode.java:1295)\n\tat org.apache.nifi.controller.tasks.ConnectableTask.invoke(ConnectableTask.java:237)\n\tat org.apache.nifi.controller.scheduling.TimerDrivenSchedulingAgent$1.run(TimerDrivenSchedulingAgent.java:102)\n\tat org.apache.nifi.engine.FlowEngine.lambda$wrap$1(FlowEngine.java:105)\n\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)\n\tat java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)\n\tat java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+      "timestamp": "02:37:34 UTC",
+      "timestampIso": "2026-10-29T02:37:34.198Z"
+     },
+     "canRead": true,
+     "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+     "id": 18,
+     "sourceId": "8584846f-01a1-1000-9402-0a841a10e442",
+     "timestamp": "02:37:34 UTC",
+     "timestampIso": "2026-10-29T02:37:34.198Z"
+    }
+   ],
+   "generated": "02:37:35 UTC"
+  }
+ }
+}

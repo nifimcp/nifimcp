@@ -1,0 +1,226 @@
+{
+ "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+ "catalog_version": "1",
+ "entries": [
+  {
+   "bundle": null,
+   "kind": "input_port",
+   "port_relationship": "port",
+   "properties": {},
+   "relationships": [],
+   "supports_dynamic_properties": false,
+   "supports_dynamic_relationships": false,
+   "type_id": "nifi:InputPort"
+  },
+  {
+   "bundle": null,
+   "kind": "output_port",
+   "port_relationship": null,
+   "properties": {},
+   "relationships": [],
+   "supports_dynamic_properties": false,
+   "supports_dynamic_relationships": false,
+   "type_id": "nifi:OutputPort"
+  },
+  {
+   "bundle": {
+    "artifact": "nifi-update-attribute-nar",
+    "group": "org.apache.nifi",
+    "version": "2.12.0"
+   },
+   "default_bulletin_level": "WARN",
+   "default_penalty_duration": "30 sec",
+   "default_scheduling_period": "0 sec",
+   "default_yield_duration": "1 sec",
+   "dynamic_property_semantics": "attribute_assignment",
+   "fixed_properties": {
+    "Store State": "Do not store state"
+   },
+   "input_requirement": "INPUT_REQUIRED",
+   "kind": "processor",
+   "properties": {
+    "Cache Value Lookup Cache Size": {
+     "allowable_values": null,
+     "default": "100",
+     "display_name": "Cache Value Lookup Cache Size",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    },
+    "Delete Attributes Expression": {
+     "allowable_values": null,
+     "default": null,
+     "display_name": "Delete Attributes Expression",
+     "expression_language_scope": "FLOWFILE_ATTRIBUTES",
+     "identifies_controller_service": false,
+     "required": false,
+     "sensitive": false
+    },
+    "Stateful Variables Initial Value": {
+     "allowable_values": null,
+     "default": null,
+     "display_name": "Stateful Variables Initial Value",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": false,
+     "sensitive": false
+    },
+    "Store State": {
+     "allowable_values": [
+      "Do not store state",
+      "Store state locally"
+     ],
+     "default": "Do not store state",
+     "display_name": "Store State",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    }
+   },
+   "relationships": [
+    "success"
+   ],
+   "supports_dynamic_properties": true,
+   "supports_dynamic_relationships": false,
+   "supports_sensitive_dynamic_properties": false,
+   "type_id": "org.apache.nifi.processors.attributes.UpdateAttribute"
+  },
+  {
+   "bundle": {
+    "artifact": "nifi-standard-nar",
+    "group": "org.apache.nifi",
+    "version": "2.12.0"
+   },
+   "default_bulletin_level": "WARN",
+   "default_penalty_duration": "30 sec",
+   "default_scheduling_period": "0 sec",
+   "default_yield_duration": "1 sec",
+   "dynamic_property_semantics": "json_path_extraction",
+   "fixed_properties": {
+    "Destination": "flowfile-attribute"
+   },
+   "input_requirement": "INPUT_REQUIRED",
+   "kind": "processor",
+   "properties": {
+    "Destination": {
+     "allowable_values": [
+      "flowfile-content",
+      "flowfile-attribute"
+     ],
+     "default": "flowfile-content",
+     "display_name": "Destination",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    },
+    "Max String Length": {
+     "allowable_values": null,
+     "default": "20 MB",
+     "display_name": "Max String Length",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    },
+    "Null Value Representation": {
+     "allowable_values": [
+      "empty string",
+      "the string 'null'"
+     ],
+     "default": "empty string",
+     "display_name": "Null Value Representation",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    },
+    "Path Not Found Behavior": {
+     "allowable_values": [
+      "warn",
+      "ignore",
+      "skip"
+     ],
+     "default": "ignore",
+     "display_name": "Path Not Found Behavior",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    },
+    "Return Type": {
+     "allowable_values": [
+      "auto-detect",
+      "json",
+      "scalar"
+     ],
+     "default": "auto-detect",
+     "display_name": "Return Type",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    }
+   },
+   "relationships": [
+    "failure",
+    "matched",
+    "unmatched"
+   ],
+   "supports_dynamic_properties": true,
+   "supports_dynamic_relationships": false,
+   "supports_sensitive_dynamic_properties": false,
+   "type_id": "org.apache.nifi.processors.standard.EvaluateJsonPath"
+  },
+  {
+   "bundle": {
+    "artifact": "nifi-standard-nar",
+    "group": "org.apache.nifi",
+    "version": "2.12.0"
+   },
+   "default_bulletin_level": "WARN",
+   "default_penalty_duration": "30 sec",
+   "default_scheduling_period": "0 sec",
+   "default_yield_duration": "1 sec",
+   "dynamic_property_semantics": "route_condition",
+   "fixed_properties": {
+    "Routing Strategy": "Route to Property name"
+   },
+   "input_requirement": "INPUT_REQUIRED",
+   "kind": "processor",
+   "properties": {
+    "Routing Strategy": {
+     "allowable_values": [
+      "Route to Property name",
+      "Route to 'match' if all match",
+      "Route to 'match' if any matches"
+     ],
+     "default": "Route to Property name",
+     "display_name": "Routing Strategy",
+     "expression_language_scope": "NONE",
+     "identifies_controller_service": false,
+     "required": true,
+     "sensitive": false
+    }
+   },
+   "relationships": [
+    "unmatched"
+   ],
+   "supports_dynamic_properties": true,
+   "supports_dynamic_relationships": true,
+   "supports_sensitive_dynamic_properties": false,
+   "type_id": "org.apache.nifi.processors.standard.RouteOnAttribute"
+  }
+ ],
+ "nifi_version": "2.12.0",
+ "provenance": {
+  "captured_at": "2026-10-29T02:24:15Z",
+  "extracted_by": "scripts/capture_capsule.py",
+  "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "runtime_manifest_sha256": "cc51b75ecb644b0e6f54c51f4d0b8af17a8fade850364f5594d4ef2bfdf98bf5",
+  "runtime_manifest_version": "2.12.0",
+  "source": "GET /nifi-api/flow/runtime-manifest on stock apache/nifi 2.12.0"
+ }
+}

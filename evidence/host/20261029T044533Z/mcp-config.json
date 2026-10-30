@@ -1,0 +1,17 @@
+{
+ "mcpServers": {
+  "nifimcp": {
+   "command": "uv",
+   "args": [
+    "run",
+    "--frozen",
+    "--project",
+    "<repo>",
+    "nifimcp",
+    "serve",
+    "--config",
+    "<repo>/.lab/lab-ea8e00b5ff53/operator.observer.json"
+   ]
+  }
+ }
+}

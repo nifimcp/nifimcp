@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "mode": "bundle",
+  "artifact_dir": "./private-artifacts",
+  "registered_inputs": [],
+  "live": null,
+  "telemetry": false,
+  "updates": false,
+  "limits": {
+    "time_window_minutes": 60,
+    "maximum_time_window_minutes": 1440,
+    "provenance_events": 200,
+    "maximum_provenance_events": 1000,
+    "components": 500,
+    "maximum_components": 2000,
+    "depth": 4,
+    "maximum_depth": 8,
+    "queue_sampling_enabled": false,
+    "sample_size": 10,
+    "maximum_sample_size": 25,
+    "concurrency": 1,
+    "maximum_concurrency": 2,
+    "tool_timeout_seconds": 30,
+    "maximum_timeout_seconds": 60,
+    "maximum_result_bytes": 262144,
+    "maximum_bundle_expanded_bytes": 104857600
+  }
+}

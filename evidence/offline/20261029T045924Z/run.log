@@ -1,0 +1,196 @@
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+x86_64
+Python 3.12.16
+== egress check
+egress to pypi.org:443 denied: gaierror
+egress to 1.1.1.1:443 denied: OSError
+== install
+kit checksums OK
+Looking in links: /kit/wheelhouse
+Ignoring httpx2-jsfetch: markers 'sys_platform == "emscripten"' don't match your environment
+Ignoring pywin32: markers 'sys_platform == "win32"' don't match your environment
+Processing /kit/wheelhouse/annotated_types-0.8.0-py3-none-any.whl (from -r /kit/requirements.lock (line 3))
+Processing /kit/wheelhouse/anyio-4.15.1-py3-none-any.whl (from -r /kit/requirements.lock (line 7))
+Processing /kit/wheelhouse/attrs-26.1.0-py3-none-any.whl (from -r /kit/requirements.lock (line 16))
+Processing /kit/wheelhouse/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from -r /kit/requirements.lock (line 22))
+Processing /kit/wheelhouse/click-8.5.0-py3-none-any.whl (from -r /kit/requirements.lock (line 37))
+Processing /kit/wheelhouse/cryptography-50.0.2-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from -r /kit/requirements.lock (line 41))
+Processing /kit/wheelhouse/h11-0.16.0-py3-none-any.whl (from -r /kit/requirements.lock (line 83))
+Processing /kit/wheelhouse/httpcore2-2.16.0-py3-none-any.whl (from -r /kit/requirements.lock (line 89))
+Processing /kit/wheelhouse/httpx2-2.16.0-py3-none-any.whl (from -r /kit/requirements.lock (line 93))
+Processing /kit/wheelhouse/idna-3.20-py3-none-any.whl (from -r /kit/requirements.lock (line 103))
+Processing /kit/wheelhouse/jsonschema-4.26.0-py3-none-any.whl (from -r /kit/requirements.lock (line 109))
+Processing /kit/wheelhouse/jsonschema_specifications-2025.9.1-py3-none-any.whl (from -r /kit/requirements.lock (line 113))
+Processing /kit/wheelhouse/mcp-2.3.0-py3-none-any.whl (from -r /kit/requirements.lock (line 117))
+Processing /kit/wheelhouse/mcp_types-2.3.0-py3-none-any.whl (from -r /kit/requirements.lock (line 121))
+Processing /kit/wheelhouse/opentelemetry_api-1.45.1-py3-none-any.whl (from -r /kit/requirements.lock (line 125))
+Processing /kit/wheelhouse/pycparser-3.12-py3-none-any.whl (from -r /kit/requirements.lock (line 129))
+Processing /kit/wheelhouse/pydantic-2.14.1-py3-none-any.whl (from -r /kit/requirements.lock (line 133))
+Processing /kit/wheelhouse/pydantic_core-2.50.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /kit/requirements.lock (line 140))
+Processing /kit/wheelhouse/pyjwt-2.15.1-py3-none-any.whl (from -r /kit/requirements.lock (line 162))
+Processing /kit/wheelhouse/python_multipart-0.0.32-py3-none-any.whl (from -r /kit/requirements.lock (line 166))
+Processing /kit/wheelhouse/referencing-0.37.0-py3-none-any.whl (from -r /kit/requirements.lock (line 175))
+Processing /kit/wheelhouse/rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /kit/requirements.lock (line 181))
+Processing /kit/wheelhouse/sse_starlette-3.6.0-py3-none-any.whl (from -r /kit/requirements.lock (line 213))
+Processing /kit/wheelhouse/starlette-1.10.0-py3-none-any.whl (from -r /kit/requirements.lock (line 217))
+Processing /kit/wheelhouse/truststore-0.10.5-py3-none-any.whl (from -r /kit/requirements.lock (line 223))
+Processing /kit/wheelhouse/typing_extensions-4.16.0-py3-none-any.whl (from -r /kit/requirements.lock (line 229))
+Processing /kit/wheelhouse/typing_inspection-0.4.4-py3-none-any.whl (from -r /kit/requirements.lock (line 243))
+Processing /kit/wheelhouse/uvicorn-0.54.0-py3-none-any.whl (from -r /kit/requirements.lock (line 249))
+Installing collected packages: typing-extensions, truststore, rpds-py, python-multipart, pyjwt, pycparser, idna, h11, click, attrs, annotated-types, uvicorn, typing-inspection, referencing, pydantic-core, opentelemetry-api, httpcore2, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx2, cryptography, sse-starlette, mcp-types, jsonschema, mcp
+Successfully installed annotated-types-0.8.0 anyio-4.15.1 attrs-26.1.0 cffi-2.1.1 click-8.5.0 cryptography-50.0.2 h11-0.16.0 httpcore2-2.16.0 httpx2-2.16.0 idna-3.20 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 opentelemetry-api-1.45.1 pycparser-3.12 pydantic-2.14.1 pydantic-core-2.50.1 pyjwt-2.15.1 python-multipart-0.0.32 referencing-0.37.0 rpds-py-2026.9.1 sse-starlette-3.6.0 starlette-1.10.0 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+Processing /kit/wheelhouse/flightdeck_nifimcp-0.1.0rc1-py3-none-any.whl
+Installing collected packages: flightdeck-nifimcp
+Successfully installed flightdeck-nifimcp-0.1.0rc1
+nifimcp 0.1.0rc1
+Installed. Try: /tmp/nifimcp-offline/venv/bin/nifimcp demo --output ./nifimcp-demo
+== demo
+{
+  "demo": "NiFiMCP offline demo (synthetic data from stock NiFi 2.12.0; no NiFi, model or network used)",
+  "drafts": [
+    {
+      "artifact_id": "art_1ogfosXmTHGuwUqGHASa8azn",
+      "blueprint": "attribute_router",
+      "status": "ok"
+    },
+    {
+      "artifact_id": "art_l6dZ12gRnokzUY9-DV09ViOB",
+      "blueprint": "json_field_gate",
+      "status": "ok"
+    }
+  ],
+  "investigation_json": "/tmp/nifimcp-offline/demo/investigation.json",
+  "investigation_status": "ok",
+  "report_html": "/tmp/nifimcp-offline/demo/report.html",
+  "scope": "demo-telemetry-intake",
+  "tools": [
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "get_capabilities"
+    },
+    {
+      "evidence": 42,
+      "findings": 12,
+      "status": "ok",
+      "tool": "describe_flow"
+    },
+    {
+      "evidence": 12,
+      "findings": 10,
+      "status": "ok",
+      "tool": "get_flow_health"
+    },
+    {
+      "evidence": 7,
+      "findings": 2,
+      "status": "ok",
+      "tool": "trace_feed"
+    },
+    {
+      "evidence": 36,
+      "findings": 6,
+      "status": "ok",
+      "tool": "inspect_unmatched"
+    },
+    {
+      "evidence": 4,
+      "findings": 2,
+      "status": "ok",
+      "tool": "compare_flow_snapshots"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "export_investigation"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "export_investigation"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "validate_flow_plan"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "draft_flow"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "validate_flow_plan"
+    },
+    {
+      "evidence": 0,
+      "findings": 0,
+      "status": "ok",
+      "tool": "draft_flow"
+    }
+  ]
+}
+== bundle mode
+{
+  "registered": {
+    "artifact_id": "art_M86-4XAGDtkftHuN_fr6HLNL",
+    "bytes": 186448,
+    "created_at": "2026-10-29T04:59:31.207Z",
+    "kind": "bundle",
+    "label": "example",
+    "media_type": "application/json",
+    "owner": "operator",
+    "scope": "demo-telemetry-intake",
+    "sha256": "b321a5703ade6a35072261f2dd37c70d45af075b0c51b8f64bf0fed774e215bd",
+    "uri": "nifimcp://artifacts/art_M86-4XAGDtkftHuN_fr6HLNL"
+  }
+}
+{
+  "checks": [
+    {
+      "check": "python",
+      "detail": "Python 3.12.16 (qualified: 3.12)",
+      "result": "PASS"
+    },
+    {
+      "check": "config",
+      "detail": "mode=bundle, telemetry=off, update checks=off",
+      "result": "PASS"
+    },
+    {
+      "check": "artifact_dir",
+      "detail": "/tmp/nifimcp-offline/artifacts permissions 0o700 (expected 0700)",
+      "result": "PASS"
+    },
+    {
+      "check": "catalog",
+      "detail": "pinned NiFi 2.12.0 catalog b15dcbebab6e54ed…",
+      "result": "PASS"
+    },
+    {
+      "check": "sources",
+      "detail": "1 scope(s) available; no network used",
+      "result": "PASS"
+    }
+  ],
+  "mode": "bundle",
+  "nifimcp": "0.1.0rc1",
+  "status": "ok"
+}
+{
+  "report": "/tmp/nifimcp-offline/report.html",
+  "status": "ok"
+}
+describe: ok 12 findings, 42 evidence records
+== MCP stdio handshake
+nifimcp WARNING serving mode=bundle scopes=1 session=ses_7cf7f0cb491ffc6a
+server nifimcp 0.1.0rc1 - 10 tools; describe_flow over stdio: ok 12 findings
+OFFLINE ACCEPTANCE PASSED

@@ -1,0 +1,134 @@
+{
+ "gate": "A21 (cluster half)",
+ "started_at": "20261029T050744Z",
+ "nifi": "2.12.0",
+ "image": "apache/nifi@sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+ "zookeeper_image": "mirror.gcr.io/library/zookeeper@sha256:17d9b6af91d97ad4feec7b088102d34f1c42df52d6320fd794af5d01d48883a0",
+ "observer_policies": [
+  "read /flow",
+  "read scoped process group"
+ ],
+ "connected": {
+  "summary": {
+   "connectedNodes": "2 / 2",
+   "connectedNodeCount": 2,
+   "totalNodeCount": 2,
+   "connectedToCluster": true,
+   "clustered": true
+  },
+  "results": [
+   {
+    "tool": "get_capabilities",
+    "status": "ok",
+    "error": null,
+    "topology": {
+     "clustered": true,
+     "connected_to_cluster": true,
+     "total_node_count": 2,
+     "observed_at": "2026-10-29T05:08:42.642Z",
+     "live_investigation": "blocked (clustered)"
+    }
+   },
+   {
+    "tool": "describe_flow",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   },
+   {
+    "tool": "get_flow_health",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   },
+   {
+    "tool": "trace_feed",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   }
+  ],
+  "nifimcp_requests": [
+   [
+    "GET",
+    "about"
+   ],
+   [
+    "GET",
+    "cluster_summary"
+   ],
+   [
+    "GET",
+    "current_user"
+   ],
+   [
+    "GET",
+    "group_flow"
+   ]
+  ],
+  "problems": []
+ },
+ "partial": {
+  "stopped_node": "nifimcp-lab-3e8203318ded-n2",
+  "summary": {
+   "connectedNodes": "1 / 2",
+   "connectedNodeCount": 1,
+   "totalNodeCount": 2,
+   "connectedToCluster": true,
+   "clustered": true
+  },
+  "results": [
+   {
+    "tool": "get_capabilities",
+    "status": "ok",
+    "error": null,
+    "topology": {
+     "clustered": true,
+     "connected_to_cluster": true,
+     "total_node_count": 2,
+     "observed_at": "2026-10-29T05:08:44.928Z",
+     "live_investigation": "blocked (clustered)"
+    }
+   },
+   {
+    "tool": "describe_flow",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   },
+   {
+    "tool": "get_flow_health",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   },
+   {
+    "tool": "trace_feed",
+    "status": "error",
+    "error": "UNSUPPORTED_TOPOLOGY",
+    "topology": null
+   }
+  ],
+  "nifimcp_requests": [
+   [
+    "GET",
+    "about"
+   ],
+   [
+    "GET",
+    "cluster_summary"
+   ],
+   [
+    "GET",
+    "current_user"
+   ],
+   [
+    "GET",
+    "group_flow"
+   ]
+  ],
+  "problems": []
+ },
+ "result": "PASS",
+ "cleanup": "containers and network removed"
+}

@@ -1,0 +1,122 @@
+{
+ "bundle_id": "demo-telemetry-intake",
+ "bundle_schema": "nifimcp-bundle/1",
+ "collector": {
+  "name": "nifimcp-lab-demo-builder",
+  "version": "0.1.0"
+ },
+ "completeness": {
+  "missing": [],
+  "status": "complete"
+ },
+ "created_at": "2026-10-29T02:37:35.402Z",
+ "declared_scope": {
+  "label": "Telemetry Intake (synthetic demo)",
+  "process_group_id": "85848372-01a1-1000-d7a1-bc9a87cac587",
+  "scope_id": "demo-telemetry-intake"
+ },
+ "files": [
+  {
+   "bytes": 44037,
+   "collected_at": "2026-10-29T02:37:35.143Z",
+   "description": "Native NiFi 2.12.0 flow definition download of the demo process group",
+   "kind": "flow_definition",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "flow-definition.json",
+   "sha256": "29ac5a8ab7c1d1c8939ab07c95a8bf55e3062ce300bfa2755397c1a48dcfba47"
+  },
+  {
+   "bytes": 29913,
+   "collected_at": "2026-10-29T02:37:35.162Z",
+   "description": "Recursive status snapshot",
+   "kind": "status",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "status.json",
+   "sha256": "76d76a8c0d9f0484248b3672607c42d962879fe30d558018a6e8fa4a3f6821f7"
+  },
+  {
+   "bytes": 20985,
+   "collected_at": "2026-10-29T02:37:35.171Z",
+   "description": "Bulletin board snapshot",
+   "kind": "bulletins",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "bulletins.json",
+   "sha256": "c54925c36798704d56b7c635a996359c05d654a629ca421f17179cf02248cb28"
+  },
+  {
+   "bytes": 62583,
+   "collected_at": "2026-10-29T02:37:35.178Z",
+   "description": "Provenance events routed to unmatched by the router",
+   "interval": {
+    "end": "2026-10-29T02:38:35Z",
+    "start": "2026-10-29T02:35:56Z"
+   },
+   "kind": "provenance",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "provenance-unmatched.json",
+   "sha256": "ddcb0c90034cff0e7a2050e235288f14b3e3f06166ff73e7d0cb0c88bf3a749a"
+  },
+  {
+   "bytes": 19614,
+   "collected_at": "2026-10-29T02:37:35.364Z",
+   "description": "Lineage events for one critical FlowFile",
+   "interval": {
+    "end": "2026-10-29T02:38:35Z",
+    "start": "2026-10-29T02:35:56Z"
+   },
+   "kind": "provenance",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "provenance-trace.json",
+   "sha256": "103494ab00920ce7151ee6a51275e10fa7c9ed5ee56c7b2744918acaa34c66e1"
+  },
+  {
+   "bytes": 4643,
+   "collected_at": "2026-10-29T02:37:35.390Z",
+   "description": "Metadata sample (first 10 entries) of the Unmatched hold queue",
+   "kind": "queue_sample",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "queue-sample-unmatched.json",
+   "sha256": "d276d3324b4e077c48775021919f7faa5dd1cc46a08e99c2d4ce6e07901c4897"
+  },
+  {
+   "bytes": 1056,
+   "collected_at": "2026-10-29T02:37:35.402Z",
+   "description": "Operator notes (one current, one written against an older source)",
+   "kind": "operator_notes",
+   "node_id": "standalone",
+   "origin": "machine_collected",
+   "path": "operator-notes.json",
+   "sha256": "e9a991c7a778233582f447ad2dd68df9948e4059db726b962d2d80f3f6dfbe28"
+  }
+ ],
+ "nifi": {
+  "profile": "stock apache/nifi 2.12.0 docker image, standalone, secure",
+  "version": "2.12.0"
+ },
+ "nodes": [
+  {
+   "included": true,
+   "node_id": "standalone",
+   "note": "single-node lab"
+  }
+ ],
+ "redaction": {
+  "notes": "Synthetic canary strings are planted in non-sensitive properties for leak tests.",
+  "policy": "none at collection; NiFiMCP redacts on read",
+  "sensitive_values_present": false
+ },
+ "source_kinds": [
+  "bulletins",
+  "flow_definition",
+  "operator_notes",
+  "provenance",
+  "queue_sample",
+  "status"
+ ]
+}

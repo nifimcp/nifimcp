@@ -1,0 +1,62 @@
+[project]
+name = "nifimcp"
+version = "0.1.0rc1"
+description = "Evidence-backed Apache NiFi investigation for AI assistants: an independent, read-only MCP server that explains flows, investigates problems with cited evidence and drafts bounded subflows for controlled engineering."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "third_party/*/LICENSE*"]
+authors = [{ name = "Lloyd Clark", email = "107948402+FlightDeckAI@users.noreply.github.com" }]
+maintainers = [{ name = "Lloyd Clark", email = "107948402+FlightDeckAI@users.noreply.github.com" }]
+requires-python = ">=3.12,<3.13"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Topic :: System :: Monitoring",
+    "Intended Audience :: System Administrators",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp==2.3.0",
+    "pydantic==2.14.1",
+    "httpx2==2.16.0",
+    "anyio==4.15.1",
+]
+
+[project.urls]
+Homepage = "https://nifimcp.com"
+Repository = "https://github.com/nifimcp/nifimcp"
+Issues = "https://github.com/nifimcp/nifimcp/issues"
+Changelog = "https://github.com/nifimcp/nifimcp/blob/main/RELEASE_NOTES.md"
+Security = "https://github.com/nifimcp/nifimcp/blob/main/SECURITY.md"
+
+[project.scripts]
+nifimcp = "nifimcp.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "jsonschema==4.26.0",
+    "cryptography==50.0.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "nifimcp"
+source-include = [
+    "src/nifimcp/contracts/*.json",
+    "src/nifimcp/catalog/*.json",
+    "src/nifimcp/demo_data/**",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: requires the disposable secure NiFi 2.12.0 lab (scripts/lab_bootstrap.py)",
+    "lab: requires the lab and performs lab-only mutations through the separate lab client",
+]
+addopts = "-m 'not integration and not lab' -p no:cacheprovider"
+filterwarnings = ["error::pytest.PytestUnraisableExceptionWarning"]

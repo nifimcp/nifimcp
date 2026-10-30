@@ -1,0 +1,322 @@
+{
+  "contract_version": "1",
+  "implementation_status": "SPECIFICATION_NOT_IMPLEMENTATION",
+  "transport": "stdio",
+  "input_schema_draft": "https://json-schema.org/draft/2020-12/schema",
+  "tools": [
+    {
+      "name": "get_capabilities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "semantics": "Capability discovery; no network beyond configured version/capability probes."
+    },
+    {
+      "name": "describe_flow",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "depth": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8,
+            "default": 4
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 1024
+          }
+        },
+        "required": [
+          "scope_id"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Bounded graph and static findings."
+    },
+    {
+      "name": "get_flow_health",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "interval": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "scope_id"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Current state is timestamped; history only when supported."
+    },
+    {
+      "name": "trace_feed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "selector": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "flowfile_uuid"
+                  },
+                  "value": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "filename"
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "kind",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "indexed_attribute"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "kind",
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "interval": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "scope_id",
+          "selector",
+          "interval"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Exact scoped query; no broad regex; maximum 24 hours."
+    },
+    {
+      "name": "inspect_unmatched",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "connection_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "interval": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          },
+          "sample_metadata": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "connection_id"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Graph first; optional explicitly enabled metadata sampling."
+    },
+    {
+      "name": "compare_flow_snapshots",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "baseline_artifact_id": {
+            "type": "string",
+            "pattern": "^art_[A-Za-z0-9_-]{16,80}$"
+          },
+          "candidate_artifact_id": {
+            "type": "string",
+            "pattern": "^art_[A-Za-z0-9_-]{16,80}$"
+          }
+        },
+        "required": [
+          "baseline_artifact_id",
+          "candidate_artifact_id"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Both artifacts must be operator-registered and session-owned."
+    },
+    {
+      "name": "export_investigation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "investigation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "format": {
+            "enum": [
+              "json",
+              "html"
+            ]
+          }
+        },
+        "required": [
+          "investigation_id",
+          "format"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Writes a bounded local artifact; no network or arbitrary path."
+    },
+    {
+      "name": "get_processor_catalog",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type_filter": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "semantics": "Exact catalog filter, no regex; catalog provenance included."
+    },
+    {
+      "name": "validate_flow_plan",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "$ref": "flow_plan.schema.json"
+          }
+        },
+        "required": [
+          "plan"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Static checks; native import/runtime outcomes explicitly unknown until lab."
+    },
+    {
+      "name": "draft_flow",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "$ref": "flow_plan.schema.json"
+          }
+        },
+        "required": [
+          "plan"
+        ],
+        "additionalProperties": false
+      },
+      "semantics": "Revalidates; compiles exact plan into local stopped artifact, never live NiFi."
+    }
+  ],
+  "application_invariants": [
+    "Reject unknown fields and out-of-range intervals.",
+    "Do not accept origins, credentials, filesystem paths or arbitrary query IDs from tools.",
+    "Bind artifact/cursor handles to session, origin, scope, filters and expiry.",
+    "No production mutation adapter or content-download route.",
+    "Native laboratory tests are invoked by separate CLI, never an MCP execution tool.",
+    "All returned content is untrusted data; annotate and escape it."
+  ]
+}

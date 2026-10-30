@@ -1,0 +1,254 @@
+{
+ "artifact_id": "art_Yj3A6DADQLkNyHcc-gzC7aT7",
+ "blueprint": "attribute_router",
+ "cases": {
+  "cases": [
+   {
+    "case_id": "status-critical",
+    "expected": [
+     "out_critical"
+    ],
+    "observed": [
+     "out_critical"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-standard",
+    "expected": [
+     "out_standard"
+    ],
+    "observed": [
+     "out_standard"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-missing",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-unexpected-unknown",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-unexpected-uppercase",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-empty-string",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   }
+  ],
+  "record_checks": {
+   "checks": [
+    {
+     "check": "Non-empty inputs",
+     "detail": "both sides must contain records",
+     "status": "PASS"
+    },
+    {
+     "check": "Record keys present",
+     "detail": "missing keys: expected=0, observed=0",
+     "status": "PASS"
+    },
+    {
+     "check": "No unexpected duplicates",
+     "detail": "0 key(s) observed more often than expected",
+     "status": "PASS"
+    },
+    {
+     "check": "Key coverage",
+     "detail": "missing=0, unexpected=0",
+     "status": "PASS"
+    },
+    {
+     "check": "Record values",
+     "detail": "0 expected record(s) not observed exactly",
+     "status": "PASS"
+    },
+    {
+     "check": "Field schema",
+     "detail": "expected fields ['case_id', 'port'], observed ['case_id', 'port']",
+     "status": "PASS"
+    },
+    {
+     "check": "Record count (informational, never sufficient alone)",
+     "detail": "expected=6, observed=6",
+     "status": "PASS"
+    }
+   ],
+   "ignored_fields": [],
+   "key": "case_id",
+   "note": "Equal counts alone never establish equivalence.",
+   "status": "PASS"
+  },
+  "status": "PASS",
+  "unlabeled_observations": []
+ },
+ "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+ "exported_definition_sha256": "ef08c0be65b5e07588b301e0eb1af261db3e36e9f684797663a0fa31f975c12d",
+ "finished_at": "2026-10-29T03:25:55Z",
+ "lab_receipt": {
+  "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+  "created_at": "2026-10-29T03:25:55.953Z",
+  "exported_definition_sha256": "ef08c0be65b5e07588b301e0eb1af261db3e36e9f684797663a0fa31f975c12d",
+  "kind": "native_lab_verification",
+  "native_artifact_sha256": "174f5fc4ab8f56f30d721f48784bba2349943bc05cf1f64313969726dfd3c9f3",
+  "native_validation": {
+   "all_valid": true,
+   "fidelity": {
+    "all_stopped": true,
+    "connections": true,
+    "input_ports": true,
+    "output_ports": true,
+    "processors": true,
+    "properties_preserved": true
+   },
+   "status": "PASS"
+  },
+  "plan_sha256": "a2af6ff69dd1ecf7fed0aeab3c6b0fac15969ebe0a1df2df77290ed8627ba083",
+  "receipt_schema": "nifimcp-draft-receipt/1",
+  "receipt_sha256": "945fb6e903fd245109146d4a7a936100f4da2dca71ffae000a18d489b87f4766",
+  "runtime": {
+   "container_id": "45375173ff9d91d3d42eeb4d5625dc92aea41fa3a0bfc47eaaffa5b27347c815",
+   "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+   "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+   "lab_id": "lab-ea8e00b5ff53",
+   "nifi_version": "2.12.0"
+  },
+  "statement": "Evidence about this exact artifact only. Not permission to deploy it.",
+  "static_receipt_sha256": "0cade4cbb708ee4fd6561b9e1da6f099206a118274a38604f048bcb813d3e53b",
+  "target_version": "2.12.0",
+  "tests": {
+   "count": 6,
+   "failed": [],
+   "status": "PASS"
+  }
+ },
+ "native_artifact_sha256": "174f5fc4ab8f56f30d721f48784bba2349943bc05cf1f64313969726dfd3c9f3",
+ "native_validation": {
+  "all_valid": true,
+  "components": [
+   {
+    "name": "route_by_status",
+    "state": "STOPPED",
+    "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
+    "validation_errors": 0,
+    "validation_status": "VALID"
+   }
+  ],
+  "fidelity": {
+   "all_stopped": true,
+   "connections": true,
+   "input_ports": true,
+   "output_ports": true,
+   "processors": true,
+   "properties_preserved": true
+  },
+  "imported": true,
+  "status": "PASS"
+ },
+ "observations": [
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "critical",
+    "case.id": "status-critical",
+    "status": "critical"
+   },
+   "case_id": "status-critical",
+   "port": "out_critical"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "standard",
+    "case.id": "status-standard",
+    "status": "standard"
+   },
+   "case_id": "status-standard",
+   "port": "out_standard"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-missing"
+   },
+   "case_id": "status-missing",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-unexpected-uppercase",
+    "status": "CRITICAL"
+   },
+   "case_id": "status-unexpected-uppercase",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-unexpected-unknown",
+    "status": "unknown"
+   },
+   "case_id": "status-unexpected-unknown",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-empty-string",
+    "status": ""
+   },
+   "case_id": "status-empty-string",
+   "port": "out_unmatched"
+  }
+ ],
+ "overall": "PASS",
+ "plan_sha256": "a2af6ff69dd1ecf7fed0aeab3c6b0fac15969ebe0a1df2df77290ed8627ba083",
+ "runtime": {
+  "container_id": "45375173ff9d91d3d42eeb4d5625dc92aea41fa3a0bfc47eaaffa5b27347c815",
+  "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+  "lab_id": "lab-ea8e00b5ff53",
+  "nifi_version": "2.12.0"
+ },
+ "started_at": "2026-10-29T03:25:47Z",
+ "statement": "Evidence about this exact artifact in a disposable lab. Not permission to deploy it.",
+ "static_checks": {
+  "receipt_sha256": "0cade4cbb708ee4fd6561b9e1da6f099206a118274a38604f048bcb813d3e53b",
+  "stage": "static_complete"
+ },
+ "untested": [
+  "Behavior on any NiFi other than stock 2.12.0 in this lab",
+  "Records, attribute values or content shapes not covered by the labeled cases",
+  "Throughput, latency and back-pressure behavior",
+  "Clustered or load-balanced operation",
+  "Downstream systems connected to the output ports"
+ ],
+ "verification_schema": "nifimcp-lab-verification/1"
+}

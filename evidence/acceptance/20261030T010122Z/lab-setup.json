@@ -1,0 +1,36 @@
+{
+ "lab_id": "lab-ea8e00b5ff53",
+ "image": {
+  "architecture": "amd64",
+  "digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "image_id": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "os": "linux",
+  "reference": "apache/nifi@sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "tag": "apache/nifi:2.12.0"
+ },
+ "nifi": "2.12.0",
+ "java": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+ "identities": {
+  "admin": "CN=nifimcp-lab-admin",
+  "observer": "CN=nifimcp-lab-observer",
+  "outsider": "CN=nifimcp-lab-outsider",
+  "restricted": "CN=nifimcp-lab-restricted"
+ },
+ "server_fingerprint_sha256": "5f537b019176b9f2d004bdb6adeae1f2e3399c1b5451e88c815ac8017140c8ca",
+ "origin_binding": "127.0.0.1 only",
+ "auth": "two-way TLS (AUTH=tls)",
+ "observer_policies": [
+  "read /flow",
+  "read scoped process group",
+  "read /provenance",
+  "read provenance data (scope)",
+  "read data (scope)"
+ ],
+ "restricted_policies": [
+  "read /flow",
+  "read scoped process group"
+ ],
+ "outsider_policies": [
+  "read /flow"
+ ]
+}

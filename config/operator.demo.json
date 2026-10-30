@@ -1,0 +1,18 @@
+{
+  "schema_version": "1",
+  "mode": "demo",
+  "artifact_dir": "../private-artifacts/demo-session",
+  "registered_inputs": [],
+  "live": null,
+  "telemetry": false,
+  "updates": false,
+  "redaction": {
+    "include_component_names": true,
+    "include_property_values": true,
+    "include_parameter_values": false,
+    "include_bulletin_messages": true,
+    "include_filenames": false,
+    "attribute_allowlist": ["event.level", "sensor.id", "source.system"]
+  },
+  "limits": {"queue_sampling_enabled": true}
+}

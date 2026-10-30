@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>NiFiMCP lab verification</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:1000px;margin:auto;padding:24px 16px;color:#16232a;background:#fff}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d5dde1;padding:6px;text-align:left}
+.ok td:last-child{color:#0b6e69;font-weight:600}.bad td:last-child{color:#a1262b;font-weight:600}
+.verdict{font-size:22px;font-weight:700}code{font:12.5px ui-monospace,monospace;overflow-wrap:anywhere}</style></head><body>
+<h1>Flow Draft Preview: native lab verification</h1>
+<p class=verdict>Overall: PASS</p>
+<p>Blueprint attribute_router · artifact <code>art_Yj3A6DADQLkNyHcc-gzC7aT7</code> · native sha256
+<code>174f5fc4ab8f56f30d721f48784bba2349943bc05cf1f64313969726dfd3c9f3</code> · NiFi 2.12.0 image
+<code>sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad</code> · lab lab-ea8e00b5ff53 · 2026-10-29T03:25:55Z</p>
+<h2>1. Static checks (before the lab)</h2><p>Validation stage static_complete; static receipt
+<code>0cade4cbb708ee4fd6561b9e1da6f099206a118274a38604f048bcb813d3e53b</code>.</p>
+<h2>2. Observed NiFi behavior</h2><h3>Native import and validation: PASS</h3>
+<table><tr><th>Component</th><th>Type</th><th>State</th><th>NiFi validation</th><th>Errors</th></tr><tr><td>route_by_status</td><td>RouteOnAttribute</td><td>STOPPED</td><td>VALID</td><td>0</td></tr></table>
+<ul><li>processors: yes</li><li>input_ports: yes</li><li>output_ports: yes</li><li>connections: yes</li><li>all_stopped: yes</li><li>properties_preserved: yes</li></ul>
+<h3>Labeled cases: PASS</h3>
+<table><tr><th>Case</th><th>Expected outputs</th><th>Observed outputs</th><th>Result</th></tr><tr class=ok><td>status-critical</td><td>out_critical</td><td>out_critical</td><td>PASS</td></tr><tr class=ok><td>status-standard</td><td>out_standard</td><td>out_standard</td><td>PASS</td></tr><tr class=ok><td>status-missing</td><td>out_unmatched</td><td>out_unmatched</td><td>PASS</td></tr><tr class=ok><td>status-unexpected-unknown</td><td>out_unmatched</td><td>out_unmatched</td><td>PASS</td></tr><tr class=ok><td>status-unexpected-uppercase</td><td>out_unmatched</td><td>out_unmatched</td><td>PASS</td></tr><tr class=ok><td>status-empty-string</td><td>out_unmatched</td><td>out_unmatched</td><td>PASS</td></tr></table>
+<p>Exported definition after the run: <code>ef08c0be65b5e07588b301e0eb1af261db3e36e9f684797663a0fa31f975c12d</code></p>
+<h2>3. Model-generated interpretation</h2><p>None. This report contains no model output.</p>
+<h2>4. Untested claims</h2><ul><li>Behavior on any NiFi other than stock 2.12.0 in this lab</li><li>Records, attribute values or content shapes not covered by the labeled cases</li><li>Throughput, latency and back-pressure behavior</li><li>Clustered or load-balanced operation</li><li>Downstream systems connected to the output ports</li></ul>
+<p><strong>Evidence about this exact artifact in a disposable lab. Not permission to deploy it.</strong></p></body></html>

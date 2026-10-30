@@ -1,0 +1,1978 @@
+{
+ "collection": {
+  "collected_at": "2026-10-29T02:37:35.178Z",
+  "collector": "nifimcp-lab-demo-builder",
+  "endpoint": "POST /provenance",
+  "node_id": null,
+  "query": {
+   "ProcessorID": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+   "Relationship": "unmatched"
+  }
+ },
+ "response": {
+  "provenance": {
+   "expiration": "10/29/2026 03:07:35.301 UTC",
+   "finished": true,
+   "id": "85851a4d-01a1-1000-53c1-0b3dc27532a0",
+   "percentCompleted": 100,
+   "request": {
+    "endDate": "10/29/2026 02:38:35 UTC",
+    "maxResults": 200,
+    "searchTerms": {
+     "Component ID": {
+      "inverse": false,
+      "value": "8584845e-01a1-1000-2d97-5fd7131cdadb"
+     },
+     "Relationship": {
+      "inverse": false,
+      "value": "unmatched"
+     }
+    },
+    "startDate": "10/29/2026 02:35:56 UTC"
+   },
+   "results": {
+    "generated": "02:37:35 UTC",
+    "oldestEvent": "10/29/2026 02:22:03 UTC",
+    "provenanceEvents": [
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-234.json",
+        "value": "telemetry-234.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "b3226d73-e6fb-4622-a6a8-9f0982b9f3e2",
+        "value": "b3226d73-e6fb-4622-a6a8-9f0982b9f3e2"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 802,
+      "eventTime": "10/29/2026 02:37:33.182 UTC",
+      "eventTimestamp": "2026-10-29T02:37:33.182Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "b3226d73-e6fb-4622-a6a8-9f0982b9f3e2",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "802",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5463,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8024,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5463,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-232.json",
+        "value": "telemetry-232.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "5c2707bc-d7e8-4f92-812d-e1d54b077824",
+        "value": "5c2707bc-d7e8-4f92-812d-e1d54b077824"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 800,
+      "eventTime": "10/29/2026 02:37:32.171 UTC",
+      "eventTimestamp": "2026-10-29T02:37:32.171Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "5c2707bc-d7e8-4f92-812d-e1d54b077824",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "800",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5404,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 7815,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5404,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-230.json",
+        "value": "telemetry-230.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-4",
+        "value": "sensor-4"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "63a3e2eb-9e96-4610-a079-2e5fe9e1c9bf",
+        "value": "63a3e2eb-9e96-4610-a079-2e5fe9e1c9bf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 798,
+      "eventTime": "10/29/2026 02:37:31.171 UTC",
+      "eventTimestamp": "2026-10-29T02:37:31.171Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "63a3e2eb-9e96-4610-a079-2e5fe9e1c9bf",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "798",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5345,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 7617,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5345,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-226.json",
+        "value": "telemetry-226.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "b081da95-a57e-4b67-bb40-b20363eec336",
+        "value": "b081da95-a57e-4b67-bb40-b20363eec336"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 788,
+      "eventTime": "10/29/2026 02:37:29.169 UTC",
+      "eventTimestamp": "2026-10-29T02:37:29.169Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "b081da95-a57e-4b67-bb40-b20363eec336",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "788",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5235,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 7219,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5235,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-222.json",
+        "value": "telemetry-222.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "360abd64-d29b-436b-ad2d-cd98bbe8202a",
+        "value": "360abd64-d29b-436b-ad2d-cd98bbe8202a"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 784,
+      "eventTime": "10/29/2026 02:37:27.168 UTC",
+      "eventTimestamp": "2026-10-29T02:37:27.168Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "360abd64-d29b-436b-ad2d-cd98bbe8202a",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "784",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5120,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 6821,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5120,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-212.json",
+        "value": "telemetry-212.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "b5a27a99-9c89-4ec0-b20e-d38a4325b25b",
+        "value": "b5a27a99-9c89-4ec0-b20e-d38a4325b25b"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 738,
+      "eventTime": "10/29/2026 02:37:22.164 UTC",
+      "eventTimestamp": "2026-10-29T02:37:22.164Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "b5a27a99-9c89-4ec0-b20e-d38a4325b25b",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "738",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4835,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 5831,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4835,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-210.json",
+        "value": "telemetry-210.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-4",
+        "value": "sensor-4"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "df03979c-d3c0-4173-95f3-996a903993c9",
+        "value": "df03979c-d3c0-4173-95f3-996a903993c9"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 731,
+      "eventTime": "10/29/2026 02:37:21.164 UTC",
+      "eventTimestamp": "2026-10-29T02:37:21.164Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "df03979c-d3c0-4173-95f3-996a903993c9",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "731",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4782,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 5633,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4782,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-208.json",
+        "value": "telemetry-208.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-4",
+        "value": "sensor-4"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "4a26c764-08d9-411a-9d7a-f014cc7eee7b",
+        "value": "4a26c764-08d9-411a-9d7a-f014cc7eee7b"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 724,
+      "eventTime": "10/29/2026 02:37:20.163 UTC",
+      "eventTimestamp": "2026-10-29T02:37:20.163Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "4a26c764-08d9-411a-9d7a-f014cc7eee7b",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "724",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4723,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 5434,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4723,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-206.json",
+        "value": "telemetry-206.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-4",
+        "value": "sensor-4"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "f7fb2572-1b97-4f04-aa9a-38b79c69808c",
+        "value": "f7fb2572-1b97-4f04-aa9a-38b79c69808c"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 717,
+      "eventTime": "10/29/2026 02:37:19.163 UTC",
+      "eventTimestamp": "2026-10-29T02:37:19.163Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "f7fb2572-1b97-4f04-aa9a-38b79c69808c",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "717",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4664,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 5236,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4664,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-204.json",
+        "value": "telemetry-204.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "b6591459-481f-47d6-8e95-796c8b3370a6",
+        "value": "b6591459-481f-47d6-8e95-796c8b3370a6"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 710,
+      "eventTime": "10/29/2026 02:37:18.162 UTC",
+      "eventTimestamp": "2026-10-29T02:37:18.162Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "b6591459-481f-47d6-8e95-796c8b3370a6",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "710",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4605,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 5037,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4605,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-194.json",
+        "value": "telemetry-194.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "04cb2429-b8d4-4af2-aa4c-a7e6409486e4",
+        "value": "04cb2429-b8d4-4af2-aa4c-a7e6409486e4"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 669,
+      "eventTime": "10/29/2026 02:37:13.148 UTC",
+      "eventTimestamp": "2026-10-29T02:37:13.148Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "04cb2429-b8d4-4af2-aa4c-a7e6409486e4",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "669",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4327,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 4034,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4327,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-190.json",
+        "value": "telemetry-190.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-3",
+        "value": "sensor-3"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "630c3e98-b193-423a-88fe-bfa11e0197e7",
+        "value": "630c3e98-b193-423a-88fe-bfa11e0197e7"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 655,
+      "eventTime": "10/29/2026 02:37:11.147 UTC",
+      "eventTimestamp": "2026-10-29T02:37:11.147Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "630c3e98-b193-423a-88fe-bfa11e0197e7",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "655",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4218,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 3637,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4218,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-186.json",
+        "value": "telemetry-186.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "d73c645d-e1c6-491a-999f-2c2cb2b2aa59",
+        "value": "d73c645d-e1c6-491a-999f-2c2cb2b2aa59"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 641,
+      "eventTime": "10/29/2026 02:37:09.145 UTC",
+      "eventTimestamp": "2026-10-29T02:37:09.145Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "d73c645d-e1c6-491a-999f-2c2cb2b2aa59",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "641",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4103,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 3239,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4103,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-184.json",
+        "value": "telemetry-184.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "bec2a52a-c75e-4267-aaa2-5567f7b3d7ba",
+        "value": "bec2a52a-c75e-4267-aaa2-5567f7b3d7ba"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 634,
+      "eventTime": "10/29/2026 02:37:08.144 UTC",
+      "eventTimestamp": "2026-10-29T02:37:08.144Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "bec2a52a-c75e-4267-aaa2-5567f7b3d7ba",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "634",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 4044,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 3040,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 4044,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-180.json",
+        "value": "telemetry-180.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "4ef7f9a6-462a-44f2-9ff3-e510bb60a7c0",
+        "value": "4ef7f9a6-462a-44f2-9ff3-e510bb60a7c0"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 614,
+      "eventTime": "10/29/2026 02:37:06.142 UTC",
+      "eventTimestamp": "2026-10-29T02:37:06.142Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "4ef7f9a6-462a-44f2-9ff3-e510bb60a7c0",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "614",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3934,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 2643,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3934,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-178.json",
+        "value": "telemetry-178.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "bc1d6ee3-7bf9-4577-ad67-60deb0a44bc1",
+        "value": "bc1d6ee3-7bf9-4577-ad67-60deb0a44bc1"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 607,
+      "eventTime": "10/29/2026 02:37:05.141 UTC",
+      "eventTimestamp": "2026-10-29T02:37:05.141Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "bc1d6ee3-7bf9-4577-ad67-60deb0a44bc1",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "607",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3881,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 2446,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3881,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-174.json",
+        "value": "telemetry-174.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "1d6bfa51-4d6d-4b43-ad2e-b9b1e1850fea",
+        "value": "1d6bfa51-4d6d-4b43-ad2e-b9b1e1850fea"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 594,
+      "eventTime": "10/29/2026 02:37:03.139 UTC",
+      "eventTimestamp": "2026-10-29T02:37:03.139Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "1d6bfa51-4d6d-4b43-ad2e-b9b1e1850fea",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "594",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3772,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 2049,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3772,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "diagnostic",
+        "value": "diagnostic"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-172.json",
+        "value": "telemetry-172.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "f05ef555-ec8f-4efb-9504-53717ef06a11",
+        "value": "f05ef555-ec8f-4efb-9504-53717ef06a11"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 586,
+      "eventTime": "10/29/2026 02:37:02.138 UTC",
+      "eventTimestamp": "2026-10-29T02:37:02.138Z",
+      "eventType": "ROUTE",
+      "fileSize": "59 bytes",
+      "fileSizeBytes": 59,
+      "flowFileUuid": "f05ef555-ec8f-4efb-9504-53717ef06a11",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "586",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "59 bytes",
+      "inputContentClaimFileSizeBytes": 59,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3713,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 1850,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "59 bytes",
+      "outputContentClaimFileSizeBytes": 59,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3713,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-165.json",
+        "value": "telemetry-165.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-1",
+        "value": "sensor-1"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "551f1a60-6c43-4453-a429-75c735d7314b",
+        "value": "551f1a60-6c43-4453-a429-75c735d7314b"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 580,
+      "eventTime": "10/29/2026 02:37:01.138 UTC",
+      "eventTimestamp": "2026-10-29T02:37:01.138Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "551f1a60-6c43-4453-a429-75c735d7314b",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "580",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523927-2",
+      "inputContentClaimOffset": 3531,
+      "inputContentClaimSection": "2",
+      "lineageDuration": 3658,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523927-2",
+      "outputContentClaimOffset": 3531,
+      "outputContentClaimSection": "2",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-170.json",
+        "value": "telemetry-170.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-2",
+        "value": "sensor-2"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "d875bb09-a373-4d19-8291-2019cefe4e58",
+        "value": "d875bb09-a373-4d19-8291-2019cefe4e58"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 572,
+      "eventTime": "10/29/2026 02:37:00.137 UTC",
+      "eventTimestamp": "2026-10-29T02:37:00.137Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "d875bb09-a373-4d19-8291-2019cefe4e58",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "572",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3660,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 652,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3660,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "info",
+        "value": "info"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-164.json",
+        "value": "telemetry-164.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "unmatched"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-4",
+        "value": "sensor-4"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "08a157dc-8ef6-41b9-b213-d505619b7441",
+        "value": "08a157dc-8ef6-41b9-b213-d505619b7441"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 552,
+      "eventTime": "10/29/2026 02:36:57.124 UTC",
+      "eventTimestamp": "2026-10-29T02:36:57.124Z",
+      "eventType": "ROUTE",
+      "fileSize": "53 bytes",
+      "fileSizeBytes": 53,
+      "flowFileUuid": "08a157dc-8ef6-41b9-b213-d505619b7441",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "552",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "53 bytes",
+      "inputContentClaimFileSizeBytes": 53,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 3495,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 47,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "53 bytes",
+      "outputContentClaimFileSizeBytes": 53,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 3495,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "unmatched",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     }
+    ],
+    "timeOffset": 0,
+    "total": "21",
+    "totalCount": 21
+   },
+   "submissionTime": "10/29/2026 02:37:35.181 UTC",
+   "uri": "https://127.0.0.1:37993/nifi-api/provenance/85851a4d-01a1-1000-53c1-0b3dc27532a0"
+  }
+ }
+}

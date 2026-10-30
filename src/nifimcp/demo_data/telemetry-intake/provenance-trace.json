@@ -1,0 +1,620 @@
+{
+ "collection": {
+  "collected_at": "2026-10-29T02:37:35.364Z",
+  "collector": "nifimcp-lab-demo-builder",
+  "endpoint": "POST /provenance",
+  "node_id": null,
+  "query": {
+   "FlowFileUUID": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+  }
+ },
+ "response": {
+  "provenance": {
+   "expiration": "10/29/2026 03:07:35.371 UTC",
+   "finished": true,
+   "id": "85851b07-01a1-1000-a6d0-292cd380c9dd",
+   "percentCompleted": 100,
+   "request": {
+    "endDate": "10/29/2026 02:38:35 UTC",
+    "maxResults": 200,
+    "searchTerms": {
+     "FlowFile UUID": {
+      "inverse": false,
+      "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+     }
+    },
+    "startDate": "10/29/2026 02:35:56 UTC"
+   },
+   "results": {
+    "generated": "02:37:35 UTC",
+    "oldestEvent": "10/29/2026 02:22:03 UTC",
+    "provenanceEvents": [
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584847f-01a1-1000-579f-3c14074d916d",
+      "componentName": "Archive critical copy",
+      "componentType": "PutFile",
+      "contentEqual": true,
+      "details": "Auto-Terminated by success Relationship",
+      "eventDuration": 0,
+      "eventId": 807,
+      "eventTime": "10/29/2026 02:37:34.192 UTC",
+      "eventTimestamp": "2026-10-29T02:37:34.192Z",
+      "eventType": "DROP",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "807",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8232,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484b6-01a1-1000-015d-dae168876316"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584847f-01a1-1000-579f-3c14074d916d",
+      "componentName": "Archive critical copy",
+      "componentType": "PutFile",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 806,
+      "eventTime": "10/29/2026 02:37:34.192 UTC",
+      "eventTimestamp": "2026-10-29T02:37:34.192Z",
+      "eventType": "SEND",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "806",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8232,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484b6-01a1-1000-015d-dae168876316",
+      "transitUri": "file:/tmp/nifimcp-demo-archive/telemetry-236.json"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "critical"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [
+       "a428ea56-7f28-42c9-8ccf-46464f4caf66"
+      ],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 805,
+      "eventTime": "10/29/2026 02:37:34.183 UTC",
+      "eventTimestamp": "2026-10-29T02:37:34.183Z",
+      "eventType": "CLONE",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "805",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8223,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [
+       "164958e4-37fd-4824-a226-5df1e41c7aaf"
+      ],
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "previousValue": "critical",
+        "value": "critical"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "RouteOnAttribute.Route",
+        "value": "critical"
+       },
+       {
+        "name": "sensor.id",
+        "previousValue": "sensor-0",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584845e-01a1-1000-2d97-5fd7131cdadb",
+      "componentName": "Route by level",
+      "componentType": "RouteOnAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 804,
+      "eventTime": "10/29/2026 02:37:34.183 UTC",
+      "eventTimestamp": "2026-10-29T02:37:34.183Z",
+      "eventType": "ROUTE",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "85848397-01a1-1000-a547-231db7ee3c1f",
+      "id": "804",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8223,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "relationship": "critical",
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858484aa-01a1-1000-80d4-b1ceed2172d5"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "previousValue": "DEMO-CANARY-LITERAL-KEY-0002",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "event.level",
+        "value": "critical"
+       },
+       {
+        "name": "feed.owner",
+        "previousValue": "telemetry-team",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "sensor.id",
+        "value": "sensor-0"
+       },
+       {
+        "name": "source.system",
+        "previousValue": "lab-sensors",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "previousValue": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "8584841c-01a1-1000-f629-9ca999640255",
+      "componentName": "Extract level and sensor",
+      "componentType": "EvaluateJsonPath",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 803,
+      "eventTime": "10/29/2026 02:37:34.154 UTC",
+      "eventTimestamp": "2026-10-29T02:37:34.154Z",
+      "eventType": "ATTRIBUTES_MODIFIED",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "85848391-01a1-1000-fbce-298a68204123",
+      "id": "803",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 8194,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "8584843a-01a1-1000-7759-e8c84b89f545"
+     },
+     {
+      "attributes": [
+       {
+        "name": "api.key",
+        "value": "DEMO-CANARY-LITERAL-KEY-0002"
+       },
+       {
+        "name": "feed.owner",
+        "value": "telemetry-team"
+       },
+       {
+        "name": "filename",
+        "previousValue": "telemetry-236.json",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "previousValue": "application/json",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "previousValue": "./",
+        "value": "./"
+       },
+       {
+        "name": "source.system",
+        "value": "lab-sensors"
+       },
+       {
+        "name": "upstream.url",
+        "value": "https://ingest-user:DEMO-CANARY-USERINFO-0004@collector.example.invalid/feed"
+       },
+       {
+        "name": "uuid",
+        "previousValue": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "858483e9-01a1-1000-8882-a37b7d8b02a8",
+      "componentName": "Tag source",
+      "componentType": "UpdateAttribute",
+      "contentEqual": true,
+      "eventDuration": 0,
+      "eventId": 769,
+      "eventTime": "10/29/2026 02:37:26.126 UTC",
+      "eventTimestamp": "2026-10-29T02:37:26.126Z",
+      "eventType": "ATTRIBUTES_MODIFIED",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "8584838a-01a1-1000-6310-5275407628e9",
+      "id": "769",
+      "inputContentAvailable": true,
+      "inputContentClaimContainer": "default",
+      "inputContentClaimFileSize": "57 bytes",
+      "inputContentClaimFileSizeBytes": 57,
+      "inputContentClaimIdentifier": "1793240523925-1",
+      "inputContentClaimOffset": 5516,
+      "inputContentClaimSection": "1",
+      "lineageDuration": 166,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "replayAvailable": true,
+      "sourceConnectionIdentifier": "858483f8-01a1-1000-f235-90e7d3e3fdb2"
+     },
+     {
+      "attributes": [
+       {
+        "name": "filename",
+        "value": "telemetry-236.json"
+       },
+       {
+        "name": "mime.type",
+        "value": "application/json"
+       },
+       {
+        "name": "path",
+        "value": "./"
+       },
+       {
+        "name": "uuid",
+        "value": "164958e4-37fd-4824-a226-5df1e41c7aaf"
+       }
+      ],
+      "childUuids": [],
+      "componentId": "858483ce-01a1-1000-400f-d6b7c81034aa",
+      "componentName": "Synthetic sensor feed",
+      "componentType": "GenerateFlowFile",
+      "contentEqual": false,
+      "eventDuration": 0,
+      "eventId": 767,
+      "eventTime": "10/29/2026 02:37:25.960 UTC",
+      "eventTimestamp": "2026-10-29T02:37:25.960Z",
+      "eventType": "CREATE",
+      "fileSize": "57 bytes",
+      "fileSizeBytes": 57,
+      "flowFileUuid": "164958e4-37fd-4824-a226-5df1e41c7aaf",
+      "groupId": "8584838a-01a1-1000-6310-5275407628e9",
+      "id": "767",
+      "inputContentAvailable": false,
+      "lineageDuration": 0,
+      "outputContentAvailable": true,
+      "outputContentClaimContainer": "default",
+      "outputContentClaimFileSize": "57 bytes",
+      "outputContentClaimFileSizeBytes": 57,
+      "outputContentClaimIdentifier": "1793240523925-1",
+      "outputContentClaimOffset": 5516,
+      "outputContentClaimSection": "1",
+      "parentUuids": [],
+      "replayAvailable": false,
+      "replayExplanation": "Cannot replay data from Provenance Event because the Source FlowFile Queue with ID No Value no longer exists",
+      "sourceConnectionIdentifier": "No Value"
+     }
+    ],
+    "timeOffset": 0,
+    "total": "7",
+    "totalCount": 7
+   },
+   "submissionTime": "10/29/2026 02:37:35.367 UTC",
+   "uri": "https://127.0.0.1:37993/nifi-api/provenance/85851b07-01a1-1000-a6d0-292cd380c9dd"
+  }
+ }
+}

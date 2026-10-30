@@ -1,0 +1,1825 @@
+{
+ "cases": [
+  {
+   "calls": [
+    [
+     "get_flow_health",
+     {
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "status.json": [
+     "status",
+     {
+      "collection": {},
+      "response": {
+       "processGroupStatus": {
+        "aggregateSnapshot": {
+         "connectionStatusSnapshots": [],
+         "id": "ca903567-a45e-5e76-90ee-386f8d4ece85",
+         "processorStatusSnapshots": [
+          {
+           "processorStatusSnapshot": {
+            "id": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+            "name": "Unmatched review",
+            "runStatus": "Stopped"
+           }
+          }
+         ]
+        }
+       }
+      }
+     },
+     null
+    ]
+   },
+   "family": "stopped_invalid",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f1h",
+     "inputPorts": [],
+     "instanceIdentifier": "ca903567-a45e-5e76-90ee-386f8d4ece85",
+     "labels": [],
+     "name": "f1h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [],
+   "id": "H1",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "finding": "OBS-STOPPED"
+    },
+    {
+     "no_finding": "HYP-QUEUE-BLOCKED"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "describe_flow",
+     {}
+    ]
+   ],
+   "extra_files": {},
+   "family": "backpressure",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "30 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f2h",
+     "inputPorts": [],
+     "instanceIdentifier": "e6dc058d-2c5b-5bc0-a46e-4254fb2a5899",
+     "labels": [],
+     "name": "f2h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [
+    "data (was|has been) (lost|discarded)"
+   ],
+   "id": "H2",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "finding": "NM-QUEUE-EXPIRATION"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "inspect_unmatched",
+     {
+      "connection_id": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "prov.json": [
+     "provenance",
+     {
+      "collection": {},
+      "response": {
+       "provenance": {
+        "results": {
+         "provenanceEvents": [
+          {
+           "attributes": [],
+           "childUuids": [],
+           "componentId": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+           "eventId": 1,
+           "eventTimestamp": "2026-10-29T01:10:00.000Z",
+           "eventType": "ROUTE",
+           "flowFileUuid": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079",
+           "groupId": "2f6cebea-461e-5405-9e81-a937ad74fa72",
+           "id": "1",
+           "parentUuids": [],
+           "relationship": "unmatched"
+          }
+         ],
+         "total": "1"
+        }
+       }
+      }
+     },
+     {
+      "end": "2026-10-29T02:00:00Z",
+      "start": "2026-10-29T01:00:00Z"
+     }
+    ]
+   },
+   "family": "unmatched",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f3h",
+     "inputPorts": [],
+     "instanceIdentifier": "2f6cebea-461e-5405-9e81-a937ad74fa72",
+     "labels": [],
+     "name": "f3h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [
+    "current (setting|configuration) (caused|explains)"
+   ],
+   "id": "H3",
+   "label_note": "Flow definition collected at 02:00 after events at 01:10.",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "finding": "TEMPORAL-MISMATCH"
+    },
+    {
+     "finding": "OBS-UNMATCHED-EVENTS"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "describe_flow",
+     {}
+    ]
+   ],
+   "extra_files": {},
+   "family": "parameter_service_gaps",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f4h",
+     "inputPorts": [],
+     "instanceIdentifier": "4396a04c-54e3-59d1-a42b-65dbaddaf523",
+     "labels": [],
+     "name": "f4h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "custom-nar",
+        "group": "com.example",
+        "version": "1.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "com.example.CustomSink"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [
+    "CustomSink (writes|sends|stores)"
+   ],
+   "id": "H4",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "gap": "CUSTOM_COMPONENT_UNRESOLVED"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "trace_feed",
+     {
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      },
+      "selector": {
+       "kind": "flowfile_uuid",
+       "value": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "prov.json": [
+     "provenance",
+     {
+      "collection": {},
+      "response": {
+       "provenance": {
+        "results": {
+         "provenanceEvents": [
+          {
+           "attributes": [],
+           "childUuids": [],
+           "componentId": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+           "eventId": 1,
+           "eventTimestamp": "2026-10-29T01:30:00.000Z",
+           "eventType": "SEND",
+           "flowFileUuid": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079",
+           "groupId": "54d50d2d-223b-5cbc-9de1-20e372ce6792",
+           "id": "1",
+           "parentUuids": [],
+           "relationship": null,
+           "transitUri": "https://hec.example.invalid:8088/services/collector"
+          }
+         ],
+         "total": "1"
+        }
+       }
+      }
+     },
+     {
+      "end": "2026-10-29T02:00:00Z",
+      "start": "2026-10-29T01:00:00Z"
+     }
+    ]
+   },
+   "family": "provenance_limits",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f5h",
+     "inputPorts": [],
+     "instanceIdentifier": "54d50d2d-223b-5cbc-9de1-20e372ce6792",
+     "labels": [],
+     "name": "f5h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [],
+   "id": "H5",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "finding": "OBS-SEND"
+    },
+    {
+     "limitation": "does not establish that a downstream"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "get_flow_health",
+     {
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "bulletins.json": [
+     "bulletins",
+     {
+      "collection": {},
+      "response": {
+       "bulletinBoard": {
+        "bulletins": [
+         {
+          "canRead": false,
+          "id": 1
+         }
+        ]
+       }
+      }
+     },
+     null
+    ]
+   },
+   "family": "permission_scope",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f6h",
+     "inputPorts": [],
+     "instanceIdentifier": "73861aa8-019b-5fdd-b313-7b95bc0d26bb",
+     "labels": [],
+     "name": "f6h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [],
+   "id": "H6",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "gap": "BULLETINS_NOT_READABLE"
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "trace_feed",
+     {
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      },
+      "selector": {
+       "kind": "flowfile_uuid",
+       "value": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "prov.json": [
+     "provenance",
+     {
+      "collection": {},
+      "response": {
+       "provenance": {
+        "results": {
+         "provenanceEvents": [
+          {
+           "attributes": [],
+           "childUuids": [],
+           "componentId": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+           "eventId": 1,
+           "eventTimestamp": "2026-10-29T01:30:00.000Z",
+           "eventType": "ROUTE",
+           "flowFileUuid": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079",
+           "groupId": "39ce872b-c80c-5632-897c-1df6675628d4",
+           "id": "1",
+           "parentUuids": [],
+           "relationship": "a"
+          },
+          {
+           "attributes": [],
+           "childUuids": [],
+           "componentId": "99e6005a-7302-5d06-9ce2-a30b15b1188c",
+           "eventId": 2,
+           "eventTimestamp": "2026-10-29T01:30:00.000Z",
+           "eventType": "ROUTE",
+           "flowFileUuid": "6ae1e6de-d4a6-4f88-be99-5ac47c13e079",
+           "groupId": "4e97e169-59ff-5aa3-9954-8aba0c3a3877",
+           "id": "2",
+           "parentUuids": [],
+           "relationship": "x"
+          }
+         ],
+         "total": "2"
+        }
+       }
+      }
+     },
+     {
+      "end": "2026-10-29T02:00:00Z",
+      "start": "2026-10-29T01:00:00Z"
+     }
+    ]
+   },
+   "family": "conflicting_partial",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-f7h",
+     "inputPorts": [],
+     "instanceIdentifier": "39ce872b-c80c-5632-897c-1df6675628d4",
+     "labels": [],
+     "name": "f7h",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [],
+   "id": "H7",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "gap": "EVENTS_OUTSIDE_SCOPE_DROPPED"
+    },
+    {
+     "events": 1
+    }
+   ],
+   "split": "holdout"
+  },
+  {
+   "calls": [
+    [
+     "describe_flow",
+     {}
+    ],
+    [
+     "get_flow_health",
+     {
+      "interval": {
+       "end": "2026-10-29T02:00:00Z",
+       "start": "2026-10-29T01:00:00Z"
+      }
+     }
+    ]
+   ],
+   "extra_files": {
+    "status.json": [
+     "status",
+     {
+      "collection": {},
+      "response": {
+       "processGroupStatus": {
+        "aggregateSnapshot": {
+         "connectionStatusSnapshots": [],
+         "id": "b0d4161b-b98b-55af-b8f8-9176bb4f178c",
+         "processorStatusSnapshots": [
+          {
+           "processorStatusSnapshot": {
+            "id": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+            "name": "Router",
+            "runStatus": "Running"
+           }
+          }
+         ]
+        }
+       }
+      }
+     },
+     null
+    ]
+   },
+   "family": "healthy_control",
+   "flow": {
+    "externalControllerServices": {},
+    "flowContents": {
+     "connections": [
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "route",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c1",
+       "instanceIdentifier": "b8b42bdd-7972-5a2c-ad23-251b88242d6b",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c1",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "success"
+       ],
+       "source": {
+        "id": "gen",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "sink",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c2",
+       "instanceIdentifier": "a10ee2ea-f2bb-53bd-8653-2972f622369d",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c2",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "a"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      },
+      {
+       "backPressureDataSizeThreshold": "1 GB",
+       "backPressureObjectThreshold": 10000,
+       "destination": {
+        "id": "hold",
+        "type": "PROCESSOR"
+       },
+       "flowFileExpiration": "0 sec",
+       "identifier": "c3",
+       "instanceIdentifier": "e4a70c5d-ad51-51c8-a1e0-931614ea9390",
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "name": "c3",
+       "prioritizers": [],
+       "selectedRelationships": [
+        "unmatched"
+       ],
+       "source": {
+        "id": "route",
+        "type": "PROCESSOR"
+       }
+      }
+     ],
+     "controllerServices": [],
+     "funnels": [],
+     "identifier": "root-ch",
+     "inputPorts": [],
+     "instanceIdentifier": "b0d4161b-b98b-55af-b8f8-9176bb4f178c",
+     "labels": [],
+     "name": "ch",
+     "outputPorts": [],
+     "processGroups": [],
+     "processors": [
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "gen",
+       "instanceIdentifier": "6c43d88b-2ece-5394-9ec6-b7c730dfd47d",
+       "name": "Source",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile"
+      },
+      {
+       "autoTerminatedRelationships": [],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "route",
+       "instanceIdentifier": "101b6dab-6bae-51b4-9898-2c82d0e2eec3",
+       "name": "Router",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {
+        "a": "${x:equals('a')}"
+       },
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.RouteOnAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "sink",
+       "instanceIdentifier": "c88c019c-04e4-5ba9-8c32-65d1322abc65",
+       "name": "Sink",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.standard.LogAttribute"
+      },
+      {
+       "autoTerminatedRelationships": [
+        "success"
+       ],
+       "bundle": {
+        "artifact": "nifi-standard-nar",
+        "group": "org.apache.nifi",
+        "version": "2.12.0"
+       },
+       "identifier": "hold",
+       "instanceIdentifier": "ce0f55b9-81cf-5820-aba7-a20dfd0760f3",
+       "name": "Unmatched review",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "properties": {},
+       "propertyDescriptors": {},
+       "scheduledState": "ENABLED",
+       "schedulingPeriod": "1 sec",
+       "schedulingStrategy": "TIMER_DRIVEN",
+       "type": "org.apache.nifi.processors.attributes.UpdateAttribute"
+      }
+     ],
+     "remoteProcessGroups": []
+    },
+    "flowEncodingVersion": "1.0",
+    "parameterContexts": {}
+   },
+   "forbidden": [],
+   "id": "HC",
+   "label_note": "",
+   "label_provenance": "engineer-authored from the specification's mandatory distinctions; not expert-reviewed",
+   "manifest_overrides": {},
+   "required": [
+    {
+     "max_severity": "info"
+    },
+    {
+     "no_finding": "HYP-QUEUE-BLOCKED"
+    }
+   ],
+   "split": "holdout"
+  }
+ ],
+ "corpus_schema": "nifimcp-eval-corpus/1",
+ "global_forbidden": [
+  "\\bis healthy\\b",
+  "\\bno (problems|issues) (found|detected|exist)",
+  "\\bproduction[- ]ready\\b",
+  "\\bsafe to deploy\\b",
+  "\\bguarantee[sd]?\\b",
+  "\\broot cause is\\b",
+  "\\bwas caused by\\b",
+  "(splunk|downstream) (received|indexed|acknowledged)",
+  "never existed",
+  "did not exist",
+  "\\bdata was lost\\b",
+  "\\boutage (occurred|happened)\\b"
+ ],
+ "split": "holdout"
+}

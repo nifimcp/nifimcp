@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NiFiMCP bounded FlowPlan v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "target_version": {
+      "const": "2.12.0"
+    },
+    "catalog_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "blueprint": {
+      "enum": [
+        "attribute_router",
+        "json_field_gate"
+      ]
+    },
+    "automatic_start": {
+      "const": false
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "type_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "kind": {
+            "enum": [
+              "processor",
+              "input_port",
+              "output_port"
+            ]
+          },
+          "properties": {
+            "type": "object",
+            "maxProperties": 50,
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 8192
+            }
+          },
+          "auto_terminated_relationships": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "uniqueItems": true,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "id",
+          "type_id",
+          "kind",
+          "properties",
+          "auto_terminated_relationships"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "maxItems": 20
+    },
+    "connections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "relationship": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "destination": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "relationship",
+          "destination"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 50
+    },
+    "parameter_references": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "sensitive": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "sensitive"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "output_expectations": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "properties": {
+          "port_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "condition": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "port_id",
+          "condition"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "target_version",
+    "catalog_hash",
+    "intent",
+    "blueprint",
+    "automatic_start",
+    "components",
+    "connections",
+    "parameter_references",
+    "output_expectations"
+  ],
+  "additionalProperties": false
+}

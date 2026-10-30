@@ -1,0 +1,9 @@
+.lab/
+.venv/
+__pycache__/
+*.pyc
+private-artifacts/
+dist/
+evidence/raw/
+.pytest_cache/
+.release-local/

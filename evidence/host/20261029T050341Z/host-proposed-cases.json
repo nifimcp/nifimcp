@@ -1,0 +1,57 @@
+{
+ "blueprint": "attribute_router",
+ "cases": [
+  {
+   "id": "critical_exact",
+   "attributes": {
+    "status": "critical"
+   },
+   "expected": [
+    "out_critical"
+   ]
+  },
+  {
+   "id": "standard_exact",
+   "attributes": {
+    "status": "standard"
+   },
+   "expected": [
+    "out_standard"
+   ]
+  },
+  {
+   "id": "status_missing",
+   "attributes": {},
+   "expected": [
+    "out_unmatched"
+   ]
+  },
+  {
+   "id": "status_unknown",
+   "attributes": {
+    "status": "unknown"
+   },
+   "expected": [
+    "out_unmatched"
+   ]
+  },
+  {
+   "id": "status_empty",
+   "attributes": {
+    "status": ""
+   },
+   "expected": [
+    "out_unmatched"
+   ]
+  },
+  {
+   "id": "status_uppercase_critical",
+   "attributes": {
+    "status": "CRITICAL"
+   },
+   "expected": [
+    "out_unmatched"
+   ]
+  }
+ ]
+}

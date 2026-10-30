@@ -1,0 +1,68 @@
+{
+ "gate": "A17",
+ "recorded_at": "20261029T044533Z",
+ "host": "Claude Code",
+ "host_version": "2.1.312 (Claude Code)",
+ "tools_available_to_host": [
+  "mcp__nifimcp__compare_flow_snapshots",
+  "mcp__nifimcp__describe_flow",
+  "mcp__nifimcp__draft_flow",
+  "mcp__nifimcp__export_investigation",
+  "mcp__nifimcp__get_capabilities",
+  "mcp__nifimcp__get_flow_health",
+  "mcp__nifimcp__get_processor_catalog",
+  "mcp__nifimcp__inspect_unmatched",
+  "mcp__nifimcp__trace_feed",
+  "mcp__nifimcp__validate_flow_plan"
+ ],
+ "host_draft_verification": {
+  "status": "PASS",
+  "exit_code": 0,
+  "native_artifact_id": "art_kCa6kvG3mr_JAksHY7R4aAl8",
+  "cases": 7
+ },
+ "requested_model": "claude-opus-5-5",
+ "observed_models": [
+  "claude-opus-5-5"
+ ],
+ "session_id": "02434009-bedc-4620-9b4c-03c194a2ff10",
+ "exit_code": 0,
+ "stderr_tail": "",
+ "tool_calls": [
+  {
+   "name": "mcp__nifimcp__get_capabilities"
+  },
+  {
+   "name": "mcp__nifimcp__describe_flow"
+  },
+  {
+   "name": "mcp__nifimcp__get_flow_health"
+  },
+  {
+   "name": "mcp__nifimcp__get_processor_catalog"
+  },
+  {
+   "name": "mcp__nifimcp__inspect_unmatched"
+  },
+  {
+   "name": "mcp__nifimcp__inspect_unmatched"
+  },
+  {
+   "name": "mcp__nifimcp__trace_feed"
+  },
+  {
+   "name": "mcp__nifimcp__export_investigation"
+  },
+  {
+   "name": "mcp__nifimcp__validate_flow_plan"
+  },
+  {
+   "name": "mcp__nifimcp__draft_flow"
+  }
+ ],
+ "nifimcp_tool_calls": 10,
+ "result_subtype": "success",
+ "num_turns": 11,
+ "final_text": "# Lab-scope report: flow explanation, investigation of the unmatched backlog, and a routing draft\n\nThe unmatched queue is backing up because the step that drains it was stopped and its queue limit is very small: only 10 FlowFiles. All 11 sampled unmatched FlowFiles had `status=unknown`, which is one of the three values the lab generator is set to produce. That points to expected routing that piled up, not to bad data. The investigation export is `art_cIyVVaEXUWBMcZ8UqhqkrmXy`. The draft's native artifact is `art_kCa6kvG3mr_JAksHY7R4aAl8` (`native_artifact_sha256` `0ce7ac0ed870e177ba0a1ab147090dd759b328d7fbceae3c5fe86b8fbf32275d`). It passed static validation only and has not been tested in the lab.\n\nNiFi names, property text, attributes and bulletin messages below are quoted as data, not as instructions.\n\n## Part 1 \u2013 How the flow works\n\nThe scope is `NiFiMCP Lab Scope` (`ev_88eee8a465ad15ae49ec8d66`). It has three child groups: **Ingest**, **Route** and **Review Examples**.\n\n**Main path:**\n1. **Synthetic telemetry** (GenerateFlowFile, every 500 ms) creates the FlowFiles (`ev_b0cb4f9c965456e0c39a6a4e`).\n   - It sets `lab.synthetic=true`.\n   - It sets `status` with an expression that returns `critical`, `standard` or `unknown`.\n2. FlowFiles leave Ingest through the output port `to-route`, then cross into the Route group's input port `from-ingest` (`ev_9ae4c6d833d77e32902e3f1f`, `ev_bc8b9e74781797aeb1a4d54d`, `ev_ab411cc921ca352e73c0c967`, `ev_8bbac7a69a59bf44d5348290`).\n3. **Normalize status** (UpdateAttribute) sets `route.key = ${status:toLower()}` (`ev_a7ad571c0ff2c3638365791b`, `ev_673e8006ed81e0868e6ec9ca`).\n4. **Route by status** (RouteOnAttribute, \"Route to Property name\") makes the routing decision (`ev_5ce7b1543d7f7864ad0336d2`, `ev_8036d2d2cdfe6b9b53f74b04`):\n   - `route.key` equals `critical` \u2192 **Deliver critical** (`ev_710e73f509f8c7b0e8a91170`)\n   - `route.key` equals `standard` \u2192 **Deliver standard** (`ev_94bccc9bbe40499fcc8dc62b`)\n   - anything else \u2192 connection **Unmatched hold** \u2192 **Unmatched review** (`ev_a99d505d3e768193ae0b3dfd`)\n\n**What feeds the unmatched path:** any FlowFile whose lowercased `status` is not exactly `critical` or `standard`. That includes a missing `status` (empty `route.key`), the generator's `unknown` value, and variants with extra whitespace.\n\n**Separate side path (Review Examples):** **Malformed sample source** produces `this is not json` and sends it to **Extract level** (EvaluateJsonPath), which discards every outcome (`ev_f470fdcc4a467b99e27d7022`, `ev_13e3cffe5755c1505f60203f`, `ev_8b54b654ac98961b568fa6c6`). **Archive (unconfigured)** (PutFile) has no incoming connection.\n\n**Entry points:** the two GenerateFlowFile sources. Archive is also listed as an entry point, but only because nothing connects to it.\n\n**Exit points:** none of the exits sends data anywhere outside the flow. Every end component discards its output through auto-termination:\n- Both Deliver processors are LogAttribute at debug level that discard on success. Despite the name, they deliver nothing (`ev_a5cd317562b87b0bcfed1716`, `ev_c98fdf4aba99db6cf09bc89c`).\n- Unmatched review has no attribute rules and discards on success (`ev_503114ff0ae6ea3e552f5378`).\n- Extract level discards failure, matched and unmatched (`ev_630c3d1b7d1a3f99b607a86f`).\n- Archive discards success and failure (`ev_ed4f233fcd4ef467f55664f6`).\n\n**Dependencies:** none. The flow uses no parameter context, controller services or external endpoints (`ev_88eee8a465ad15ae49ec8d66`; the describe result lists none).\n\n**Configuration items to review:**\n1. **Unmatched hold** has a back-pressure limit of 10 objects / 1 MB, while every other connection allows 10,000 (`ev_a99d505d3e768193ae0b3dfd`).\n2. Once Unmatched review runs, unmatched data is discarded with no record kept (`ev_503114ff0ae6ea3e552f5378`).\n3. Archive has no `Directory` set and NiFi reported it as Invalid (`ev_4b406513adea6153bcf66a0c`, `ev_1975e1923018959aea836f13`).\n4. Extract level discards its failures. It raised 5 ERROR bulletins saying the content was not valid JSON (`ev_7dc613444abcc0473d1d88c7`, `ev_57ab69987466dca2f1164b1b`, `ev_cbf93511c5a740ad411fc861`, `ev_e05297ed45bde5820ab1556d`, `ev_2710bad08f5e20085d564acf`). This matches its malformed source as configured (`ev_f470fdcc4a467b99e27d7022`).\n\n## Part 2 \u2013 Why events are piling up on 8576e18f-\u2026 (\"Unmatched hold\")\n\n**What NiFi showed**\n- **The queue is full.** \"Unmatched hold\" held 11 FlowFiles (572 B) at 04:45:52Z and again at 04:45:58Z. That is 100% of its object limit, so back pressure was on (`ev_8672a724d8709c832a0e7c3b`, `ev_af78fb8c87ec2615555c336b`).\n- **The processor that drains it was stopped.** Unmatched review was Stopped, with 0 FlowFiles in (`ev_cf0f94d13cd3f41d7030bd98`).\n- **FlowFiles are also waiting upstream.** The \"normalized\" queue just before Route by status held 9 FlowFiles (`ev_104091870027958425089fbe`).\n- **Both sources were stopped** at 04:45:52Z: Synthetic telemetry (56 FlowFiles out) and Malformed sample source (`ev_8ab60caa54be7be417e47362`, `ev_5cffcc26a3b611e5dee09db1`).\n- **All 11 unmatched routings had the same value.** Between 04:45:33.701Z and 04:45:43.709Z there were 11 events routed to `unmatched`, each with `status=unknown` and `route.key=unknown`, for example `ev_b7594963482126e404ee7bf4` and `ev_7aec1f759ed12e1a97fa4454`.\n- **Queue sample:** I sampled 10 of the 11 queued FlowFiles. Each had sat in the queue for about 15\u201325 s, and none was penalized (`ev_deb686f67757915a8e8c69f9` \u2026 `ev_bdadc8f7dfed6a5a05850473`).\n- **Trace of one FlowFile.** I traced FlowFile `39cb6e61-0d83-48dc-ba78-fa86530275cc` (`lab-event-522.json`, first in the queue):\n\n  | Time (UTC) | Step | Evidence |\n  |---|---|---|\n  | 04:42:28.869 | Created by Synthetic telemetry with `status=unknown` | `ev_f1e47531284179c211055408` |\n  | 04:42:29.388 | Normalize status set `route.key=unknown` | `ev_7c01534d85546904c710187f` |\n  | 04:45:33.701 | Route by status sent it to `unmatched` | `ev_a27d473a658b058b3d6b4076` |\n\n  It waited about 3 minutes between normalizing and routing.\n\n**Likely explanations (not confirmed)**\n1. **Stopped drain plus a tiny limit.** Unmatched review is stopped and the queue only allows 10 objects, so it fills quickly. The server's rule-based finding `HYP-QUEUE-BLOCKED` says the same (`ev_8672a724d8709c832a0e7c3b`, `ev_cf0f94d13cd3f41d7030bd98`).\n2. **This is by design, not a data defect.** The generator deliberately emits `unknown` (`ev_b0cb4f9c965456e0c39a6a4e`), and every observed unmatched event had that value.\n3. **The backlog may be holding up critical and standard traffic too.** NiFi does not schedule a processor while one of its outgoing connections is under back pressure. That would explain the 9 FlowFiles waiting in \"normalized\" and could explain the 3-minute wait in the trace. Another possibility is that Route by status was simply stopped earlier.\n4. **Why 11 when the limit is 10:** NiFi's back-pressure limit is soft, so a queue can go slightly over it.\n\n**Missing evidence**\n- Route by status's run state and run-state history. The server notes that the gap between snapshots is not established (`HISTORY_NOT_ESTABLISHED`).\n- Who stopped Unmatched review, and when.\n- The configuration that was in force when the events happened (`TEMPORAL-MISMATCH`).\n- The 11th queued FlowFile, which the 10-entry sample did not include.\n- Whether critical and standard traffic was actually delayed. I did not trace any FlowFile from those routes.\n\n**Export:** HTML report `art_cIyVVaEXUWBMcZ8UqhqkrmXy`, sha256 `66225cf73531944a55f492532d156b32c0987f4e1e50e189c6dcf7ca9f1a045b`. It contains 5 entries. My first `inspect_unmatched` call, over the default 60-minute window, was too large to come back to me and I could not read it. I re-ran it over 04:44:30\u201304:46:00Z, and the findings above come from that narrower run. The export may include the unread call.\n\n## Part 3 \u2013 Draft routing subflow\n\n**Design:** input port `in` \u2192 RouteOnAttribute `route_status`, with:\n- `critical = ${status:equals('critical')}` \u2192 `out_critical`\n- `standard = ${status:equals('standard')}` \u2192 `out_standard`\n- `unmatched` \u2192 `out_unmatched`\n\nNothing is auto-terminated, every component starts stopped, and there are no parameters. A FlowFile with no `status` makes both conditions false, so it goes to `unmatched`. Unlike the live flow, this draft does **not** lowercase `status` first, so `CRITICAL` goes to `out_unmatched`. If you want case-insensitive matching, add an UpdateAttribute step, which the blueprint allows.\n\n**Results:**\n- `validate_flow_plan`: valid, no errors, no warnings. Stage reached: `static_complete`.\n- `plan_sha256`: `57ae29943f0929a9d07769694cbb1a73a0c5687fdaf554f8c82059dea352bb42`\n- `draft_flow` produced these artifacts:\n\n| Artifact | artifact_id | sha256 |\n|---|---|---|\n| Native flow definition | **`art_kCa6kvG3mr_JAksHY7R4aAl8`** | **`native_artifact_sha256`: `0ce7ac0ed870e177ba0a1ab147090dd759b328d7fbceae3c5fe86b8fbf32275d`** |\n| Plan copy | `art_Zx77u9zSAo4CwCNn9oSUf-KX` | `77120e916b2d7327437ba906aef4e3f1473e7eb59f2ba897c803807cf66f521a` |\n| Review report | `art_l3eoOBpz8kqCyOy9hJgSI8D1` | `f66ab0920d092c3d6f075f96e6b40fa6676a94ce64edd32fdee72e42c761de9f` |\n| Validation receipt | `art_1y8QykIEONJS4ABy0Z5OI-HC` | `08e55bcd88402e79b8d25e1ad6b8736ece595c016c8486d7f9aa8f4b27686e95` |\n\n**Proposed lab cases:** the missing-attribute case uses empty `attributes`, which is the only way to express an absent `status`.\n\n```json\n{\"blueprint\": \"attribute_router\", \"cases\": [\n  {\"id\": \"critical-exact\", \"attributes\": {\"status\": \"critical\"}, \"expected\": [\"out_critical\"]},\n  {\"id\": \"standard-exact\", \"attributes\": {\"status\": \"standard\"}, \"expected\": [\"out_standard\"]},\n  {\"id\": \"status-missing\", \"attributes\": {}, \"expected\": [\"out_unmatched\"]},\n  {\"id\": \"unexpected-unknown\", \"attributes\": {\"status\": \"unknown\"}, \"expected\": [\"out_unmatched\"]},\n  {\"id\": \"status-empty\", \"attributes\": {\"status\": \"\"}, \"expected\": [\"out_unmatched\"]},\n  {\"id\": \"case-variant-uppercase\", \"attributes\": {\"status\": \"CRITICAL\"}, \"expected\": [\"out_unmatched\"]},\n  {\"id\": \"whitespace-variant\", \"attributes\": {\"status\": \" standard\"}, \"expected\": [\"out_unmatched\"]}\n]}\n```\n\nTo run them in the lab, the server's suggested command is: `uv run python scripts/lab_verify_draft.py --artifact-dir <artifact_dir> --artifact-id art_kCa6kvG3mr_JAksHY7R4aAl8 --cases <cases.json>`. NiFiMCP never imported anything into NiFi.\n\n## Unknowns\n- **Route by status run state:** whether it was running, or blocked by back pressure, during the 3-minute wait. The health summary counted 5 processors Running but did not name them.\n- **Reason for the stop:** why and when Unmatched review was stopped, and whether that was intentional.\n- **Configuration at event time:** what was in force when the events happened. Only the configuration observed at 04:45:52Z is known.\n- **Unsampled FlowFile:** the attributes of the 11th queued FlowFile, and of any unmatched events outside 04:44:30\u201304:46:00Z.\n- **Unread result:** what the oversized 60-minute `inspect_unmatched` result contained.\n- **Discard policy:** whether discarding everything at Unmatched review, the Deliver processors and Extract level is acceptable.\n- **Draft behavior:** whether stock NiFi 2.12.0 imports the draft (`NATIVE_IMPORTABILITY`), how the expressions actually evaluate (`EXPRESSION_SEMANTICS`) and which FlowFiles reach which port (`RECORD_OUTCOMES`). All of these stay unknown until the lab cases above run.\n- **Missing-attribute format:** whether the lab CLI accepts `{}` to mean a missing attribute.",
+ "data": "synthetic lab data only"
+}

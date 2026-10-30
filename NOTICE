@@ -1,0 +1,29 @@
+NiFiMCP (nifimcp)
+Copyright 2026 Lloyd Clark and NiFiMCP contributors
+
+This product is an independent project for Apache NiFi. It is not affiliated
+with, sponsored by, or endorsed by the Apache Software Foundation or Cloudera.
+Apache NiFi, NiFi and Apache are trademarks of the Apache Software Foundation.
+
+This product includes software adapted from the following projects. Their
+license texts are retained under third_party/:
+
+* NiFi Flow Doctor (FlightDeckAI/nifi-flow-doctor, commit
+  edbeb5a47b2e4827a8c71770533099f410fffa67, flightdeck/flow-doctor/).
+  Copyright 2026 FlightDeckAI. Licensed under the Apache License 2.0.
+  The repository is a fork of strands-agents/harness-sdk; only the
+  FlightDeckAI flow-doctor module was used. Upstream notice retained in
+  third_party/flow-doctor/UPSTREAM.md.
+
+* NiFi Flow Checkride (FlightDeckAI/CLI-Anything-NiFi, commit
+  e46f267a4174821c7a41ab1d7c5646bdbf93ea03, nifi/agent-harness/).
+  Copyright 2026 FlightDeckAI. Licensed under the Apache License 2.0.
+  The repository is a fork of HKUDS/CLI-Anything; only the checkride module
+  was used.
+
+* NiFi record output comparator "flowcheck" (FlightDeckAI/FlightDeckAI,
+  commit 3f61196982f025dce3cd05e095a24aebaecb9645,
+  tools/nifi-flow-validation/). Copyright (c) 2026 Lloyd Clark.
+  Licensed under the MIT License (third_party/flowcheck/LICENSE).
+
+See ATTRIBUTION.md for file-level provenance and adaptation notes.

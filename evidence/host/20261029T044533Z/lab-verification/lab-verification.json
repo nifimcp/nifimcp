@@ -1,0 +1,273 @@
+{
+ "artifact_id": "art_kCa6kvG3mr_JAksHY7R4aAl8",
+ "blueprint": "attribute_router",
+ "cases": {
+  "cases": [
+   {
+    "case_id": "critical-exact",
+    "expected": [
+     "out_critical"
+    ],
+    "observed": [
+     "out_critical"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "standard-exact",
+    "expected": [
+     "out_standard"
+    ],
+    "observed": [
+     "out_standard"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-missing",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "unexpected-unknown",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "status-empty",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "case-variant-uppercase",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   },
+   {
+    "case_id": "whitespace-variant",
+    "expected": [
+     "out_unmatched"
+    ],
+    "observed": [
+     "out_unmatched"
+    ],
+    "status": "PASS"
+   }
+  ],
+  "record_checks": {
+   "checks": [
+    {
+     "check": "Non-empty inputs",
+     "detail": "both sides must contain records",
+     "status": "PASS"
+    },
+    {
+     "check": "Record keys present",
+     "detail": "missing keys: expected=0, observed=0",
+     "status": "PASS"
+    },
+    {
+     "check": "No unexpected duplicates",
+     "detail": "0 key(s) observed more often than expected",
+     "status": "PASS"
+    },
+    {
+     "check": "Key coverage",
+     "detail": "missing=0, unexpected=0",
+     "status": "PASS"
+    },
+    {
+     "check": "Record values",
+     "detail": "0 expected record(s) not observed exactly",
+     "status": "PASS"
+    },
+    {
+     "check": "Field schema",
+     "detail": "expected fields ['case_id', 'port'], observed ['case_id', 'port']",
+     "status": "PASS"
+    },
+    {
+     "check": "Record count (informational, never sufficient alone)",
+     "detail": "expected=7, observed=7",
+     "status": "PASS"
+    }
+   ],
+   "ignored_fields": [],
+   "key": "case_id",
+   "note": "Equal counts alone never establish equivalence.",
+   "status": "PASS"
+  },
+  "status": "PASS",
+  "unlabeled_observations": []
+ },
+ "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+ "exported_definition_sha256": "249cde7f559e0b8594eb6b56eae513a06e9f39140b680699dde90eb6f9353db9",
+ "finished_at": "2026-10-29T04:47:42Z",
+ "lab_receipt": {
+  "catalog_hash": "b15dcbebab6e54edf09dac235a1b93b6c5fad3a95f13226ec7c2b59a3d48fc73",
+  "created_at": "2026-10-29T04:47:42.957Z",
+  "exported_definition_sha256": "249cde7f559e0b8594eb6b56eae513a06e9f39140b680699dde90eb6f9353db9",
+  "kind": "native_lab_verification",
+  "native_artifact_sha256": "0ce7ac0ed870e177ba0a1ab147090dd759b328d7fbceae3c5fe86b8fbf32275d",
+  "native_validation": {
+   "all_valid": true,
+   "fidelity": {
+    "all_stopped": true,
+    "connections": true,
+    "input_ports": true,
+    "output_ports": true,
+    "processors": true,
+    "properties_preserved": true
+   },
+   "status": "PASS"
+  },
+  "plan_sha256": "57ae29943f0929a9d07769694cbb1a73a0c5687fdaf554f8c82059dea352bb42",
+  "receipt_schema": "nifimcp-draft-receipt/1",
+  "receipt_sha256": "d8acf8ea370532c3f59f3309e5db137546d0db3ee0797335c6eb5d045447163c",
+  "runtime": {
+   "container_id": "45375173ff9d91d3d42eeb4d5625dc92aea41fa3a0bfc47eaaffa5b27347c815",
+   "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+   "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+   "lab_id": "lab-ea8e00b5ff53",
+   "nifi_version": "2.12.0"
+  },
+  "statement": "Evidence about this exact artifact only. Not permission to deploy it.",
+  "static_receipt_sha256": "ce3a917cce5a2eabc0014d442954dfa6d6cd3b2af509c4d2ccddd618ae4f6e1e",
+  "target_version": "2.12.0",
+  "tests": {
+   "count": 7,
+   "failed": [],
+   "status": "PASS"
+  }
+ },
+ "native_artifact_sha256": "0ce7ac0ed870e177ba0a1ab147090dd759b328d7fbceae3c5fe86b8fbf32275d",
+ "native_validation": {
+  "all_valid": true,
+  "components": [
+   {
+    "name": "route_status",
+    "state": "STOPPED",
+    "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
+    "validation_errors": 0,
+    "validation_status": "VALID"
+   }
+  ],
+  "fidelity": {
+   "all_stopped": true,
+   "connections": true,
+   "input_ports": true,
+   "output_ports": true,
+   "processors": true,
+   "properties_preserved": true
+  },
+  "imported": true,
+  "status": "PASS"
+ },
+ "observations": [
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "critical",
+    "case.id": "critical-exact",
+    "status": "critical"
+   },
+   "case_id": "critical-exact",
+   "port": "out_critical"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "standard",
+    "case.id": "standard-exact",
+    "status": "standard"
+   },
+   "case_id": "standard-exact",
+   "port": "out_standard"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-missing"
+   },
+   "case_id": "status-missing",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "status-empty",
+    "status": ""
+   },
+   "case_id": "status-empty",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "whitespace-variant",
+    "status": " standard"
+   },
+   "case_id": "whitespace-variant",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "unexpected-unknown",
+    "status": "unknown"
+   },
+   "case_id": "unexpected-unknown",
+   "port": "out_unmatched"
+  },
+  {
+   "attributes": {
+    "RouteOnAttribute.Route": "unmatched",
+    "case.id": "case-variant-uppercase",
+    "status": "CRITICAL"
+   },
+   "case_id": "case-variant-uppercase",
+   "port": "out_unmatched"
+  }
+ ],
+ "overall": "PASS",
+ "plan_sha256": "57ae29943f0929a9d07769694cbb1a73a0c5687fdaf554f8c82059dea352bb42",
+ "runtime": {
+  "container_id": "45375173ff9d91d3d42eeb4d5625dc92aea41fa3a0bfc47eaaffa5b27347c815",
+  "image_digest": "sha256:6f7f2840dbf178c6dd3fa13435b9b358f3be3c6fb7417de467a35a267f4d28ad",
+  "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+  "lab_id": "lab-ea8e00b5ff53",
+  "nifi_version": "2.12.0"
+ },
+ "started_at": "2026-10-29T04:47:33Z",
+ "statement": "Evidence about this exact artifact in a disposable lab. Not permission to deploy it.",
+ "static_checks": {
+  "receipt_sha256": "ce3a917cce5a2eabc0014d442954dfa6d6cd3b2af509c4d2ccddd618ae4f6e1e",
+  "stage": "static_complete"
+ },
+ "untested": [
+  "Behavior on any NiFi other than stock 2.12.0 in this lab",
+  "Records, attribute values or content shapes not covered by the labeled cases",
+  "Throughput, latency and back-pressure behavior",
+  "Clustered or load-balanced operation",
+  "Downstream systems connected to the output ports"
+ ],
+ "verification_schema": "nifimcp-lab-verification/1"
+}

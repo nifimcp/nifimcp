@@ -1,0 +1,267 @@
+{
+ "gate": "A33",
+ "tree": "/tmp/nifimcp-export-snhpziyu/nifimcp",
+ "kit": "<repo>/dist/nifimcp-offline-0.1.0rc1-linux-x86_64-cp312",
+ "result": "FAIL",
+ "checks": {
+  "license_provenance": {
+   "result": "PASS",
+   "problems": [],
+   "dependencies": [
+    {
+     "name": "flightdeck-nifimcp",
+     "version": "0.1.0rc1",
+     "declared": "Apache-2.0",
+     "license_files": 5
+    },
+    {
+     "name": "annotated-types",
+     "version": "0.8.0",
+     "declared": "MIT License :: OSI Approved :: MIT License",
+     "license_files": 1
+    },
+    {
+     "name": "anyio",
+     "version": "4.15.1",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "attrs",
+     "version": "26.1.0",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "cffi",
+     "version": "2.1.1",
+     "declared": "MIT-0",
+     "license_files": 1
+    },
+    {
+     "name": "click",
+     "version": "8.5.0",
+     "declared": "BSD-3-Clause",
+     "license_files": 1
+    },
+    {
+     "name": "cryptography",
+     "version": "50.0.2",
+     "declared": "Apache-2.0 OR BSD-3-Clause",
+     "license_files": 3
+    },
+    {
+     "name": "h11",
+     "version": "0.16.0",
+     "declared": "MIT License :: OSI Approved :: MIT License",
+     "license_files": 1
+    },
+    {
+     "name": "httpcore2",
+     "version": "2.16.0",
+     "declared": "BSD-3-Clause License :: OSI Approved :: BSD License",
+     "license_files": 1
+    },
+    {
+     "name": "httpx2",
+     "version": "2.16.0",
+     "declared": "BSD-3-Clause License :: OSI Approved :: BSD License",
+     "license_files": 1
+    },
+    {
+     "name": "idna",
+     "version": "3.20",
+     "declared": "BSD-3-Clause",
+     "license_files": 1
+    },
+    {
+     "name": "jsonschema",
+     "version": "4.26.0",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "jsonschema-specifications",
+     "version": "2025.9.1",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "mcp",
+     "version": "2.3.0",
+     "declared": "MIT License :: OSI Approved :: MIT License",
+     "license_files": 1
+    },
+    {
+     "name": "mcp-types",
+     "version": "2.3.0",
+     "declared": "MIT License :: OSI Approved :: MIT License",
+     "license_files": 1
+    },
+    {
+     "name": "opentelemetry-api",
+     "version": "1.45.1",
+     "declared": "Apache-2.0",
+     "license_files": 1
+    },
+    {
+     "name": "pycparser",
+     "version": "3.12",
+     "declared": "BSD-3-Clause",
+     "license_files": 1
+    },
+    {
+     "name": "pydantic",
+     "version": "2.14.1",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "pydantic_core",
+     "version": "2.50.1",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "PyJWT",
+     "version": "2.15.1",
+     "declared": "MIT",
+     "license_files": 2
+    },
+    {
+     "name": "python-multipart",
+     "version": "0.0.32",
+     "declared": "Apache-2.0 License :: OSI Approved :: Apache Software License",
+     "license_files": 1
+    },
+    {
+     "name": "referencing",
+     "version": "0.37.0",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "rpds-py",
+     "version": "2026.9.1",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "sse-starlette",
+     "version": "3.6.0",
+     "declared": "BSD-3-Clause",
+     "license_files": 2
+    },
+    {
+     "name": "starlette",
+     "version": "1.10.0",
+     "declared": "BSD-3-Clause",
+     "license_files": 1
+    },
+    {
+     "name": "truststore",
+     "version": "0.10.5",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "typing_extensions",
+     "version": "4.16.0",
+     "declared": "PSF-2.0",
+     "license_files": 1
+    },
+    {
+     "name": "typing-inspection",
+     "version": "0.4.4",
+     "declared": "MIT",
+     "license_files": 1
+    },
+    {
+     "name": "uvicorn",
+     "version": "0.54.0",
+     "declared": "BSD-3-Clause",
+     "license_files": 1
+    }
+   ]
+  },
+  "secret_scan": {
+   "result": "FAIL",
+   "tool": "detect-secrets 1.5.0",
+   "files_scanned": 241,
+   "classified": {
+    "documentation placeholder": 2,
+    "hash or identifier": 45,
+    "artifact, request or evidence identifier in recorded evidence": 5,
+    "synthetic canary": 8,
+    "test fixture": 6
+   },
+   "unexplained": [
+    {
+     "file": "evidence/acceptance/20261029T035701Z/A10.junit.xml",
+     "line": 1,
+     "type": "Basic Auth Credentials"
+    },
+    {
+     "file": "evidence/acceptance/20261029T035701Z/A33.log",
+     "line": 5,
+     "type": "Secret Keyword"
+    }
+   ],
+   "private_keys": []
+  },
+  "private_material": {
+   "result": "FAIL",
+   "hits": [
+    {
+     "file": "evidence/acceptance/20261029T035701Z/A11.junit.xml",
+     "line": 1,
+     "match": "<private pattern, redacted>"
+    },
+    {
+     "file": "evidence/acceptance/20261029T035701Z/A19.junit.xml",
+     "line": 1,
+     "match": "<private pattern, redacted>"
+    },
+    {
+     "file": "evidence/acceptance/20261029T035701Z/export.log",
+     "line": 6,
+     "match": "<private pattern, redacted>"
+    }
+   ],
+   "forbidden_files": []
+  },
+  "sbom_and_hashes": {
+   "result": "PASS",
+   "problems": [],
+   "kit": "nifimcp-offline-0.1.0rc1-linux-x86_64-cp312",
+   "wheels": 29,
+   "sbom_components": 28,
+   "tarball_sha256": "e512543a98d77cb7500611730b73935b3e4bb7d1db949cf3bcb96dec6fb79f2f",
+   "project_wheel": {
+    "file": "flightdeck_nifimcp-0.1.0rc1-py3-none-any.whl",
+    "sha256": "18a286159751f13e943e9178a27ddc394f08a3cd0b17cee1dd0ba9184fe9e599"
+   },
+   "project_sdist": {
+    "file": "flightdeck_nifimcp-0.1.0rc1.tar.gz",
+    "sha256": "5f6e8800830170cf5662198f1be6068188b5f50c18a4fcba5ca0d0d0fda08a84"
+   }
+  },
+  "capability_matrix": {
+   "result": "PASS",
+   "problems": []
+  },
+  "packaging_and_registry": {
+   "result": "PASS",
+   "problems": [],
+   "notes": [
+    "server.json validated against https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "Registry namespace ownership (io.github.flightdeckai) is verified by mcp-publisher at publish time against the authenticated GitHub organization; not verifiable before the repository exists."
+   ]
+  },
+  "public_docs": {
+   "result": "PASS",
+   "em_or_en_dashes": [],
+   "missing_files": []
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "notes": [
+  {
+   "author": "telemetry-team (synthetic)",
+   "component_id": "858484c0-01a1-1000-17f9-c4701181e8e2",
+   "created_at": "2026-10-29T02:37:35.402Z",
+   "note_id": "note-unmatched-purpose",
+   "origin": "operator_note",
+   "pointer": "/flowContents/processGroups/1/connections/4",
+   "source_file": "flow-definition.json",
+   "source_sha256": "29ac5a8ab7c1d1c8939ab07c95a8bf55e3062ce300bfa2755397c1a48dcfba47",
+   "text": "Unmatched holds diagnostic and info events that are not onboarded yet. Reviewed weekly."
+  },
+  {
+   "author": "telemetry-team (synthetic)",
+   "component_id": "858484c0-01a1-1000-17f9-c4701181e8e2",
+   "created_at": "2026-09-01T12:00:00.000Z",
+   "note_id": "note-old-threshold",
+   "origin": "operator_note",
+   "pointer": "/flowContents/processGroups/1/connections/4",
+   "source_file": "flow-definition.json",
+   "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "text": "Back pressure on Unmatched hold is set to 10,000 objects."
+  }
+ ],
+ "notes_schema": "nifimcp-notes/1"
+}

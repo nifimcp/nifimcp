@@ -1,0 +1,29 @@
+name: Compatibility report
+description: Report NiFiMCP working or failing on a NiFi version, platform or MCP host not yet in the capability matrix.
+labels: [compatibility]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: What you tested
+      description: For example "NiFi 2.11.0 single node", "macOS 15 arm64", "Claude Desktop 1.x"
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options: [Works, Partly works, Fails]
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands and versions
+      description: Exact commands, `nifimcp --version`, `nifimcp doctor` output (redacted) and test results
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
