@@ -1,7 +1,7 @@
 <a href="https://nifimcp.com/?utm_source=github&utm_medium=readme&utm_campaign=public_preview">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/nifimcp/nifimcp/main/docs/brand/readme-banner-dark.png">
-    <img src="https://raw.githubusercontent.com/nifimcp/nifimcp/main/docs/brand/readme-banner.png" alt="NiFiMCP. Make NiFi agentic. Open-source MCP for Apache NiFi: read-only investigation and reviewable flow drafts. Explore nifimcp.com." width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/nifimcp/nifimcp/main/docs/brand/readme-banner-dark-aviation.jpg">
+    <img src="https://raw.githubusercontent.com/nifimcp/nifimcp/main/docs/brand/readme-banner-aviation.jpg" alt="NiFiMCP. Make NiFi agentic. Open-source MCP for Apache NiFi: read-only investigation and reviewable flow drafts. Explore nifimcp.com." width="100%">
   </picture>
 </a>
 
