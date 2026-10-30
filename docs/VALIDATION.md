@@ -1,14 +1,14 @@
 # Release validation summary
 
-Version **0.1.0rc1** (public preview). Build repository commit `48af4cafe5a6`, acceptance run 2026-10-30T01:46:30Z. The wheel, sdist and offline kit were rebuilt from that commit's source after two packaging-only changes: the README brand header and the PyPI project name nifimcp-server (PyPI rejected nifimcp as too similar to an existing project). The offline kit acceptance and the clean-environment install were repeated on the rebuilt files and are the runs cited below.
+Version **0.1.0rc1** (public preview). Build repository commit `48af4cafe5a6`, acceptance run 2026-10-30T01:46:30Z. The checksums below are those of the files built by the release workflow from tag v0.1.0rc1 (commit 809a477 of the public repository) and published to PyPI with attestations; a local build of the same source differs only in the wheel's Generator line (uv 0.13.6 in CI, uv 0.11.32 locally). The offline kit was rebuilt around the published wheel and sdist, and the offline kit acceptance and the clean-environment install (resolved from PyPI) were run on these exact files.
 
 ## Artifacts and checksums (SHA-256)
 
 | File | SHA-256 |
 |---|---|
-| `nifimcp_server-0.1.0rc1-py3-none-any.whl` | `f178bf4ace4e0fb9cce39dfe46738c70a934348bc2f6e87cdf4d69ed58c228ff` |
-| `nifimcp_server-0.1.0rc1.tar.gz` | `04e96bf3faa579b25b405ba41c0bde906c314453d71660dd1bb89c707e0c67c8` |
-| `nifimcp-offline-0.1.0rc1-linux-x86_64-cp312.tar.gz` | `d1d26bea262c5221156816a3a10bd47406fbf3b8fe8b755a9197306ddb640162` |
+| `nifimcp_server-0.1.0rc1-py3-none-any.whl` | `d6e49a8f83d9115dc9b2828c2fe4f75623c42e349ddd71cb6a5b42a52d9f8451` |
+| `nifimcp_server-0.1.0rc1.tar.gz` | `2e189e1d9c7792c42f40aad358f8dc366e4d303b1502d90f80f4f9103510e510` |
+| `nifimcp-offline-0.1.0rc1-linux-x86_64-cp312.tar.gz` | `d1f3fcd9acb02d9c6094bc44b8e939329ce6adf5f8022865bec2840c7494caf9` |
 
 The GitHub release carries the same files plus `SHA256SUMS`. PyPI publishes the wheel and sdist through Trusted Publishing with attestations; the hashes printed by the publish step must match this table.
 

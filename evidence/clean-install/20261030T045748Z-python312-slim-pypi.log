@@ -1,3 +1,4 @@
+# Clean-environment install from PyPI (no local wheel): python:3.12-slim, pip/uv resolve nifimcp-server==0.1.0rc1 from pypi.org; the sdist step uses the published sdist file.
 == environment
 PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
 x86_64
@@ -13,13 +14,13 @@ demo: ok ['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok'
 report.html 207500 bytes
 == 3. uv tool install from the release wheel, as the README documents
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
-Resolved 29 packages in 16.45s
+Resolved 29 packages in 570ms
 Downloading cryptography (4.5MiB)
 Downloading pydantic-core (2.1MiB)
  Downloaded pydantic-core
  Downloaded cryptography
-Prepared 29 packages in 309ms
-Installed 29 packages in 16ms
+Prepared 29 packages in 742ms
+Installed 29 packages in 13ms
  + annotated-types==0.8.0
  + anyio==4.15.1
  + attrs==26.1.0
@@ -55,7 +56,8 @@ nifimcp 0.1.0rc1
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
 uvx demo ok
 == 5. MCP host form: uvx ... nifimcp serve over stdio, driven by the official MCP client
-nifimcp WARNING serving mode=demo scopes=1 session=ses_a48de12cb19cc47e
+Installed 29 packages in 19ms
+nifimcp WARNING serving mode=demo scopes=1 session=ses_47cac948175f84db
 server nifimcp 0.1.0rc1 - 10 tools; describe_flow: ok 12 findings
 == 6. sdist installs too
 nifimcp 0.1.0rc1

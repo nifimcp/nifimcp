@@ -204,6 +204,9 @@ echo "OFFLINE ACCEPTANCE PASSED"
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--output", type=Path, default=ROOT / "dist")
+    p.add_argument("--dist", type=Path, default=None,
+                   help="use the wheel and sdist already in this directory (for example the files published to PyPI) "
+                        "instead of building them")
     args = p.parse_args(argv)
     version = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"]
     kit = (args.output / f"nifimcp-offline-{version}-linux-x86_64-cp312").resolve()
@@ -212,10 +215,13 @@ def main(argv=None) -> int:
     wheelhouse = kit / "wheelhouse"
     wheelhouse.mkdir(parents=True)
     env = {k: v for k, v in os.environ.items() if k != "UV_NATIVE_TLS"} | {"SOURCE_DATE_EPOCH": "1793318400"}
-    build = kit.parent / "build"
-    if build.exists():
-        shutil.rmtree(build)
-    sh(["uv", "build", "--out-dir", str(build)], cwd=ROOT, env=env)
+    if args.dist is not None:
+        build = args.dist.resolve()
+    else:
+        build = kit.parent / "build"
+        if build.exists():
+            shutil.rmtree(build)
+        sh(["uv", "build", "--out-dir", str(build)], cwd=ROOT, env=env)
     project_whl = next(build.glob("nifimcp_server-*.whl"))
     shutil.copy2(project_whl, wheelhouse)
     shutil.copy2(next(build.glob("nifimcp_server-*.tar.gz")), kit / project_whl.name.replace(
