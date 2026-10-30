@@ -35,8 +35,8 @@ def main(argv=None) -> int:
     p.add_argument("--note", default="", help="one sentence appended to the header, for example why artifacts were rebuilt")
     args = p.parse_args(argv)
     version = re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(), re.M).group(1)
-    wheel = next(args.dist.glob(f"nifimcp-{version}-*.whl"))
-    sdist = next(args.dist.glob(f"nifimcp-{version}.tar.gz"))
+    wheel = next(args.dist.glob(f"nifimcp_server-{version}-*.whl"))
+    sdist = next(args.dist.glob(f"nifimcp_server-{version}.tar.gz"))
     kit = next(iter(sorted((ROOT / "dist").glob("nifimcp-offline-*.tar.gz"))), None)
     ledger = json.loads((newest("evidence/acceptance/*/ledger.json")).read_text())
     counts = {s: sum(1 for g in ledger["gates"] if g["status"] == s) for s in ("PASS", "FAIL", "BLOCKED")}
@@ -80,8 +80,8 @@ def main(argv=None) -> int:
         f"{'PASSED' if 'OFFLINE ACCEPTANCE PASSED' in offline_log else 'FAILED'} (demo, bundle register, doctor, "
         f"describe, report and an MCP stdio call).",
         f"* Clean-environment install from these exact artifacts (`python:3.12-slim`, nothing preinstalled, "
-        f"dependencies from PyPI): {'PASSED' if clean_ok else 'FAILED'}. Covered: `pip install nifimcp=={version}` "
-        f"from the wheel, `uv tool install nifimcp=={version}`, the README `uvx` one-liner, the MCP host form "
+        f"dependencies from PyPI): {'PASSED' if clean_ok else 'FAILED'}. Covered: `pip install nifimcp-server=={version}` "
+        f"from the wheel, `uv tool install nifimcp-server=={version}`, the README `uvx` one-liner, the MCP host form "
         f"(`uvx ... nifimcp serve` driven by the official MCP client), and the sdist. Script: `scripts/clean_install_check.sh`.",
         "", "## What this does not show", "",
         "* No measurement of AI answer accuracy. The recorded session is a host integration test; the incident "

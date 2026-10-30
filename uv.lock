@@ -256,7 +256,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nifimcp"
+name = "nifimcp-server"
 version = "0.1.0rc1"
 source = { editable = "." }
 dependencies = [

@@ -30,7 +30,7 @@ The demo needs no NiFi, no model and no account. It replays evidence captured fr
 instance running a synthetic flow. With [uv](https://docs.astral.sh/uv/) installed:
 
 ```sh
-uvx --from nifimcp==0.1.0rc1 nifimcp demo --output ./nifimcp-demo
+uvx --from nifimcp-server==0.1.0rc1 nifimcp demo --output ./nifimcp-demo
 ```
 
 Open `nifimcp-demo/report.html`. Every statement in it links to the exact source bytes it came from.
@@ -39,15 +39,16 @@ Open `nifimcp-demo/report.html`. Every statement in it links to the exact source
 
 ## 2. Install
 
-NiFiMCP needs Python 3.12. The package on PyPI is `nifimcp` (not `nifi-mcp`, which is an unrelated
-project). 0.1.0rc1 is a pre-release, so pin the version:
+NiFiMCP needs Python 3.12. The package on PyPI is `nifimcp-server` and it installs the `nifimcp` command
+(`nifi-mcp` is an unrelated project, and PyPI treats `nifimcp` as the same name). 0.1.0rc1 is a pre-release,
+so pin the version:
 
 ```sh
-uv tool install nifimcp==0.1.0rc1        # installs the nifimcp command
+uv tool install nifimcp-server==0.1.0rc1   # installs the nifimcp command
 nifimcp --version
 ```
 
-or, with pip in a Python 3.12 virtual environment, `pip install nifimcp==0.1.0rc1`.
+or, with pip in a Python 3.12 virtual environment, `pip install nifimcp-server==0.1.0rc1`.
 
 From source, for development or to run the test suites:
 
@@ -111,7 +112,7 @@ Add the server to your MCP host:
   "mcpServers": {
     "nifimcp": {
       "command": "uvx",
-      "args": ["--from", "nifimcp==0.1.0rc1", "nifimcp", "serve", "--config", "/path/to/operator.json"]
+      "args": ["--from", "nifimcp-server==0.1.0rc1", "nifimcp", "serve", "--config", "/path/to/operator.json"]
     }
   }
 }

@@ -4,7 +4,7 @@ x86_64
 Python 3.12.16
 pip 25.0.1 from /usr/local/lib
 == 1. pip install, pinned, from the release wheel (dependencies from PyPI)
-Name: nifimcp
+Name: nifimcp-server
 Version: 0.1.0rc1
 Location: /tmp/venv/lib/python3.12/site-packages
 nifimcp 0.1.0rc1
@@ -13,13 +13,13 @@ demo: ok ['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok'
 report.html 207500 bytes
 == 3. uv tool install from the release wheel, as the README documents
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
-Resolved 29 packages in 37.19s
-Downloading pydantic-core (2.1MiB)
+Resolved 29 packages in 16.45s
 Downloading cryptography (4.5MiB)
+Downloading pydantic-core (2.1MiB)
  Downloaded pydantic-core
  Downloaded cryptography
-Prepared 29 packages in 919ms
-Installed 29 packages in 18ms
+Prepared 29 packages in 309ms
+Installed 29 packages in 16ms
  + annotated-types==0.8.0
  + anyio==4.15.1
  + attrs==26.1.0
@@ -34,7 +34,7 @@ Installed 29 packages in 18ms
  + jsonschema-specifications==2025.9.1
  + mcp==2.3.0
  + mcp-types==2.3.0
- + nifimcp==0.1.0rc1
+ + nifimcp-server==0.1.0rc1
  + opentelemetry-api==1.45.2
  + pycparser==3.12
  + pydantic==2.14.1
@@ -55,7 +55,7 @@ nifimcp 0.1.0rc1
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
 uvx demo ok
 == 5. MCP host form: uvx ... nifimcp serve over stdio, driven by the official MCP client
-nifimcp WARNING serving mode=demo scopes=1 session=ses_9ed7b1b7c3221a2c
+nifimcp WARNING serving mode=demo scopes=1 session=ses_a48de12cb19cc47e
 server nifimcp 0.1.0rc1 - 10 tools; describe_flow: ok 12 findings
 == 6. sdist installs too
 nifimcp 0.1.0rc1

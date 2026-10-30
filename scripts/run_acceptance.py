@@ -408,7 +408,7 @@ def render_release_notes(ledger: dict) -> str:
         "# Release notes", "", "## 0.1.0rc1 (public preview)", "",
         "First public preview of NiFiMCP, a read-only MCP server for Apache NiFi 2.12.0. Tested on Linux x86_64 "
         "with Python 3.12 against NiFi 2.12.0 (single node, certificate authentication) and Claude Code; everything "
-        "else is untested or refused (see docs/CAPABILITIES.md). Install with `uv tool install nifimcp==0.1.0rc1`.", "",
+        "else is untested or refused (see docs/CAPABILITIES.md). Install with `uv tool install nifimcp-server==0.1.0rc1`.", "",
         "### What works", "",
         "* Ten MCP tools over stdio: capabilities, flow description, health, provenance trace, unmatched-route "
         "inspection, snapshot diff, investigation export, processor catalog, FlowPlan validation and local drafts.",

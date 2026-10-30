@@ -127,7 +127,7 @@ command -v "$PY" >/dev/null 2>&1 || { echo "python3.12 is required (set PYTHON=/
 "$TARGET/bin/python" -m pip install --no-index --no-cache-dir --disable-pip-version-check --only-binary=:all: \
     --require-hashes --find-links "$KIT/wheelhouse" -r "$KIT/requirements.lock"
 "$TARGET/bin/python" -m pip install --no-index --no-cache-dir --disable-pip-version-check --no-deps \
-    "$KIT"/wheelhouse/nifimcp-*.whl
+    "$KIT"/wheelhouse/nifimcp_server-*.whl
 "$TARGET/bin/nifimcp" --version
 echo "Installed. Try: $TARGET/bin/nifimcp demo --output ./nifimcp-demo"
 """
@@ -216,9 +216,9 @@ def main(argv=None) -> int:
     if build.exists():
         shutil.rmtree(build)
     sh(["uv", "build", "--out-dir", str(build)], cwd=ROOT, env=env)
-    project_whl = next(build.glob("nifimcp-*.whl"))
+    project_whl = next(build.glob("nifimcp_server-*.whl"))
     shutil.copy2(project_whl, wheelhouse)
-    shutil.copy2(next(build.glob("nifimcp-*.tar.gz")), kit / project_whl.name.replace(
+    shutil.copy2(next(build.glob("nifimcp_server-*.tar.gz")), kit / project_whl.name.replace(
         "-py3-none-any.whl", ".tar.gz"))
     lock = kit / "requirements.lock"
     sh(["uv", "export", "--frozen", "--no-dev", "--no-emit-project", "--format", "requirements-txt",
@@ -240,7 +240,7 @@ def main(argv=None) -> int:
         extract_licenses(whl, meta["license_files"], lic_root / f"{meta['name']}-{meta['version']}")
         if not meta["license_files"]:
             meta["license_files_missing"] = True
-        if meta["name"] == "nifimcp":
+        if meta["name"] in ("nifimcp", "nifimcp-server"):
             project = meta
         else:
             comps.append(meta)

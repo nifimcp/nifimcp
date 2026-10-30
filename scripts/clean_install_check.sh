@@ -8,8 +8,8 @@ echo "== environment"; head -1 /etc/os-release; uname -m; python3 --version
 pip --version | cut -c1-30
 echo "== 1. pip install, pinned, from the release wheel (dependencies from PyPI)"
 python3 -m venv /tmp/venv
-/tmp/venv/bin/pip install -q --disable-pip-version-check --find-links /dist "nifimcp==0.1.0rc1"
-/tmp/venv/bin/pip show nifimcp | grep -E "^(Name|Version|Location)"
+/tmp/venv/bin/pip install -q --disable-pip-version-check --find-links /dist "nifimcp-server==0.1.0rc1"
+/tmp/venv/bin/pip show nifimcp-server | grep -E "^(Name|Version|Location)"
 /tmp/venv/bin/nifimcp --version
 echo "== 2. README quickstart with the installed command"
 /tmp/venv/bin/nifimcp demo --output /tmp/demo >/tmp/demo.json
@@ -18,10 +18,10 @@ test -s /tmp/demo/report.html && echo "report.html $(wc -c </tmp/demo/report.htm
 echo "== 3. uv tool install from the release wheel, as the README documents"
 /tmp/venv/bin/pip install -q --disable-pip-version-check uv
 export PATH="/root/.local/bin:$PATH"
-/tmp/venv/bin/uv tool install --find-links /dist "nifimcp==0.1.0rc1"
+/tmp/venv/bin/uv tool install --find-links /dist "nifimcp-server==0.1.0rc1"
 nifimcp --version
 echo "== 4. uvx one-liner from the README (resolves the wheel from /dist, deps from PyPI)"
-/tmp/venv/bin/uvx --find-links /dist --from "nifimcp==0.1.0rc1" nifimcp demo --output /tmp/demo2 >/dev/null
+/tmp/venv/bin/uvx --find-links /dist --from "nifimcp-server==0.1.0rc1" nifimcp demo --output /tmp/demo2 >/dev/null
 test -s /tmp/demo2/report.html && echo "uvx demo ok"
 echo "== 5. MCP host form: uvx ... nifimcp serve over stdio, driven by the official MCP client"
 printf '{"schema_version":"1","mode":"demo","artifact_dir":"/tmp/art"}\n' > /tmp/operator.json
@@ -29,7 +29,7 @@ printf '{"schema_version":"1","mode":"demo","artifact_dir":"/tmp/art"}\n' > /tmp
 import anyio
 from mcp import ClientSession, StdioServerParameters, stdio_client
 async def main():
-    params = StdioServerParameters(command="/tmp/venv/bin/uvx", args=["--find-links", "/dist", "--from", "nifimcp==0.1.0rc1", "nifimcp", "serve", "--config", "/tmp/operator.json"])
+    params = StdioServerParameters(command="/tmp/venv/bin/uvx", args=["--find-links", "/dist", "--from", "nifimcp-server==0.1.0rc1", "nifimcp", "serve", "--config", "/tmp/operator.json"])
     async with stdio_client(params) as (r, w):
         async with ClientSession(r, w) as s:
             init = await s.initialize()
@@ -41,6 +41,6 @@ async def main():
 anyio.run(main)
 PY
 echo "== 6. sdist installs too"
-/tmp/venv/bin/pip install -q --disable-pip-version-check --force-reinstall --no-deps /dist/nifimcp-0.1.0rc1.tar.gz
+/tmp/venv/bin/pip install -q --disable-pip-version-check --force-reinstall --no-deps /dist/nifimcp_server-0.1.0rc1.tar.gz
 /tmp/venv/bin/nifimcp --version
 echo "CLEAN ENVIRONMENT INSTALL PASSED"

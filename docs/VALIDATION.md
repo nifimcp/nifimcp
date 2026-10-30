@@ -1,14 +1,14 @@
 # Release validation summary
 
-Version **0.1.0rc1** (public preview). Build repository commit `48af4cafe5a6`, acceptance run 2026-10-30T01:46:30Z. The wheel, sdist and offline kit were rebuilt from that commit's source after the README gained its brand header (package long description only; no code change); the offline kit acceptance and the clean-environment install were repeated on the rebuilt files and are the runs cited below.
+Version **0.1.0rc1** (public preview). Build repository commit `48af4cafe5a6`, acceptance run 2026-10-30T01:46:30Z. The wheel, sdist and offline kit were rebuilt from that commit's source after two packaging-only changes: the README brand header and the PyPI project name nifimcp-server (PyPI rejected nifimcp as too similar to an existing project). The offline kit acceptance and the clean-environment install were repeated on the rebuilt files and are the runs cited below.
 
 ## Artifacts and checksums (SHA-256)
 
 | File | SHA-256 |
 |---|---|
-| `nifimcp-0.1.0rc1-py3-none-any.whl` | `f9e809903f363f7608dcec7525dbf3d465a57ac6e488427b14c8b9a1b8e215f4` |
-| `nifimcp-0.1.0rc1.tar.gz` | `5c856d032b50e7faa49dcdf1bb70bba16ab3ccc97f5a0f4404667016fed1592d` |
-| `nifimcp-offline-0.1.0rc1-linux-x86_64-cp312.tar.gz` | `bb1c5d1036ca6e264836b1dd0c1d40b350382a6e057cae0942563be31b2a9ef2` |
+| `nifimcp_server-0.1.0rc1-py3-none-any.whl` | `f178bf4ace4e0fb9cce39dfe46738c70a934348bc2f6e87cdf4d69ed58c228ff` |
+| `nifimcp_server-0.1.0rc1.tar.gz` | `04e96bf3faa579b25b405ba41c0bde906c314453d71660dd1bb89c707e0c67c8` |
+| `nifimcp-offline-0.1.0rc1-linux-x86_64-cp312.tar.gz` | `d1d26bea262c5221156816a3a10bd47406fbf3b8fe8b755a9197306ddb640162` |
 
 The GitHub release carries the same files plus `SHA256SUMS`. PyPI publishes the wheel and sdist through Trusted Publishing with attestations; the hashes printed by the publish step must match this table.
 
@@ -21,7 +21,7 @@ The GitHub release carries the same files plus `SHA256SUMS`. PyPI publishes the 
 * Real Claude Code session (2.1.312 (Claude Code), model claude-opus-5-5): 10 NiFiMCP tool calls; only NiFiMCP tools were available to the host; the host's own draft passed 6 of 6 labeled cases natively (PASS). Transcript: `evidence/host/20261029T050341Z/transcript.public.jsonl`.
 * Real two-node cluster probe: PASS (clustered NiFi detected and refused; NiFiMCP sent GET requests only, including with one node stopped).
 * Offline kit inside `python:3.12-slim` with `--network none`: PASSED (demo, bundle register, doctor, describe, report and an MCP stdio call).
-* Clean-environment install from these exact artifacts (`python:3.12-slim`, nothing preinstalled, dependencies from PyPI): PASSED. Covered: `pip install nifimcp==0.1.0rc1` from the wheel, `uv tool install nifimcp==0.1.0rc1`, the README `uvx` one-liner, the MCP host form (`uvx ... nifimcp serve` driven by the official MCP client), and the sdist. Script: `scripts/clean_install_check.sh`.
+* Clean-environment install from these exact artifacts (`python:3.12-slim`, nothing preinstalled, dependencies from PyPI): PASSED. Covered: `pip install nifimcp-server==0.1.0rc1` from the wheel, `uv tool install nifimcp-server==0.1.0rc1`, the README `uvx` one-liner, the MCP host form (`uvx ... nifimcp serve` driven by the official MCP client), and the sdist. Script: `scripts/clean_install_check.sh`.
 
 ## What this does not show
 

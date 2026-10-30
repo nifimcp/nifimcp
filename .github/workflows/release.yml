@@ -45,7 +45,7 @@ jobs:
       - run: uvx twine check dist/*
       - name: Checksums
         run: |
-          cd dist && sha256sum nifimcp-* > SHA256SUMS && cat SHA256SUMS
+          cd dist && sha256sum nifimcp_server-* > SHA256SUMS && cat SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
           name: dist
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/project/nifimcp/${{ needs.build.outputs.version }}/
+      url: https://pypi.org/project/nifimcp-server/${{ needs.build.outputs.version }}/
     permissions:
       id-token: write
       contents: read
@@ -117,7 +117,7 @@ jobs:
           set -euo pipefail
           v="${{ needs.build.outputs.version }}"
           for i in $(seq 1 40); do
-            if curl -fsS "https://pypi.org/pypi/nifimcp/$v/json" >/dev/null; then echo "PyPI serves nifimcp $v"; exit 0; fi
+            if curl -fsS "https://pypi.org/pypi/nifimcp-server/$v/json" >/dev/null; then echo "PyPI serves nifimcp-server $v"; exit 0; fi
             sleep 15
           done
           echo "PyPI did not serve nifimcp $v in time"; exit 1
@@ -159,7 +159,7 @@ jobs:
         run: |
           set -euo pipefail
           v="${{ needs.build.outputs.version }}"
-          curl -fsS "https://pypi.org/pypi/nifimcp/$v/json" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("PyPI:",d["info"]["name"],d["info"]["version"],[u["filename"] for u in d["urls"]])'
+          curl -fsS "https://pypi.org/pypi/nifimcp-server/$v/json" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("PyPI:",d["info"]["name"],d["info"]["version"],[u["filename"] for u in d["urls"]])'
           name="io.github.nifimcp/nifimcp"
           curl -fsS "https://registry.modelcontextprotocol.io/v0/servers/$(python3 -c "import urllib.parse;print(urllib.parse.quote('$name',safe=''))")/versions/latest" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("Registry:",json.dumps(d)[:300])'
           gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --json url --jq '"GitHub release: " + .url'
@@ -167,8 +167,8 @@ jobs:
         run: |
           set -euo pipefail
           v="${{ needs.build.outputs.version }}"
-          uv tool install "nifimcp==$v"
+          uv tool install "nifimcp-server==$v"
           nifimcp --version
           nifimcp demo --output "$RUNNER_TEMP/demo"
           test -s "$RUNNER_TEMP/demo/report.html"
-          uvx --from "nifimcp==$v" nifimcp --version
+          uvx --from "nifimcp-server==$v" nifimcp --version

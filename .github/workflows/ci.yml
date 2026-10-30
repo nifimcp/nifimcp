@@ -27,5 +27,5 @@ jobs:
         run: uvx twine check dist/*
       - name: Demo runs from the built wheel
         run: |
-          uvx --from dist/nifimcp-*.whl nifimcp demo --output "$RUNNER_TEMP/demo"
+          uvx --from dist/nifimcp_server-*.whl nifimcp demo --output "$RUNNER_TEMP/demo"
           test -s "$RUNNER_TEMP/demo/report.html"

@@ -1,5 +1,5 @@
 [project]
-name = "nifimcp"
+name = "nifimcp-server"
 version = "0.1.0rc1"
 description = "Evidence-backed Apache NiFi investigation for AI assistants: an independent, read-only MCP server that explains flows, investigates problems with cited evidence and drafts bounded subflows for controlled engineering."
 readme = "README.md"

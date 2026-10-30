@@ -186,9 +186,9 @@ def check_sbom_and_hashes(tree: Path, kit: Path | None) -> dict:
     if tarball.is_file():
         record["tarball_sha256"] = sha256(tarball)
     for w in wheels:
-        if w.name.startswith("nifimcp-"):
+        if w.name.startswith("nifimcp_server-"):
             record["project_wheel"] = {"file": w.name, "sha256": by_file[w.name]}
-    sdists = sorted(kit.glob("nifimcp-*.tar.gz"))
+    sdists = sorted(kit.glob("nifimcp_server-*.tar.gz"))
     if sdists:
         record["project_sdist"] = {"file": sdists[0].name, "sha256": sha256(sdists[0])}
     return {"result": "PASS" if not problems else "FAIL", "problems": problems, **record}
@@ -215,7 +215,7 @@ def check_capability_matrix(tree: Path) -> dict:
     # picked up by an unpinned install), and the preview label must be present.
     pyproject = (tree / "pyproject.toml").read_text()
     version = re.search(r'^version = "([^"]+)"', pyproject, re.M).group(1)
-    for m in re.finditer(r"(pip install|uv tool install|uvx(?: --from)?)\s+nifimcp(==[\w.]+)?", readme):
+    for m in re.finditer(r"(pip install|uv tool install|uvx(?: --from)?)\s+nifimcp-server(==[\w.]+)?", readme):
         if m.group(2) != f"=={version}":
             problems.append(f"README install command is not pinned to {version}: {m.group(0)}")
     if "Public preview" not in readme:
@@ -239,7 +239,7 @@ def check_packaging(tree: Path, kit: Path | None) -> dict:
     if server["packages"][0]["version"] != version:
         problems.append("server.json package version differs from pyproject")
     if kit is not None:
-        wheel = next((kit / "wheelhouse").glob("nifimcp-*.whl"))
+        wheel = next((kit / "wheelhouse").glob("nifimcp_server-*.whl"))
         with zipfile.ZipFile(wheel) as z:
             meta = z.read(next(n for n in z.namelist() if n.endswith("METADATA"))).decode()
         if "License-Expression: Apache-2.0" not in meta:
@@ -267,10 +267,10 @@ LEDGER_DOCS = ("docs/ACCEPTANCE.md", "RELEASE_NOTES.md", "docs/VALIDATION.md")
 def check_published(tree: Path) -> dict:
     version = re.search(r'^version = "([^"]+)"', (tree / "pyproject.toml").read_text(), re.M).group(1)
     try:
-        with urllib.request.urlopen(f"https://pypi.org/pypi/nifimcp/{version}/json", timeout=30) as resp:
+        with urllib.request.urlopen(f"https://pypi.org/pypi/nifimcp-server/{version}/json", timeout=30) as resp:
             data = json.loads(resp.read())
     except Exception as exc:  # noqa: BLE001
-        return {"result": "FAIL", "problems": [f"PyPI does not serve nifimcp {version}: {type(exc).__name__}"]}
+        return {"result": "FAIL", "problems": [f"PyPI does not serve nifimcp-server {version}: {type(exc).__name__}"]}
     files = sorted(u["filename"] for u in data.get("urls", []))
     return {"result": "PASS", "problems": [], "files": files}
 
