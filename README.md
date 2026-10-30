@@ -230,10 +230,17 @@ and external validation.
 
 ## 13. Engineering help
 
-Working through a difficult NiFi deployment, investigation or integration?
-**[Bring us one critical NiFi workflow](https://nifimcp.com/?utm_source=github&utm_medium=readme&utm_campaign=engineering#engineering).**
-The maintainer scopes engineering engagements separately from the free open-source project: deploy NiFiMCP,
-investigate one pipeline with evidence, and hand the result to your operators. Remote and on-site by engagement.
+NiFiMCP stays free and open source. For teams running NiFi on restricted or air-gapped networks, or building
+their own NiFi expertise, the maintainer's company, Federal SI, offers three separately scoped services:
+
+* **Supported Air Gap Kit:** deployment and configuration help around the free offline kit, validation in
+  your environment, operating guidance and handover.
+* **Forward Deployed Engineering:** practical deployment, integration and workflow assistance, remote or on site.
+* **Technical Exchange:** hands-on knowledge transfer using representative workflows.
+
+Services add people, not software features: the [preview limits](#9-known-limits-of-this-preview) still apply,
+and a fully offline AI setup has not been tested.
+**[Discuss your environment](https://nifimcp.com/?utm_source=github&utm_medium=readme&utm_campaign=engineering#contact).**
 
 <!-- mcp-name: io.github.nifimcp/nifimcp -->
 
